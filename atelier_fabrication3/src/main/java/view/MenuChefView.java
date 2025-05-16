@@ -1,0 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package view;
+
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+
+/**
+ *
+ * @author User
+ */
+public class MenuChefView {
+    
+    GridPane pane_welchef = new GridPane();
+    Scene scene_welchef = new Scene(pane_welchef);
+    Label welcome_chef = new Label("Bonjour "+ this.Nom_Chef_atelier +"!"); //grosse manip à faire pour le nom chef hash map et iteration de verification d'identifiation
+    Button produit_b = new Button("Produit");
+    Button gamme_b = new Button("Gamme");
+    Button operation_b = new Button("Operation");
+    Button equipement_b = new Button("Equipement");
+    Button personnel_b = new Button("Personnel");
+    
+}
