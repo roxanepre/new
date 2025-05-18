@@ -49,7 +49,7 @@ public class Machine extends Equipement {
         this.etat = etat;
     }
     
-    /*public String getRefMachine() {
+    public String getRefMachine() {
         return refMachine;
     }
 
@@ -57,7 +57,7 @@ public class Machine extends Equipement {
         this.refMachine = refMachine;
     }
 
-    public String getDmachine() {
+    /*public String getDmachine() {
         return dmachine;
     }
 

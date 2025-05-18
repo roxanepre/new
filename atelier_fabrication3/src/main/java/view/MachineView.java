@@ -32,9 +32,29 @@ public class MachineView {
         Label dur_mac = new Label("durée d'utilisation de la machine");
         TextField recup_dur_mac = new TextField();
         Button creer_mac = new Button("ajouter une machine à l'atelier");
+        
+        creer_mac.setOnAction(evt -> {
+        ControleMachine.creerMac();
+        });
+        
         Button aff_mac = new Button("afficher");
+        
+        aff_mac.setOnAction(evt -> {
+        ControleMachine.afficherMach();
+        });
+    
         Button mod_mac = new Button("modifier");
+        
+        mod_mac.setOnAction(evt -> {
+        ControleMachine.modifierMach();
+        });
+    
         Button supp_mac = new Button("supprimer");
+        
+        sup_mac.setOnAction(evt -> {
+        ControleMachine.supprimerMach();
+        });
+        
         pane_machine.getChildren().addAll(ref_mac,recup_ref_mac,desc_mac,recup_desc_mac,dispo_mac,recup_dispo_mac,abs_mac,recup_abs_mac,ord_mac,recup_ord_mac,cout_mac,recup_cout_mac,dur_mac,recup_dur_mac,creer_mac,mod_mac,aff_mac,supp_mac);
         
 
