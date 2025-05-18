@@ -18,24 +18,22 @@ public class MachineView {
     BorderPane pane_machine = new BorderPane();
     Scene scene_machine = new Scene(pane_machine);
     Label ref_mac = new Label("reference");
-        TextField recup_ref_mac = new TextField();
-        Label desc_mac = new Label("description");
-        TextField recup_desc_mac = new TextField();
-        Label dispo_mac = new Label("disponibilité");
-        TextField recup_dispo_mac = new TextField();
-        Label abs_mac = new Label("abscisse");
-        TextField recup_abs_mac = new TextField();
-        Label ord_mac = new Label("ordonnée");
-        TextField recup_ord_mac = new TextField();
-        Label cout_mac = new Label("coût");
-        TextField recup_cout_mac = new TextField();
-        Label dur_mac = new Label("durée d'utilisation de la machine");
-        TextField recup_dur_mac = new TextField();
-        Button creer_mac = new Button("ajouter une machine à l'atelier");
+    TextField recup_ref_mac = new TextField();
+    Label desc_mac = new Label("description");
+    TextField recup_desc_mac = new TextField();
+    Label dispo_mac = new Label("disponibilité");
+    TextField recup_dispo_mac = new TextField();
+    Label abs_mac = new Label("abscisse");
+    TextField recup_abs_mac = new TextField();
+    Label ord_mac = new Label("ordonnée");
+    TextField recup_ord_mac = new TextField();
+    Label cout_mac = new Label("coût");
+    TextField recup_cout_mac = new TextField();
+    Label dur_mac = new Label("durée d'utilisation de la machine");
+    TextField recup_dur_mac = new TextField();
+    Button creer_mac = new Button("ajouter une machine à l'atelier");
         
-        creer_mac.setOnAction(evt -> {
-        ControleMachine.creerMac();
-        });
+    creer_mac.setOnAction(evt -> {ControleMachine.creerMac()});
         
         Button aff_mac = new Button("afficher");
         

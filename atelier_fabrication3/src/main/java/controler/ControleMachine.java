@@ -35,8 +35,9 @@ public class ControleMachine {
         PrintWriter pw;
         try {
             pw = new PrintWriter(new FileOutputStream("machines.txt"));
-            for (Machine mach1 : this.vue.getModele())
+            for (Machine mach1 : this.vue.getModele()){
                 pw.println("Machine1;"+mach1.getRefMachine()+";"+mach1.getEtat()+";"+mach1.getDisponibilite()+";"+mach1.getX_pos()+";"+mach1.getY_pos()+";"+mach1.getC()+";"+mach1.getType());
+            }
             pw.close();
             System.out.println("Machine1 ajoutée au fichier");
         } catch (FileNotFoundException e) {

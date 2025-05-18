@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author User
  */
 public class IdentificationView {
-    BorderPane pane_identification = new BorderPane();
+    GridPane pane_identification = new GridPane();
     Scene scene_identification = new Scene(pane_identification,400,300);
     Label id = new Label("Identifiez-vous");
     Label identifiant = new Label ("Identifiant :");
@@ -24,6 +24,9 @@ public class IdentificationView {
     Label pwd = new Label ("Mot de passe :");
     TextField recup_pwd = new TextField();
     Button next_id = new Button("Suivant");
+    
+    pane_identification.add(identifiant,0,0,1,1);
+    
     
     public IdentificationView(){
         pane_identification.getChildren().addAll(id,identifiant,recup_identifiant,pwd,recup_pwd,next_id);
@@ -35,5 +38,5 @@ public class IdentificationView {
         stage.show();
         
     }
-     // il faut placer les différents composants
+    // il faut placer les différents composants
 }
