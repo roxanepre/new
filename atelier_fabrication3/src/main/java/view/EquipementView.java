@@ -6,7 +6,7 @@ package view;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 
 /**
  *
@@ -14,12 +14,14 @@ import javafx.scene.layout.BorderPane;
  */
 public class EquipementView {
     
-    BorderPane pane_equip = new BorderPane();
+    FlowPane pane_equip = new FlowPane();
     Scene scene_equip = new Scene(pane_equip);
     Button poste = new Button("Poste");
     Button machine = new Button("Machine");
     //pane_equip.getChildren().addAll(poste,machine); // même erreur : je fais le constructeur sinon ca ne marche pas 
-public EquipementView() {
-    pane_equip.getChildren().addAll(poste,machine);
+
+    public EquipementView() {
+        pane_equip.setHgap(5);
+        pane_equip.getChildren().addAll(poste,machine);
     }
 }

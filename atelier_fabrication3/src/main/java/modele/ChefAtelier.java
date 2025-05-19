@@ -12,13 +12,13 @@ public class ChefAtelier extends Personnel {
     private String nom_atelier;
     private int nb_employe;
 
-    public ChefAtelier(String idChef_atelier, String Nom_chef_atelier, String Prenom_chef_atelier, String nom_atelier){
-        super(idChef_atelier,Nom_chef_atelier,Prenom_chef_atelier);
+    public ChefAtelier(String idChef_atelier, String Nom_chef_atelier, String Prenom_chef_atelier, String nom_atelier, String pwd){
+        super(idChef_atelier,Nom_chef_atelier,Prenom_chef_atelier,pwd);
         this.nom_atelier=nom_atelier;
     }
     
-    public ChefAtelier(String idChef_atelier, String Nom_chef_atelier, String Prenom_chef_atelier){
-        super(idChef_atelier,Nom_chef_atelier,Prenom_chef_atelier);
+    public ChefAtelier(String idChef_atelier, String Nom_chef_atelier, String Prenom_chef_atelier, String pwd){
+        super(idChef_atelier,Nom_chef_atelier,Prenom_chef_atelier,pwd);
     }
     public String getNom_atelier() {
         return nom_atelier;
