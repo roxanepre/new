@@ -18,14 +18,24 @@ import modele.Personnel;
  *
  * @author User
  */
+
+
+
+
 public class ControleIdentification {
+    
+    IdentificationView view;
+    
     //Pane base_pane = new Pane();
     //Scene base_scene = new Scene(base_pane);
     
-    public ControleIdentification(/*Scene scene*/) {
+    public ControleIdentification(IdentificationView view) {// constructeur avec la vue correspondante en parametre
         //this.base_scene = scene;
+        this.view=view;
         
     }
+    //il faut que je fasse la méthode action dont je parle dans la classe View
+    
     
     public void verification(String id, String pwd){
         //Pane new_pane2 = new Pane();
