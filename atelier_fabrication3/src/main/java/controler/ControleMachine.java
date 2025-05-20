@@ -4,9 +4,7 @@
  */
 package controler;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
+import java.io.* ;
 import view.MachineView ;
 import modele.Machine ;
 
@@ -23,6 +21,7 @@ public class ControleMachine {
     }
     
     public void creerMac() {
+        // ici je ne sais pas comment faire pour que on crée au fur et à mesure des machines avec le numéro qui augmente et qu'elles s'appellent pas toutes machine1
         Machine mach1 = new Machine(String.parseString(this.vue.getRefMachine().getText()),
                                     Int.parseInt(this.vue.getEtat().getText()),
                                     Int.parseInt(this.vue.getDisponibilite().getText()),
@@ -46,7 +45,18 @@ public class ControleMachine {
     }
     
     public void afficherMach(){
-        
+        // ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
+        try (BufferedReader reader = new BufferedReader(new FileReader(pw))){
+            String line ;
+            while ((line = reader.readLine()) != null){
+                if (line.startsWith("Machine1")){
+                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                    break ;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }  
     }
     
     public void modifierMach(){

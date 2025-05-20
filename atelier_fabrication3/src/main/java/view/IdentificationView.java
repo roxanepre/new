@@ -67,7 +67,7 @@ public class IdentificationView {
        next_id.setOnAction(e->controleur.action()); //on lance lorsqu'on appuie sur le bouton : je vais faire la méthode action dans la classe controleur
                
            }
-    /* de ce que j'ai compris il faut déclarer un obrjet de la classe controleur,
+    /* de ce que j'ai compris il faut déclarer un objet de la classe controleur,
     puis on défénit ce qu'il se passe en clicant sur les boutons avec les setOnaction et les methodes qui se trouveront dans la classe controleur
     
     */
