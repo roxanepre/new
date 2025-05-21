@@ -16,9 +16,9 @@ public class Machine extends Equipement {
     private int x_pos;
     private int y_pos;
     private float c;
-    private int type;
+    //private int type;
     
-    public Machine(String refMachine, String dmachine, int etat, int disponibilite, int x_pos, int y_pos, float c, int t){
+    public Machine(String refMachine, String dmachine, int etat, int disponibilite, int x_pos, int y_pos, float c){
         super(refMachine,dmachine);
         this.refMachine = refMachine;
         //this.dmachine = dmachine;
@@ -27,7 +27,7 @@ public class Machine extends Equipement {
         this.x_pos = x_pos;
         this.y_pos = y_pos;
         this.c = c;
-        this.type = t;
+        //this.type = t;
     }
     
     public Machine(String refMachine, String dmachine){
@@ -39,7 +39,7 @@ public class Machine extends Equipement {
         this.x_pos = 0;
         this.y_pos = 0;
         this.c = 0;
-        this.type = 0;
+        //this.type = 0;
     }
     public int getEtat() {
         return etat;
@@ -89,13 +89,13 @@ public class Machine extends Equipement {
         this.c = c;
     }
 
-    public int getType() {
+    /*public int getType() {
         return type;
     }
 
     public void setType(int t) {
         this.type = t;
-    }
+    }*/
 
     
     public int getDisponibilite() {
@@ -109,13 +109,13 @@ public class Machine extends Equipement {
     public void afficheMachine(){
         System.out.println("référence : "+super.getIdEquipement());
         System.out.println("description : "+super.getdEquipement());
-        /*System.out.println("référence : "+this.refMachine);
-        System.out.println("description : "+this.dmachine);*/
+        System.out.println("référence : "+this.refMachine);
+        /*System.out.println("description : "+this.dmachine);*/
         System.out.println("état : "+this.etat);
         System.out.println("disponibilité : "+this.disponibilite);
         System.out.println("Cette machine se trouve à la position : "+this.x_pos+","+this.y_pos);
         System.out.println("Coût horaire d'utilisation : "+this.c);
-        System.out.println("temps d'utilisation : "+this.type);
+        //System.out.println("temps d'utilisation : "+this.type);
     }
     
     public void modifierMachine(String refMachine, String dmachine, int etat, int disponibilite, int x_pos, int y_pos, float c, int t){
@@ -126,7 +126,7 @@ public class Machine extends Equipement {
         this.x_pos = x_pos;
         this.y_pos = y_pos;
         this.c = c;
-        this.type = t;
+        //this.type = t;
     }
     
     public void supprimerMachine(){
