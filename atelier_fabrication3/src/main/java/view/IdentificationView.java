@@ -52,7 +52,7 @@ public class IdentificationView {
         
     }
     
-    public void afficher(Stage stage){
+    public void affich(Stage stage){
         this.stage=stage;
         stage.setTitle("Connexion");
         stage.setScene(scene);
