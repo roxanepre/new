@@ -13,6 +13,8 @@ import view.MenuChefView;
 import view.MenuOperateurView;
 import javafx.scene.control.Label;
 import modele.Personnel;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -41,17 +43,17 @@ public class ControleIdentification {
         //Pane new_pane2 = new Pane();
         //Scene new_scene2 = new Scene(new_pane2);
         int i;
-        for (i==0; i<=liste_mdp.size();i++){
-            if (liste_personnel.get(i)==id){
-                if (liste_mdp.get(liste_personnel.get(i))==pwd){
-                    if (id==id_chef){
+        for (i=0; i<= Personnel.getListe_mdp().size();i++){
+            if (Personnel.getListe_personnel().get(i)==id){
+                if (Personnel.getListe_mdp().get(Personnel.getListe_personnel()).get(i)==pwd){
+                    if (id==Personnel.getId_chef()){
                         MenuChefView nouvelle_scene1 = new MenuChefView(/*new_scene2*/);
-                        nouvelle_scene1.afficherMenuChef(fenetre_principale);
+                        nouvelle_scene1.afficherMenuChef(AccueilView.getFenetre_principale());
                         
                     }
                     else{
                         MenuOperateurView nouvelle_scene_1 = new MenuOperateurView(/*new_scene2*/);
-                        nouvelle_scene1.afficherMenuOp(fenetre_principale);
+                        nouvelle_scene_1.afficherMenuOp(AccueilView.getFenetre_principale());
                     }
                 }
                 else {

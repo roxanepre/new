@@ -13,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import controler.ControleIdentification;
-
 /**
  *
  * @author User
@@ -21,11 +20,11 @@ import controler.ControleIdentification;
 
 public class IdentificationView {
     public Stage stage;
-    Scene scene;
+    //Scene scene;
     GridPane pane_identification_info = new GridPane();
     AnchorPane pane_id_next = new AnchorPane();
     BorderPane pane_identification = new BorderPane();
-    //Scene scene_identification = new Scene(pane_identification,400,300);
+    Scene scene_identification = new Scene(pane_identification,400,300);
     Label id = new Label("Identifiez-vous");
     Label identifiant = new Label ("Identifiant :");
     public TextField recup_identifiant = new TextField();
@@ -35,7 +34,7 @@ public class IdentificationView {
     //Label message = new Label();
     
     
-    public IdentificationView(/*Scene scene*/){
+    public IdentificationView(Scene scene){
         pane_identification_info.add(identifiant,0,0,1,1);
         pane_identification_info.add(recup_identifiant,0,1,1,1);
         pane_identification_info.add(pwd,1,0,1,1);
@@ -44,28 +43,25 @@ public class IdentificationView {
         pane_identification.setTop(id);
         pane_identification.setCenter(pane_identification_info);
         pane_identification.setBottom(pane_id_next);
-        //this.scene_identification=scene;
+        this.scene_identification=scene;
         // pour le constructeur ci dessus, on pourrait aussi le faire avec des layout
         //mais je pense qu ca va comme ca 
-        // ControleIdentification controleur_id = new ControleIdentification; //(je mets en gris car erreur)
-        next_id.setOnAction(evt -> {controleur_id.verification(recup_identifiant.getText(),recup_pwd.getText());});
-        
     }
     
-    public void afficher(Stage stage){
-        this.stage=stage;
-        stage.setTitle("Connexion");
-        stage.setScene(scene);
-        stage.show();
+    public void affich(Scene scene){
+        this.scene_identification = scene;
+        AccueilView.getFenetre_principale().setScene(scene);
+        AccueilView.getFenetre_principale().show();
+        IdentificationView id_view = new IdentificationView(scene);
         
        // la méthode afficher prend en paramètre le stage
        //on attricut le stage donné en paramètre à la vue
        //on met la scene dans le stage
        //on affcihe avec show
        
-       ControleIdentification controleur = new ControleIdentification(this);
-       next_id.setOnAction(e->controleur.action()); //on lance lorsqu'on appuie sur le bouton : je vais faire la méthode action dans la classe controleur
-               
+       ControleIdentification controleur_id = new ControleIdentification(id_view);
+       next_id.setOnAction(evt -> {controleur_id.verification(recup_identifiant.getText(),recup_pwd.getText());});
+                
            }
     /* de ce que j'ai compris il faut déclarer un objet de la classe controleur,
     puis on défénit ce qu'il se passe en clicant sur les boutons avec les setOnaction et les methodes qui se trouveront dans la classe controleur
