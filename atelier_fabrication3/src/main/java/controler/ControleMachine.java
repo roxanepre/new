@@ -44,7 +44,7 @@ public class ControleMachine {
     
     public void afficherMach(){
 // ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
-        try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt", true))){
+        try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
                 if (line.startsWith("Machine1")){
