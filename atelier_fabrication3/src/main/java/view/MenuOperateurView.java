@@ -30,23 +30,25 @@ public class MenuOperateurView {
     Button equipement_b = new Button("Equipement");
     Button personnel_b = new Button("Personnel");
 
-    public MenuOperateurView(/*Scene scene*/) {
-        pane_welop_info.setHgap(5);
-        pane_welop_info.getChildren().addAll(produit_b, gamme_b, operation_b,equipement_b,personnel_b);
-        pane_welop.setCenter(pane_welop_info);
-        pane_welop.setTop(welcome_op);
+    public MenuOperateurView() {
+        this.pane_welop_info.setHgap(5);
+        this.pane_welop_info.getChildren().addAll(this.produit_b,this.gamme_b,this.operation_b,this.equipement_b,this.personnel_b);
+        this.pane_welop.setCenter(this.pane_welop_info);
+        this.pane_welop.setTop(this.welcome_op);
     }
     
-     public void afficherMenuOp(Stage stage){
-        stage.setScene(scene_welop);
-        stage.show();
-        MenuOperateurView view_menu_op = new MenuOperateurView(scene);
-        ControleMenuOp controle_menu_op = new ControleMenuOp(view_menu_op);
-        this.produit.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
-        this.gamme.setOnAction(e->{controle_menu_op.afficherGamme(scene);});
-        this.operation.setOnAction(e->{controle_menu_op.afficherOperation(scene);});
-        this.equipement.setOnAction(e->{controle_menu_op.afficherEquipement(scene);});
+     public void afficherMenuOp(Scene scene){
+        this.scene_welop = scene;
+        AccueilView.getFenetre_principale().setScene(scene);
+        AccueilView.getFenetre_principale().show();
         
+        MenuOperateurView view_menu_op = new MenuOperateurView();
+        ControleMenuOp controle_menu_op = new ControleMenuOp(view_menu_op);
+        
+        this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
+        this.gamme_b.setOnAction(e->{controle_menu_op.afficherGamme(scene);});
+        this.operation_b.setOnAction(e->{controle_menu_op.afficherOperation(scene);});
+        this.equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement(scene);});
         
     }  
     

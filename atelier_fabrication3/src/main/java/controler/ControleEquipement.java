@@ -21,17 +21,15 @@ public class ControleEquipement {
         this.view = view;
     }
     public void afficherposte (Scene scene){
-        PosteView nouvelle_vue2 = new PosteView(scene);
+        PosteView nouvelle_vue2 = new PosteView();
         nouvelle_vue2.afficheposte(scene);
     }
     public void affichermachine (Scene scene){
         MachineView nouvelle_vue3 = new MachineView();
-        nouvelle_vue3.affichemachine(scene);
+        nouvelle_vue3.actionMach(scene);
         
         /*    public void affichemachine (Scene scene){
-        this.scene_machine = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();*/
+*/
         //à mettre dans machineView
         
     }

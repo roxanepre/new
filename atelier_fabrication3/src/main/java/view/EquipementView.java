@@ -21,17 +21,16 @@ public class EquipementView {
     Button poste = new Button("Poste");
     Button machine = new Button("Machine");
 
-    public EquipementView(Scene scene) {
+    public EquipementView() {
         this.pane_equip.setHgap(5);
         this.pane_equip.getChildren().addAll(this.poste,this.machine);
-        this.scene_equip=scene;
     }
     
     public void afficheequip(Scene scene){
         this.scene_equip = scene;
         AccueilView.getFenetre_principale().setScene(scene);
         AccueilView.getFenetre_principale().show();
-        EquipementView view_equip = new EquipementView(scene);
+        EquipementView view_equip = new EquipementView();
         ControleEquipement controle_equip = new ControleEquipement(view_equip);
         this.poste.setOnAction(evt -> {controle_equip.afficherposte(scene);});
         this.machine.setOnAction(evt ->{controle_equip.affichermachine(scene);});

@@ -36,7 +36,7 @@ public class GammeView {
     Button dur_gamme = new Button("Durée gamme");
     Button c_gamme = new Button("Coût gamme");
     
-    public GammeView(Scene scene) {
+    public GammeView() {
         this.pane_gamme_info.add(this.ref_gam,0,0,1,1);
         this.pane_gamme_info.add(this.recup_ref_gam,0,1,1,1);
         this.pane_gamme_info.add(this.id_gam,1,0,1,1);
@@ -45,14 +45,13 @@ public class GammeView {
         this.pane_gamme_loc.setRightAnchor(this.hb_gamme,10.0);
         this.pane_gamme.setCenter(this.pane_gamme_info);
         this.pane_gamme.setBottom(this.pane_gamme_loc);
-        this.scene_gamme = scene;
     } 
     
     public void afficheGamme(Scene scene){
         this.scene_gamme = scene;
         AccueilView.getFenetre_principale().setScene(scene);
         AccueilView.getFenetre_principale().show();
-        GammeView vue_gam = new GammeView(scene);
+        GammeView vue_gam = new GammeView();
         ControleGamme controler_gamme = new ControleGamme(vue_gam);
         
         

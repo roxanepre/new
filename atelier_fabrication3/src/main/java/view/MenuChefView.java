@@ -35,19 +35,21 @@ public class MenuChefView {
         pane_welchef_info.getChildren().addAll(produit_b, gamme_b, operation_b,equipement_b,personnel_b);
         pane_welchef.setCenter(pane_welchef_info);
         pane_welchef.setTop(welcome_chef);
-
     }
     
-    public void afficherMenuChef(Stage stage){
-        stage.setScene(scene_welchef);
-        stage.show();
-        MenuChefView view_menu_chef = new MenuChefView(scene);
+    public void afficherMenuChef(Scene scene){
+        this.scene_welchef = scene;
+        AccueilView.getFenetre_principale().setScene(scene);
+        AccueilView.getFenetre_principale().show();
+        
+        MenuChefView view_menu_chef = new MenuChefView();
         ControleMenuChef controle_menu_chef = new ControleMenuChef(view_menu_chef);
-        this.produit.setOnAction(e->{controle_menu_chef.afficherProduit(scene);});
-        this.gamme.setOnAction(e->{controle_menu_chef.afficherGamme(scene);});
-        this.operation.setOnAction(e->{controle_menu_chef.afficherOperation(scene);});
-        this.equipement.setOnAction(e->{controle_menu_chef.afficherEquipement(scene);});
-        this.personnel.setOnAction(e->{controle_menu_chef.afficherPersonnel(scene);});
+        
+        this.produit_b.setOnAction(e->{controle_menu_chef.afficherProduit(scene);});
+        this.gamme_b.setOnAction(e->{controle_menu_chef.afficherGamme(scene);});
+        this.operation_b.setOnAction(e->{controle_menu_chef.afficherOperation(scene);});
+        this.equipement_b.setOnAction(e->{controle_menu_chef.afficherEquipement(scene);});
+        this.personnel_b.setOnAction(e->{controle_menu_chef.afficherPersonnel(scene);});
         
     }
         

@@ -24,7 +24,7 @@ public class ControleAccueil {
     public void afficher(/*Stage stage*/) {
         Pane new_pane1 = new Pane();
         Scene new_scene1 = new Scene(new_pane1);
-        IdentificationView nouvelle_vue = new IdentificationView(new_scene1); // créer une ouvelle instance de la classe identification pour y accéder
+        IdentificationView nouvelle_vue = new IdentificationView(); // créer une ouvelle instance de la classe identification pour y accéder
         nouvelle_vue.affich(new_scene1);
         
         // controleAccueil permet d'afficher un truc de la classe identification

@@ -25,42 +25,16 @@ public class PosteView {
     BorderPane pane_poste = new BorderPane();
     HBox hb_poste = new HBox(15);
     Scene scene_poste = new Scene(pane_poste);
-    
     Label ref_poste = new Label("Référence");
     TextField recup_ref_poste = new TextField();
     Label des_poste = new Label("Désignation");
     TextField recup_des_poste = new TextField();
-
-    public TextField getRecup_ref_poste() {
-        return recup_ref_poste;
-    }
-
-    public TextField getRecup_des_poste() {
-        return recup_des_poste;
-    }
-    ControlePoste controler_poste = new ControlePoste() ;
-    
     Button creer_poste = new Button("Créer");
-    
-    creer_poste.setOnAction(evt -> {
-        controler_poste.creerPoste();});
-    
     Button aff_poste = new Button("Afficher");
-    
-    aff_poste.setOnAction(evt -> {
-        controler_poste.afficherPoste();});
-
     Button mod_poste = new Button("Modifier");
-    
-    mod_poste.setOnAction(evt -> {
-        controler_poste.modifierPoste();});
-        
     Button supp_poste = new Button("Ajouter");
     
-    supp_poste.setOnAction(evt -> {
-        controler_poste.supprimerPoste();});
-
-    public PosteView(Scene scene) {
+    public PosteView() {
         this.pane_poste_info.add(this.ref_poste,0,0,1,1);
         this.pane_poste_info.add(this.recup_ref_poste,0,1,1,1);
         this.pane_poste_info.add(this.des_poste,1,0,1,1);
@@ -69,7 +43,6 @@ public class PosteView {
         this.pane_poste_next.setRightAnchor(this.hb_poste,10.0);
         this.pane_poste.setBottom(this.pane_poste_next);
         this.pane_poste.setCenter(this.pane_poste_info);
-        this.scene_poste = scene;  
     }
     
     public void afficheposte (Scene scene){
@@ -77,7 +50,20 @@ public class PosteView {
         AccueilView.getFenetre_principale().setScene(scene);
         AccueilView.getFenetre_principale().show();
         
-        // les controler à mettre
-        }
+        PosteView view_poste = new PosteView();
+        ControlePoste controler_poste = new ControlePoste(view_poste) ;
+        this.creer_poste.setOnAction(evt -> {controler_poste.creerPoste();});
+        this.aff_poste.setOnAction(evt -> {controler_poste.afficherPoste();});
+        this.mod_poste.setOnAction(evt -> {controler_poste.modifierPoste();});
+        this.supp_poste.setOnAction(evt -> {controler_poste.supprimerPoste();});
+    }
     
+    public TextField getRecup_ref_poste() {
+        return recup_ref_poste;
+    }
+
+    public TextField getRecup_des_poste() {
+        return recup_des_poste;
+    }
+
 }

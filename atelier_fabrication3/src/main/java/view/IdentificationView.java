@@ -34,7 +34,7 @@ public class IdentificationView {
     //Label message = new Label();
     
     
-    public IdentificationView(Scene scene){
+    public IdentificationView(){
         this.pane_identification_info.add(this.identifiant,0,0,1,1);
         this.pane_identification_info.add(this.recup_identifiant,0,1,1,1);
         this.pane_identification_info.add(this.pwd,1,0,1,1);
@@ -43,7 +43,6 @@ public class IdentificationView {
         this.pane_identification.setTop(this.id);
         this.pane_identification.setCenter(this.pane_identification_info);
         this.pane_identification.setBottom(this.pane_id_next);
-        this.scene_identification=scene;
         // pour le constructeur ci dessus, on pourrait aussi le faire avec des layout
         //mais je pense qu ca va comme ca 
     }
@@ -52,7 +51,7 @@ public class IdentificationView {
         this.scene_identification = scene;
         AccueilView.getFenetre_principale().setScene(scene);
         AccueilView.getFenetre_principale().show();
-        IdentificationView id_view = new IdentificationView(scene);
+        IdentificationView id_view = new IdentificationView();
         
        // la méthode afficher prend en paramètre le stage
        //on attricut le stage donné en paramètre à la vue
@@ -60,7 +59,7 @@ public class IdentificationView {
        //on affcihe avec show
        
        ControleIdentification controleur_id = new ControleIdentification(id_view);
-       next_id.setOnAction(evt -> {controleur_id.verification(this.recup_identifiant.getText(),this.recup_pwd.getText());});
+       next_id.setOnAction(evt -> {controleur_id.verification(this.recup_identifiant.getText(),this.recup_pwd.getText(),scene);});
                 
            }
     /* de ce que j'ai compris il faut déclarer un objet de la classe controleur,
