@@ -52,8 +52,8 @@ public class IdentificationView {
     
     public void affich(Scene scene){
         this.scene_identification = scene;
-        fenetre_principale.setScene(scene);
-        fenetre_principale.show();
+        getFenetre_principale().setScene(scene);
+        getFenetre_principale().show();
         IdentificationView id_view = new IdentificationView(scene);
         
        // la méthode afficher prend en paramètre le stage

@@ -41,7 +41,8 @@ public class ControleIdentification {
         //Pane new_pane2 = new Pane();
         //Scene new_scene2 = new Scene(new_pane2);
         int i;
-        for (i=0; i<=getListe_mdp().size();i++){
+        Arraylist
+        for (i=0; i<=Personnel.getListe_mdp().size();i++){
             if (getListe_personnel().get(i)==id){
                 if (getListe_mdp().get(getListe_personnel()).get(i)==pwd){
                     if (id==getId_chef()){
