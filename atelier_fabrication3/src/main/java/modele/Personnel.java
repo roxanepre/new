@@ -61,6 +61,47 @@ public class Personnel {
     public void setPrenom(String Prenom) {
         this.Prenom = Prenom;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getId_chef() {
+        return id_chef;
+    }
+
+    public void setId_chef(String id_chef) {
+        this.id_chef = id_chef;
+    }
+
+    public String getPwd_chef() {
+        return pwd_chef;
+    }
+
+    public void setPwd_chef(String pwd_chef) {
+        this.pwd_chef = pwd_chef;
+    }
+
+    public ArrayList getListe_personnel() {
+        return liste_personnel;
+    }
+
+    public void setListe_personnel(ArrayList liste_personnel) {
+        this.liste_personnel = liste_personnel;
+    }
+
+    public LinkedHashMap<String, String> getListe_mdp() {
+        return liste_mdp;
+    }
+
+    public void setListe_mdp(LinkedHashMap<String, String> liste_mdp) {
+        this.liste_mdp = liste_mdp;
+    }
+    
     
     public void fichePersonnel(){
         System.out.println("Identifiant : "+this.idPersonne);

@@ -41,17 +41,17 @@ public class ControleIdentification {
         //Pane new_pane2 = new Pane();
         //Scene new_scene2 = new Scene(new_pane2);
         int i;
-        for (i==0; i<=liste_mdp.size();i++){
-            if (liste_personnel.get(i)==id){
-                if (liste_mdp.get(liste_personnel.get(i))==pwd){
-                    if (id==id_chef){
+        for (i=0; i<=getListe_mdp().size();i++){
+            if (getListe_personnel().get(i)==id){
+                if (getListe_mdp().get(getListe_personnel()).get(i)==pwd){
+                    if (id==getId_chef()){
                         MenuChefView nouvelle_scene1 = new MenuChefView(/*new_scene2*/);
-                        nouvelle_scene1.afficherMenuChef(fenetre_principale);
+                        nouvelle_scene1.afficherMenuChef(getFenetre_principale());
                         
                     }
                     else{
                         MenuOperateurView nouvelle_scene_1 = new MenuOperateurView(/*new_scene2*/);
-                        nouvelle_scene1.afficherMenuOp(fenetre_principale);
+                        nouvelle_scene_1.afficherMenuOp(getFenetre_principale());
                     }
                 }
                 else {

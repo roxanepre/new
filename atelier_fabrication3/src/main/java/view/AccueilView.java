@@ -42,6 +42,15 @@ public class AccueilView {
         
         
     }
+
+    public Stage getFenetre_principale() {
+        return fenetre_principale;
+    }
+
+    public void setFenetre_principale(Stage fenetre_principale) {
+        this.fenetre_principale = fenetre_principale;
+    }
+    
 }
     
 
