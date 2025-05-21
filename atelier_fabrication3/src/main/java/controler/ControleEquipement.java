@@ -3,11 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controler;
+import view.EquipementView;
+import view.PosteView;
+import view.MachineView;
+import javafx.scene.Scene;
+
+
 
 /**
  *
  * @author User
  */
 public class ControleEquipement {
-    
+    EquipementView view;
+
+    public ControleEquipement(EquipementView view) {
+        this.view = view;
+    }
+    public void afficherposte (Scene scene){
+        PosteView nouvelle_vue2 = new PosteView(scene);
+        nouvelle_vue2.afficheposte(scene);
+    }
+    public void affichermachine (Scene scene){
+        MachineView nouvelle_vue3 = new MachineView();
+        nouvelle_vue3.affichemachine(scene);
+        
+        /*    public void affichemachine (Scene scene){
+        this.scene_machine = scene;
+        AccueilView.getFenetre_principale().setScene(scene);
+        AccueilView.getFenetre_principale().show();*/
+        //à mettre dans machineView
+        
+    }
 }

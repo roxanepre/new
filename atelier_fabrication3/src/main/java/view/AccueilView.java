@@ -26,22 +26,22 @@ public class AccueilView {
     
     public AccueilView(Stage stage) {
         AccueilView.fenetre_principale = stage;
-        stage.setTitle("Atelier de fabrication");
-        stage.setMaxHeight(2362);
-        stage.setMaxWidth(2573);
-        stage.setMinHeight(1772);
-        stage.setMinWidth(2362);
-        stage.isResizable();
-        stage.isMaximized();
-        pane_welcome.getChildren().addAll(welcome,enter_atelier);
-        stage.setScene(scene_welcome);
+        AccueilView.fenetre_principale.setTitle("Atelier de fabrication");
+        AccueilView.fenetre_principale.setMaxHeight(2362);
+        AccueilView.fenetre_principale.setMaxWidth(2573);
+        AccueilView.fenetre_principale.setMinHeight(1772);
+        AccueilView.fenetre_principale.setMinWidth(2362);
+        AccueilView.fenetre_principale.isResizable();
+        AccueilView.fenetre_principale.isMaximized();
+        this.pane_welcome.getChildren().addAll(this.welcome,this.enter_atelier);
+        stage.setScene(this.scene_welcome);
         
-        ControleAccueil controleur = new ControleAccueil(/*stage*/);        
-        enter_atelier.setOnAction(evt -> {controleur.afficher(stage);});
+        AccueilView acc_view = new AccueilView(AccueilView.fenetre_principale);
+        ControleAccueil controleur = new ControleAccueil(acc_view);        
+        this.enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
         stage.show();
-        
-        
     }
+        
 
     public static Stage getFenetre_principale() {
         return fenetre_principale;

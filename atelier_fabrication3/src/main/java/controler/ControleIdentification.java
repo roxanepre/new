@@ -27,12 +27,8 @@ import java.util.HashMap;
 public class ControleIdentification {
     
     IdentificationView view;
-    
-    //Pane base_pane = new Pane();
-    //Scene base_scene = new Scene(base_pane);
-    
+        
     public ControleIdentification(IdentificationView view) {// constructeur avec la vue correspondante en parametre
-        //this.base_scene = scene;
         this.view=view;
         
     }
@@ -45,7 +41,7 @@ public class ControleIdentification {
         int i;
         for (i=0; i<= Personnel.getListe_mdp().size();i++){
             if (Personnel.getListe_personnel().get(i)==id){
-                if (Personnel.getListe_mdp().get(Personnel.getListe_personnel()).get(i)==pwd){
+                if (Personnel.getListe_mdp().get(Personnel.getListe_personnel().get(i))==pwd){
                     if (id==Personnel.getId_chef()){
                         MenuChefView nouvelle_scene1 = new MenuChefView(/*new_scene2*/);
                         nouvelle_scene1.afficherMenuChef(AccueilView.getFenetre_principale());

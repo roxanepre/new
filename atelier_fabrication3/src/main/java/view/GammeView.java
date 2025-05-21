@@ -22,7 +22,8 @@ public class GammeView {
     Label id_gam = new Label("identifiant");
     TextField recup_id_gam = new TextField();
     
-    public GammeView() {
+    public GammeView(Scene scene) {
+        
         pane_gamme.getChildren().addAll(ref_gam,recup_ref_gam,id_gam,recup_id_gam); 
     }
     
