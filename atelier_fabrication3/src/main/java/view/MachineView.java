@@ -29,32 +29,59 @@ public class MachineView {
     TextField recup_ord_mac = new TextField();
     Label cout_mac = new Label("coût");
     TextField recup_cout_mac = new TextField();
-    Label dur_mac = new Label("durée d'utilisation de la machine");
-    TextField recup_dur_mac = new TextField();
+    Label etat_mac = new Label("état");
+    TextField recup_etat_mac = new TextField();
     Button creer_mac = new Button("ajouter une machine à l'atelier");
-        
-    creer_mac.setOnAction(evt -> {ControleMachine.creerMac()});
-        
-        Button aff_mac = new Button("afficher");
-        
-        aff_mac.setOnAction(evt -> {
-        ControleMachine.afficherMach();
-        });
     
-        Button mod_mac = new Button("modifier");
+    ControleMachine controler_mach = new ControleMachine();
+    creer_mac.setOnAction(evt -> {controler_mach.creerMac();});
         
-        mod_mac.setOnAction(evt -> {
-        ControleMachine.modifierMach();
-        });
+    Button aff_mac = new Button("afficher");
+        
+    aff_mac.setOnAction(evt -> {
+        controler_mach.afficherMach();
+    });
     
-        Button supp_mac = new Button("supprimer");
+    Button mod_mac = new Button("modifier");
         
-        sup_mac.setOnAction(evt -> {
-        ControleMachine.supprimerMach();
-        });
+    mod_mac.setOnAction(evt -> {
+        controler_mach.modifierMach();
+    });
+    
+    Button supp_mac = new Button("supprimer");
         
-        pane_machine.getChildren().addAll(ref_mac,recup_ref_mac,desc_mac,recup_desc_mac,dispo_mac,recup_dispo_mac,abs_mac,recup_abs_mac,ord_mac,recup_ord_mac,cout_mac,recup_cout_mac,dur_mac,recup_dur_mac,creer_mac,mod_mac,aff_mac,supp_mac);
+    sup_mac.setOnAction(evt -> {
+        controler_mach.supprimerMach();
+    });
         
+    pane_machine.getChildren().addAll(ref_mac,recup_ref_mac,desc_mac,recup_desc_mac,dispo_mac,recup_dispo_mac,abs_mac,recup_abs_mac,ord_mac,recup_ord_mac,cout_mac,recup_cout_mac,creer_mac,mod_mac,aff_mac,supp_mac);
 
+    public TextField getRecup_ref_mac() {
+        return recup_ref_mac;
+    }
 
+    public TextField getRecup_desc_mac() {
+        return recup_desc_mac;
+    }
+
+    public TextField getRecup_dispo_mac() {
+        return recup_dispo_mac;
+    }
+
+    public TextField getRecup_abs_mac() {
+        return recup_abs_mac;
+    }
+
+    public TextField getRecup_ord_mac() {
+        return recup_ord_mac;
+    }
+
+    public TextField getRecup_cout_mac() {
+        return recup_cout_mac;
+    }
+
+    public TextField getRecup_etat_mac() {
+        return recup_etat_mac;
+    }
+    
 }

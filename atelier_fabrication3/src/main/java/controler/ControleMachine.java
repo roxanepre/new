@@ -5,6 +5,7 @@
 package controler;
 
 import java.io.* ;
+import java.util.ArrayList;
 import view.MachineView ;
 import modele.Machine ;
 
@@ -21,32 +22,32 @@ public class ControleMachine {
     }
     
     public void creerMac() {
-        // ici je ne sais pas comment faire pour que on crée au fur et à mesure des machines avec le numéro qui augmente et qu'elles s'appellent pas toutes machine1
-        Machine mach1 = new Machine(String.parseString(this.vue.getRefMachine().getText()),
-                                    Int.parseInt(this.vue.getEtat().getText()),
-                                    Int.parseInt(this.vue.getDisponibilite().getText()),
-                                    Int.parseInt(this.vue.getX_pos().getText()),
-                                    Int.parseInt(this.vue.getY_pos().getText()),
-                                    Float.parseFloat(this.vue.getC().getText()),
-                                    Int.parseInt(this.vue.getType().getText()));
+// ici je ne sais pas comment faire pour que on crée au fur et à mesure des machines avec le numéro qui augmente et qu'elles s'appellent pas toutes machine1
+        Machine mach1 = new Machine(this.vue.getRecup_ref_mac().getText(),
+                                    this.vue.getRecup_desc_mac().getText(),
+                                    Integer.parseInt(this.vue.getRecup_dispo_mac().getText()),
+                                    Integer.parseInt(this.vue.getRecup_abs_mac().getText()),
+                                    Integer.parseInt(this.vue.getRecup_ord_mac().getText()),
+                                    Integer.parseInt(this.vue.getRecup_etat_mac().getText()),
+                                    Float.parseFloat(this.vue.getRecup_cout_mac().getText()));
         this.vue.getModele().add(mach1);
         
-        PrintWriter pw;
         try {
-            pw = new PrintWriter(new FileOutputStream("machines.txt"));
+            BufferedWriter pw = new BufferedWriter(new FileWriter("machines.txt"));
             for (Machine mach1 : this.vue.getModele()){
-                pw.println("Machine1;"+mach1.getRefMachine()+";"+mach1.getEtat()+";"+mach1.getDisponibilite()+";"+mach1.getX_pos()+";"+mach1.getY_pos()+";"+mach1.getC()+";"+mach1.getType());
+                pw.write("Machine1;"+mach1.getRefMachine()+";"+mach1.getEtat()+";"+mach1.getDisponibilite()+";"+mach1.getX_pos()+";"+mach1.getY_pos()+";"+mach1.getC());
+                pw.newLine();
             }
-            pw.close();
+            //pw.close()
             System.out.println("Machine1 ajoutée au fichier");
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
     public void afficherMach(){
-        // ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
-        try (BufferedReader reader = new BufferedReader(new FileReader(pw))){
+// ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
+        try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
                 if (line.startsWith("Machine1")){
@@ -64,7 +65,29 @@ public class ControleMachine {
     }
     
     public void supprimerMach(){
-        
-    }
+// ici je vais lire toutes les lignes du fichier sauf celle commençant par machine1 pour les sauvegarder dans une liste 
+// pour ensuite les ajouter dans le même fichier sans la ligne qui commence par machine1
     
+    ArrayList<String> lignesARetenir = new ArrayList<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))) {
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                if (!ligne.startsWith("Machine1")) {
+                    lignesARetenir.add(ligne);
+                }
+            }
+    } catch (IOException e) { 
+        e.printStackTrace();
+        return;
+    }
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
+            for (String ligne : lignesARetenir) {
+                writer.write(ligne);
+                writer.newLine();
+            }
+            System.out.println("Machine1 supprmée avec succès");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
