@@ -4,12 +4,15 @@
  */
 package view;
 
+import controler.ControleMenuChef;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import controler.ControleMenuOp;
+
 
 /**
  *
@@ -34,10 +37,18 @@ public class MenuOperateurView {
         pane_welop.setTop(welcome_op);
     }
     
-    public void afficherMenuOp(Stage stage){
+     public void afficherMenuOp(Stage stage){
         stage.setScene(scene_welop);
         stage.show();
-    }    
+        MenuOperateurView view_menu_op = new MenuOperateurView(scene);
+        ControleMenuOp controle_menu_op = new ControleMenuOp(view_menu_op);
+        this.produit.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
+        this.gamme.setOnAction(e->{controle_menu_op.afficherGamme(scene);});
+        this.operation.setOnAction(e->{controle_menu_op.afficherOperation(scene);});
+        this.equipement.setOnAction(e->{controle_menu_op.afficherEquipement(scene);});
+        
+        
+    }  
     
     
     

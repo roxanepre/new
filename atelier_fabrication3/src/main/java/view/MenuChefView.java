@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import view.AccueilView;
 import controler.ControleMenuChef;
 
 
@@ -44,11 +43,12 @@ public class MenuChefView {
         stage.show();
         MenuChefView view_menu_chef = new MenuChefView(scene);
         ControleMenuChef controle_menu_chef = new ControleMenuChef(view_menu_chef);
-        this.produit.setOnAction(e->{controle_menu_chef.afficherProduit(scene)});
-        this.gamme.setOnAction(e->{controle_menu_chef.afficherGamme(scene)});
-        this.operation.setOnAction(e->{controle_menu_chef.afficherOperation(scene)};)
-        this.equipement.setOnAction(e->{controle_menu_chef.afficherEquipement(scene)};)
-        this.personnel.setOnAction(e->{controle_menu_chef.afficherPersonnel(scene)});
+        this.produit.setOnAction(e->{controle_menu_chef.afficherProduit(scene);});
+        this.gamme.setOnAction(e->{controle_menu_chef.afficherGamme(scene);});
+        this.operation.setOnAction(e->{controle_menu_chef.afficherOperation(scene);});
+        this.equipement.setOnAction(e->{controle_menu_chef.afficherEquipement(scene);});
+        this.personnel.setOnAction(e->{controle_menu_chef.afficherPersonnel(scene);});
+        
     }
         
        // ControleMenuChef controle_menu_chef = new
