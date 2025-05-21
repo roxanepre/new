@@ -15,22 +15,22 @@ public class Personnel {
     private String Nom;
     private String Prenom;
     public String password;
-    public String id_chef = "r0x64i5d";
+    public static String id_chef = "r0x64i5d";
     public String pwd_chef = "atelier67";
-    public ArrayList liste_personnel;
-    public LinkedHashMap<String,String> liste_mdp;
+    public static ArrayList liste_personnel;
+    public static LinkedHashMap<String,String> liste_mdp;
 
     public Personnel(String idPersonne, String Nom, String Prenom, String pwd){
         this.idPersonne =idPersonne;
         this.Nom = Nom;
         this.Prenom = Prenom;
         this.password = pwd;
-        this.liste_mdp = new LinkedHashMap();
-        this.liste_personnel = new ArrayList();
-        this.liste_mdp.put(this.id_chef,this.pwd_chef);
-        this.liste_mdp.put(idPersonne, pwd);
-        this.liste_personnel.add(this.id_chef);
-        this.liste_personnel.add(idPersonne);
+        Personnel.liste_mdp = new LinkedHashMap();
+        Personnel.liste_personnel = new ArrayList();
+        Personnel.liste_mdp.put(Personnel.id_chef,pwd_chef);
+        Personnel.liste_mdp.put(idPersonne, pwd);
+        Personnel.liste_personnel.add(Personnel.id_chef);
+        Personnel.liste_personnel.add(idPersonne);
     }
     
     public Personnel (String idPersonne){
@@ -70,12 +70,12 @@ public class Personnel {
         this.password = password;
     }
 
-    public String getId_chef() {
+    public static String getId_chef() {
         return id_chef;
     }
 
     public void setId_chef(String id_chef) {
-        this.id_chef = id_chef;
+        Personnel.id_chef = id_chef;
     }
 
     public String getPwd_chef() {
@@ -86,20 +86,20 @@ public class Personnel {
         this.pwd_chef = pwd_chef;
     }
 
-    public ArrayList getListe_personnel() {
+    public static ArrayList getListe_personnel() {
         return liste_personnel;
     }
 
     public void setListe_personnel(ArrayList liste_personnel) {
-        this.liste_personnel = liste_personnel;
+        Personnel.liste_personnel = liste_personnel;
     }
 
-    public LinkedHashMap<String, String> getListe_mdp() {
+    public static LinkedHashMap<String, String> getListe_mdp() {
         return liste_mdp;
     }
 
     public void setListe_mdp(LinkedHashMap<String, String> liste_mdp) {
-        this.liste_mdp = liste_mdp;
+        Personnel.liste_mdp = liste_mdp;
     }
     
     

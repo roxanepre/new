@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  * @author User
  */
 public class AccueilView {
-    public Stage fenetre_principale = new Stage();
+    public static Stage fenetre_principale = new Stage();
     StackPane pane_welcome = new StackPane();
     Scene scene_welcome = new Scene(pane_welcome,400,300);
     Label welcome = new Label("Bienvenue dans l'application de votre atelier !");
@@ -25,7 +25,7 @@ public class AccueilView {
     // pane_welcome.getChildren().addAll(welcome,enter_atelier); //cette ligne ne marche pas car il n'y a pas de constructeur
     
     public AccueilView(Stage stage) {
-        this.fenetre_principale = stage;
+        AccueilView.fenetre_principale = stage;
         stage.setTitle("Atelier de fabrication");
         stage.setMaxHeight(2362);
         stage.setMaxWidth(2573);
@@ -43,12 +43,12 @@ public class AccueilView {
         
     }
 
-    public Stage getFenetre_principale() {
+    public static Stage getFenetre_principale() {
         return fenetre_principale;
     }
 
     public void setFenetre_principale(Stage fenetre_principale) {
-        this.fenetre_principale = fenetre_principale;
+        AccueilView.fenetre_principale = fenetre_principale;
     }
     
 }

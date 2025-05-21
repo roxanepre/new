@@ -13,8 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import controler.ControleIdentification;
-import view.AccueilView;
-
 /**
  *
  * @author User
@@ -52,8 +50,8 @@ public class IdentificationView {
     
     public void affich(Scene scene){
         this.scene_identification = scene;
-        getFenetre_principale().setScene(scene);
-        getFenetre_principale().show();
+        AccueilView.getFenetre_principale().setScene(scene);
+        AccueilView.getFenetre_principale().show();
         IdentificationView id_view = new IdentificationView(scene);
         
        // la méthode afficher prend en paramètre le stage
