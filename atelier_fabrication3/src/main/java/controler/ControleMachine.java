@@ -30,14 +30,11 @@ public class ControleMachine {
                                     Integer.parseInt(this.vue.getRecup_ord_mac().getText()),
                                     Integer.parseInt(this.vue.getRecup_etat_mac().getText()),
                                     Float.parseFloat(this.vue.getRecup_cout_mac().getText()));
-        this.vue.getModele().add(mach1);
         
         try {
-            BufferedWriter pw = new BufferedWriter(new FileWriter("machines.txt"));
-            for (Machine mach1 : this.vue.getModele()){
-                pw.write("Machine1;"+mach1.getRefMachine()+";"+mach1.getEtat()+";"+mach1.getDisponibilite()+";"+mach1.getX_pos()+";"+mach1.getY_pos()+";"+mach1.getC());
-                pw.newLine();
-            }
+            BufferedWriter pw = new BufferedWriter(new FileWriter("machines.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
+            pw.write("Machine1;"+mach1.getRefMachine()+";"+mach1.getEtat()+";"+mach1.getDisponibilite()+";"+mach1.getX_pos()+";"+mach1.getY_pos()+";"+mach1.getC());
+            pw.newLine();
             //pw.close()
             System.out.println("Machine1 ajoutée au fichier");
         } catch (IOException e) {
@@ -47,7 +44,7 @@ public class ControleMachine {
     
     public void afficherMach(){
 // ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
-        try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))){
+        try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt", true))){
             String line ;
             while ((line = reader.readLine()) != null){
                 if (line.startsWith("Machine1")){
@@ -80,7 +77,7 @@ public class ControleMachine {
         e.printStackTrace();
         return;
     }
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt", true))) {
             for (String ligne : lignesARetenir) {
                 writer.write(ligne);
                 writer.newLine();
