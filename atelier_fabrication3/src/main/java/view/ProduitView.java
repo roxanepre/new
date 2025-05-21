@@ -26,5 +26,5 @@ public class ProduitView {
     Button aff_prod = new Button("afficher");
     Button mod_prod = new Button("modifier");
     Button supp_prod = new Button("supprimer");
-    pane_produit.getChildren().addAll(code_prod,recup_code_prod,desc_prod,recup_desc_prod,creer_prod,mod_prod,aff_prod,supp_prod);
+    //pane_produit.getChildren().addAll(code_prod,recup_code_prod,desc_prod,recup_desc_prod,creer_prod,mod_prod,aff_prod,supp_prod);
 }
