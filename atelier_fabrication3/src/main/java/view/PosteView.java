@@ -31,14 +31,14 @@ public class PosteView {
     Button creer_poste = new Button("Créer");
     Button aff_poste = new Button("Afficher");
     Button mod_poste = new Button("Modifier");
-    Button aj_poste = new Button("Ajouter");
+    Button supp_poste = new Button("Ajouter");
 
     public PosteView(Scene scene) {
         this.pane_poste_info.add(this.ref_poste,0,0,1,1);
         this.pane_poste_info.add(this.recup_ref_poste,0,1,1,1);
         this.pane_poste_info.add(this.des_poste,1,0,1,1);
         this.pane_poste_info.add(this.recup_des_poste,1,1,1,1);
-        this.hb_poste.getChildren().addAll(this.creer_poste,this.aff_poste,this.mod_poste,this.aj_poste);
+        this.hb_poste.getChildren().addAll(this.creer_poste,this.aff_poste,this.mod_poste,this.supp_poste);
         this.pane_poste_next.setRightAnchor(this.hb_poste,10.0);
         this.pane_poste.setBottom(this.pane_poste_next);
         this.pane_poste.setCenter(this.pane_poste_info);
