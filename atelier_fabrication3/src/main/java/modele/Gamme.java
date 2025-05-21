@@ -35,6 +35,7 @@ public class Gamme {
     concerne la lite d'equipements est mis en commentaire*/
     private ArrayList<Machine> listMachine;
     private ArrayList<Operation> listOp;
+    //public ArrayList <Gamme> listeGamme;
     /* on part du postulat que nous n'avons ni deux fois la même opération ni deux fois la même liste*/
     private LinkedHashMap<Operation,Machine> gamme_op;
     /*j'utilise une linkedHashMap pour garantir que l'odre de parcours est l'odre d'insertion
@@ -49,8 +50,10 @@ public class Gamme {
         this.listOp = new ArrayList();
         this.gamme_op = new LinkedHashMap();
         this.listMachine = new ArrayList();
+        //this.listeGamme = new ArrayList();
         this.cout_gamme=0;
-        this.duree_gamme=0;
+        this.duree_gamme=0;        
+        //this.listeGamme.add(new Gamme(idGamme,refGamme));
         System.out.println("La nouvelle gamme a été créée avec succès !");
     }
     
@@ -120,7 +123,7 @@ public class Gamme {
     }
     
     
-    public void creerGamme(Produit prod){
+    public void creerGamme(Produit prod, String id_Gamme, String ref_Gamme){
         String idOperation;
         String dOperation;
         float dureeOp;
@@ -147,7 +150,7 @@ public class Gamme {
                 this.listEquipement.add(enter_equip);
                 J'ai mis en commentaire cette partie là en raison de l'explication précédente*/
             }
-        }   
+        } 
     }
     
     public void afficheGamme(){
@@ -181,14 +184,14 @@ public class Gamme {
        // même problème que pour supprimerMachine() dans la classe machine et que supprimerPoste() dans la classe poste
     }
     
-    public float dureeGamme(){ //  c'est la somme de toutes les durées d'opération
-        this.duree_gamme=0;
+    public float dureeGamme(ArrayList<Operation> liste, float duree){ //  c'est la somme de toutes les durées d'opération
+        duree=0;
         d_op=0;
-        for (i=0; i<=this.listOp.size();i++){
-            d_op = this.listOp.get(i).getDureeOperation();
-            this.duree_gamme=d_op+this.duree_gamme;   
+        for (i=0; i<=liste.size();i++){
+            d_op = liste.get(i).getDureeOperation();
+            duree=d_op+duree;   
         }
-        return this.duree_gamme;
+        return duree;
     }
     
     public float cout_gamme(){
