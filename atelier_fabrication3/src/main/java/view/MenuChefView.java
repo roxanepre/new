@@ -12,6 +12,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
 import controler.ControleMenuChef;
+import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
+import modele.Personnel;
 
 
 
@@ -21,7 +24,7 @@ import controler.ControleMenuChef;
  */
 public class MenuChefView {
     
-    BorderPane pane_welchef = new BorderPane();
+    /*BorderPane pane_welchef = new BorderPane();
     GridPane pane_chef_menu = new GridPane();
     Scene scene_welchef = new Scene(pane_welchef);
     Label welcome_chef = new Label("Bonjour "+ this.Nom_Chef_atelier +"!"); //grosse manip à faire pour le nom chef hash map et iteration de verification d'identifiation
@@ -33,7 +36,7 @@ public class MenuChefView {
     Menu personnel_b = new Menu("Personnel");
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
-    MenuBar barre_menu_chef = new MenuBar();
+    MenuBar barre_menu_chef = new MenuBar(); 
     
 
     public MenuChefView() {
@@ -64,6 +67,42 @@ public class MenuChefView {
     }
         
        // ControleMenuChef controle_menu_chef = new
+    }*/
+    
+    Personnel p;
+    FlowPane pane_welchef_info = new FlowPane();
+    BorderPane pane_welchef = new BorderPane();
+    Scene scene;
+    Label welcome_chef = new Label(); 
+    Button produit_b = new Button("Produit");
+    Button gamme_b = new Button("Gamme");
+    Button operation_b = new Button("Operation");
+    Button equipement_b = new Button("Equipement");
+    Button personnel_b = new Button("Personnel");
+
+    public MenuChefView(Personnel p) { // en fait le constructeur prend en parametre le un elt de personnel p et va chercher son nom pour lui dire bonjour
+        this.p=p;
+        welcome_chef.setText("Bonjour "+ p.getNom() +"!");
+        pane_welchef_info.setHgap(5);
+        pane_welchef_info.getChildren().addAll(produit_b, gamme_b, operation_b,equipement_b,personnel_b);
+        pane_welchef.setCenter(pane_welchef_info);
+        pane_welchef.setTop(welcome_chef);
     }
+    
+    public void afficherMenuChef(Scene scene){
+        this.scene = scene;
+        scene.setRoot(pane_welchef);
+        
+        ControleMenuChef controle_menu_chef = new ControleMenuChef(this);
+        
+        produit_b.setOnAction(e->{controle_menu_chef.afficherProduit(scene);});
+        gamme_b.setOnAction(e->{controle_menu_chef.afficherGamme(scene);});
+        operation_b.setOnAction(e->{controle_menu_chef.afficherOperation(scene);});
+        equipement_b.setOnAction(e->{controle_menu_chef.afficherEquipement(scene);});
+        personnel_b.setOnAction(e->{controle_menu_chef.afficherPersonnel(scene);});
+    }
+    }
+        
+    
     
 
