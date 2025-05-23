@@ -7,10 +7,12 @@ package controler;
 import javafx.scene.Scene;
 import view.EquipementView;
 import view.GammeView;
+import view.MachineView;
 import view.MenuChefView;
 import view.OperationView;
 import view.ProduitView;
 import view.MenuOperateurView;
+import view.PosteView;
 
 
 
@@ -44,5 +46,13 @@ public class ControleMenuOp {
        EquipementView nouvelle_vueD = new EquipementView(); 
        nouvelle_vueD.afficheequip(scene);
    }
+    public void afficherposteScene (Scene scene){
+        PosteView nouvelle_vue2 = new PosteView();
+        nouvelle_vue2.afficheposte(scene);
+    }
+    public void affichermachineScene (Scene scene){
+        MachineView nouvelle_vue3 = new MachineView();
+        nouvelle_vue3.actionMach(scene);
+    }
 }
 

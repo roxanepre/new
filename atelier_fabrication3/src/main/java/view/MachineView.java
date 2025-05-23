@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.GridPane;
 import modele.Machine;
 import controler.* ;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 
 /**
  *
@@ -44,6 +46,14 @@ public class MachineView {
     Button mod_mac = new Button("Modifier");
     Button aff_mac = new Button("Afficher");
     Button supp_mac = new Button("Supprimer");
+    Menu produit_b = new Menu("Produit");
+    Menu gamme_b = new Menu("Gamme");
+    Menu operation_b = new Menu("Operation");
+    Menu equipement_b = new Menu("Equipement");
+    Menu personnel_b = new Menu("Personnel");
+    Menu machine_b = new Menu("Machine");
+    Menu poste_b = new Menu("Poste");
+    MenuBar barre_menu_machine = new MenuBar();
 
     public MachineView() {
         this.pane_machine_info.add(this.ref_mac,0,0,1,1);
@@ -59,8 +69,11 @@ public class MachineView {
         this.pane_machine_info.add(this.etat_mac,5,0,1,1);
         this.hb_machine.getChildren().addAll(this.creer_mac,this.mod_mac,this.aff_mac,this.supp_mac);
         this.pane_mach_next.setRightAnchor(hb_machine,10.0);
+        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
+        this.barre_menu_machine.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_machine.setCenter(this.pane_machine_info);
         this.pane_machine.setBottom(this.pane_mach_next);
+        this.pane_machine.setTop(this.barre_menu_machine);
     }
     
     public void actionMach(Scene scene){
@@ -74,6 +87,14 @@ public class MachineView {
         this.aff_mac.setOnAction(evt -> {controler_mach.afficherMach(mach_12);});
         this.mod_mac.setOnAction(evt -> {controler_mach.modifierMach();});
         this.supp_mac.setOnAction(evt -> {controler_mach.supprimerMach(mach_12);});
+        this.produit_b.setOnAction(e->{controler_mach.afficherProduitScene(scene);});
+        this.gamme_b.setOnAction(e->{controler_mach.afficherGammeScene(scene);});
+        this.operation_b.setOnAction(e->{controler_mach.afficherOperationScene(scene);});
+        this.equipement_b.setOnAction(e->{controler_mach.afficherEquipementScene(scene);});
+        this.personnel_b.setOnAction(e->{controler_mach.afficherPersonnelScene(scene);});
+        this.poste_b.setOnAction(evt -> {controler_mach.afficherposteScene(scene);});
+        this.machine_b.setOnAction(evt ->{controler_mach.affichermachineScene(scene);});
+    
         
     }
      public TextField getRecup_ref_mac() {

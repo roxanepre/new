@@ -8,6 +8,8 @@ import controler.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -33,6 +35,14 @@ public class OperationView {
     TextField recup_dur_op = new TextField();
     Button creer_op = new Button("creer");
     Button aff_op = new Button("afficher");
+    Menu produit_b = new Menu("Produit");
+    Menu gamme_b = new Menu("Gamme");
+    Menu operation_b = new Menu("Operation");
+    Menu equipement_b = new Menu("Equipement");
+    Menu personnel_b = new Menu("Personnel");
+    Menu machine_b = new Menu("Machine");
+    Menu poste_b = new Menu("Poste");
+    MenuBar barre_menu_operation = new MenuBar();
 
     public OperationView() {
         this.pane_op_info.add(this.id_op,0,0,1,1);
@@ -43,8 +53,11 @@ public class OperationView {
         this.pane_op_info.add(this.recup_dur_op,2,1,1,1);
         this.hb_op.getChildren().addAll(this.creer_op,this.aff_op);
         this.pane_op_next.setRightAnchor(this.hb_op,10.0);
+        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
+        this.barre_menu_operation.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_operation.setCenter(this.pane_op_info);
         this.pane_operation.setBottom(this.pane_op_next);
+        this.pane_operation.setTop(this.barre_menu_operation);
     }
     
     public void actionOp(Scene scene){
@@ -58,6 +71,15 @@ public class OperationView {
         
         this.creer_op.setOnAction(evt -> {controler_operation.creerOperation();});
         this.aff_op.setOnAction(evt -> {controler_operation.afficherOperation(op_12);});
+        this.produit_b.setOnAction(e->{controler_operation.afficherProduitScene(scene);});
+        this.gamme_b.setOnAction(e->{controler_operation.afficherGammeScene(scene);});
+        this.operation_b.setOnAction(e->{controler_operation.afficherOperationScene(scene);});
+        this.equipement_b.setOnAction(e->{controler_operation.afficherEquipementScene(scene);});
+        this.personnel_b.setOnAction(e->{controler_operation.afficherPersonnelScene(scene);});
+        this.poste_b.setOnAction(evt -> {controler_operation.afficherposteScene(scene);});
+        this.machine_b.setOnAction(evt ->{controler_operation.affichermachineScene(scene);});
+        
+        
         
     }
 
