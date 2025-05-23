@@ -36,6 +36,9 @@ public class AccueilView {
         this.pane_welcome.getChildren().addAll(this.welcome,this.enter_atelier);
         stage.setScene(this.scene_welcome);
         
+    }
+    
+    public void actionAccueil(Stage stage){
         AccueilView acc_view = new AccueilView(AccueilView.fenetre_principale);
         ControleAccueil controleur = new ControleAccueil(acc_view);        
         this.enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
