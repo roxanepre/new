@@ -12,7 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import controler.ControleMenuOp;
+import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import modele.Personnel;
 
 
 /**
@@ -21,7 +24,7 @@ import javafx.scene.layout.GridPane;
  */
 public class MenuOperateurView {
     
-    GridPane pane_op_menu = new GridPane();
+    /*GridPane pane_op_menu = new GridPane();
     BorderPane pane_welop = new BorderPane();
     Scene scene_welop = new Scene(pane_welop);    
     Label welcome_op = new Label("Bonjour "+this.Nom_Operateur+"!");//grosse manip à faire pour le nom op hash map et iteration de verification d'identifiation
@@ -60,7 +63,38 @@ public class MenuOperateurView {
         this.machine_b.setOnAction(evt ->{controle_menu_op.affichermachineScene(scene);});
         
         
+    }  */
+    Personnel p;
+    FlowPane pane_welop_info = new FlowPane();
+    BorderPane pane_welop = new BorderPane();
+    Scene scene = new Scene(pane_welop);    
+    Label welcome_op = new Label();
+    Button produit_b = new Button("Produit");
+    Button gamme_b = new Button("Gamme");
+    Button operation_b = new Button("Operation");
+    Button equipement_b = new Button("Equipement");
+    Button personnel_b = new Button("Personnel");
+
+    public MenuOperateurView(Personnel p) {
+        pane_welop_info.setHgap(5);
+        pane_welop_info.getChildren().addAll(this.produit_b,this.gamme_b,this.operation_b,this.equipement_b,this.personnel_b);
+        pane_welop.setCenter(pane_welop_info);
+        pane_welop.setTop(welcome_op);
+        welcome_op.setText("Bonjour "+p.getNom()+"!");
+    }
+    
+     public void afficherMenuOp(Scene scene){
+        this.scene= scene;
+   
+        ControleMenuOp controle_menu_op = new ControleMenuOp(this);
+        
+        this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
+        this.gamme_b.setOnAction(e->{controle_menu_op.afficherGamme(scene);});
+        this.operation_b.setOnAction(e->{controle_menu_op.afficherOperation(scene);});
+        this.equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement(scene);});
+        
     }  
+     
     
     
     
