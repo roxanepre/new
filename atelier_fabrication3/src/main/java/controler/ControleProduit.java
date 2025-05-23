@@ -23,26 +23,26 @@ public class ControleProduit {
     }
     
     public void creerProd() {
-        Produit prod1 = new Produit(Integer.parseInt(this.vue.getRecup_code_prod().getText()),
+        Produit prod1 = new Produit(this.vue.getRecup_code_prod().getText(),
                                     this.vue.getRecup_desc_prod().getText());
     
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("produits.txt",true));
-            bw.write("Produit1 :"+prod1.getCodeProduit()+" ; "+prod1.getDproduit());
+            bw.write(prod1.getCodeProduit()+" : description "+prod1.getDproduit());
             bw.newLine();
             //bw.close()
-            System.out.println("Produit1 ajouté au fichier");
+            System.out.println(prod1.getCodeProduit()+" ajouté au fichier");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public void afficherProd() {
+    public void afficherProd(Produit prod1) {
 // ici je cherche dans le fichier la ligne qui commence par prod1 pour ensuite afficher les informations de cette ligne
         try (BufferedReader reader = new BufferedReader(new FileReader("produits.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith("Produit1")){
+                if (line.startsWith(prod1.getCodeProduit())){
                     System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
                     break ;
                 }
@@ -52,7 +52,7 @@ public class ControleProduit {
         }  
     }
     
-    public void supprimerProd(){
+    public void supprimerProd(Produit prod1){
 // ici je vais lire toutes les lignes du fichier sauf celle commençant par prod1 pour les sauvegarder dans une liste 
 // pour ensuite les ajouter dans le même fichier sans la ligne qui commence par prod1
     
@@ -60,7 +60,7 @@ public class ControleProduit {
     try (BufferedReader reader = new BufferedReader(new FileReader("produits.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith("Produit1")) {
+                if (!ligne.startsWith(prod1.getCodeProduit())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -73,7 +73,7 @@ public class ControleProduit {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println("Produit1 supprmé avec succès");
+            System.out.println(prod1.getCodeProduit()+" supprmé avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

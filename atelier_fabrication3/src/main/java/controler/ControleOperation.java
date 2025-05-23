@@ -27,21 +27,21 @@ public class ControleOperation {
                                       Float.parseFloat(this.vue.getRecup_dur_op().getText()));
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("operations.txt",true));
-            bw.write("Operation1 : identifiant "+op1.getIdOperation()+", description "+op1.getdOperation()+" et durée de "+op1.getDureeOperation());
+            bw.write(op1.getIdOperation()+" : description "+op1.getdOperation()+" et durée de "+op1.getDureeOperation());
             bw.newLine();
             //bw.close()
-            System.out.println("Operation1 ajoutée au fichier");
+            System.out.println(op1.getIdOperation()+" ajoutée au fichier");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public void afficherOperation() {
+    public void afficherOperation(Operation op1) {
 // ici je cherche dans le fichier la ligne qui commence par operation1 pour ensuite afficher les informations de cette ligne
         try (BufferedReader reader = new BufferedReader(new FileReader("operations.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith("Operation1")){
+                if (line.startsWith(op1.getIdOperation())){
                     System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
                     break ;
                 }

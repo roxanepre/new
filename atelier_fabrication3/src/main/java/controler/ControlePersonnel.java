@@ -26,21 +26,21 @@ public class ControlePersonnel {
                                     this.vue.getRecup_mdp_pers().getText());
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("personnels.txt",true));
-            bw.write("Personnel1 : identifiant "+pers1.idPersonne+", nom "+pers1.getNom()+", prénom "+pers1.getPrenom());
+            bw.write(pers1.idPersonne+" : nom "+pers1.getNom()+", prénom "+pers1.getPrenom());
             bw.newLine();
             //bw.close()
-            System.out.println("Personnel1 ajouté au fichier");
+            System.out.println(pers1.idPersonne+" ajouté au fichier");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public void fichePersonnel() {
+    public void fichePersonnel(Personnel pers1) {
 // ici je cherche dans le fichier la ligne qui commence par personnel1 pour ensuite afficher les informations de cette ligne
         try (BufferedReader reader = new BufferedReader(new FileReader("personnels.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith("Personnel1")){
+                if (line.startsWith(pers1.idPersonne)){
                     System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
                     break ;
                 }
@@ -50,7 +50,7 @@ public class ControlePersonnel {
         }  
     }
     
-    public void virerPersonnel(){
+    public void virerPersonnel(Personnel pers1){
 // ici je vais lire toutes les lignes du fichier sauf celle commençant par personnel1 pour les sauvegarder dans une liste 
 // pour ensuite les ajouter dans le même fichier sans la ligne qui commence par personnel1
     
@@ -58,7 +58,7 @@ public class ControlePersonnel {
     try (BufferedReader reader = new BufferedReader(new FileReader("personnels.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith("Personnel1")) {
+                if (!ligne.startsWith(pers1.idPersonne)) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -71,7 +71,7 @@ public class ControlePersonnel {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println("Personnel1 supprmé avec succès");
+            System.out.println(pers1.idPersonne+" supprmé avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

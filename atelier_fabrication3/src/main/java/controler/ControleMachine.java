@@ -33,21 +33,21 @@ public class ControleMachine {
         
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter("machines.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
-            pw.write("Machine1;"+mach1.getRefMachine()+";"+mach1.getEtat()+";"+mach1.getDisponibilite()+";"+mach1.getX_pos()+";"+mach1.getY_pos()+";"+mach1.getC());
+            pw.write(mach1.getRefMachine()+" : état "+mach1.getEtat()+", disponibilité "+mach1.getDisponibilite()+", position "+mach1.getX_pos()+";"+mach1.getY_pos()+" et cout "+mach1.getC());
             pw.newLine();
             //pw.close()
-            System.out.println("Machine1 ajoutée au fichier");
+            System.out.println(mach1.getRefMachine()+" ajoutée au fichier");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public void afficherMach(){
+    public void afficherMach(Machine mach1){
 // ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
         try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith("Machine1")){
+                if (line.startsWith(mach1.getRefMachine())){
                     System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
                     break ;
                 }
@@ -61,7 +61,7 @@ public class ControleMachine {
         
     }
     
-    public void supprimerMach(){
+    public void supprimerMach(Machine mach1){
 // ici je vais lire toutes les lignes du fichier sauf celle commençant par machine1 pour les sauvegarder dans une liste 
 // pour ensuite les ajouter dans le même fichier sans la ligne qui commence par machine1
     
@@ -69,7 +69,7 @@ public class ControleMachine {
     try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith("Machine1")) {
+                if (!ligne.startsWith(mach1.getRefMachine())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -82,7 +82,7 @@ public class ControleMachine {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println("Machine1 supprmée avec succès");
+            System.out.println(mach1.getRefMachine()+" supprmée avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

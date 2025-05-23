@@ -9,18 +9,18 @@ package modele;
  * @author mpommier01
  */
 public class Produit {
-    private int codeProduit ; 
+    private String codeProduit ; 
     private String dproduit ; 
     
-    public Produit(int codeProduit, String dproduit) {
+    public Produit(String codeProduit, String dproduit) {
         this.codeProduit = codeProduit ;
         this.dproduit = dproduit ;
     }  
-    public int getCodeProduit() {
+    public String getCodeProduit() {
         return codeProduit;
     }
 
-    public void setCodeProduit(int codeProduit) {
+    public void setCodeProduit(String codeProduit) {
         this.codeProduit = codeProduit;
     }
 
@@ -37,12 +37,12 @@ public class Produit {
         System.out.println("la désignation du produit est "+this.dproduit) ;
     }
     
-    public void modifierProduit(int codeProduit, String dproduit) {
+    public void modifierProduit(String codeProduit, String dproduit) {
         this.codeProduit = codeProduit ;
         this.dproduit = dproduit ;
     }
     
-    public void supprimerProduit(String dproduit, int codeProduit){
+    public void supprimerProduit(String dproduit, String codeProduit){
         
     }
 }

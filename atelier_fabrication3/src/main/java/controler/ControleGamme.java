@@ -3,19 +3,82 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controler;
-import view.GammeView;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import modele.*;
+import view.*;
 /**
  *
  * @author User
  */
 public class ControleGamme {
-    GammeView view;
+    private GammeView vue;
 
-    public ControleGamme(GammeView view) {
-        this.view = view;
-    }
-    public void calculdureeGamme(String id){
-        
+    public ControleGamme(GammeView vue) {
+        this.vue = vue;
     }
     
+    public void creerGamme() {
+
+        Gamme gamme1 = new Gamme(this.vue.getRecup_id_gam().getText(),
+                                 this.vue.getRecup_ref_gam().getText());
+        gamme1.creerGamme(prod1, gamme1.getIdGamme(), gamme1.getRefGamme());
+        try {
+            BufferedWriter pw = new BufferedWriter(new FileWriter("gammes.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
+            pw.write(gamme1.getIdGamme()+" : référence "+gamme1.getRefGamme()+", liste de machines "+gamme1.getListMachine());
+            pw.newLine();
+            //pw.close()
+            System.out.println(gamme1.getIdGamme()+" ajoutée au fichier");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void afficherGamme(Gamme gamme1){
+// ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
+        try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))){
+            String line ;
+            while ((line = reader.readLine()) != null){
+                if (line.startsWith(gamme1.getIdGamme())){
+                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                    break ;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }  
+    }
+    
+    
+    
+    public void supprimerGamme(Gamme gamme1){
+// ici je vais lire toutes les lignes du fichier sauf celle commençant par machine1 pour les sauvegarder dans une liste 
+// pour ensuite les ajouter dans le même fichier sans la ligne qui commence par machine1
+    
+    ArrayList<String> lignesARetenir = new ArrayList<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))) {
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                if (!ligne.startsWith(gamme1.getIdGamme())) {
+                    lignesARetenir.add(ligne);
+                }
+            }
+    } catch (IOException e) { 
+        e.printStackTrace();
+        return;
+    }
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("gammes.txt", true))) {
+            for (String ligne : lignesARetenir) {
+                writer.write(ligne);
+                writer.newLine();
+            }
+            System.out.println(gamme1.getIdGamme()+" supprmée avec succès");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
