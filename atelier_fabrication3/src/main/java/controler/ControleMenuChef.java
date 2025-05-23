@@ -13,7 +13,9 @@ import view.ProduitView;
 import view.GammeView;
 import view.OperationView;
 import view.EquipementView;
+import view.MachineView;
 import view.PersonnelView;
+import view.PosteView;
 
 
 
@@ -48,6 +50,14 @@ public class ControleMenuChef {
        PersonnelView nouvelle_vueE = new PersonnelView();
        nouvelle_vueE.actionPersonnel(scene);
        
+   }
+   public void afficherposteScene (Scene scene){
+        PosteView nouvelle_vue2 = new PosteView();
+        nouvelle_vue2.afficheposte(scene);
+   }
+   public void affichermachineScene (Scene scene){
+        MachineView nouvelle_vue3 = new MachineView();
+        nouvelle_vue3.actionMach(scene);
    }
        
        

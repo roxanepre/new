@@ -5,6 +5,7 @@
 package controler;
 import java.io.* ;
 import java.util.ArrayList;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import modele.*;
@@ -20,6 +21,40 @@ public class ControleProduit {
     
     public ControleProduit(ProduitView v) {
         this.vue = v;
+    }
+    
+    public void afficherProduitScene (Scene scene){
+        ProduitView nouvelle_vueA4 = new ProduitView();
+        nouvelle_vueA4.actionProd(scene); 
+    }
+    
+    public void afficherGammeScene (Scene scene) {
+        GammeView nouvelle_vueB4 = new GammeView();
+        nouvelle_vueB4.afficheGamme(scene); 
+    }
+    
+   public void afficherOperationScene (Scene scene){
+       OperationView nouvelle_vueC4 = new OperationView(); 
+       nouvelle_vueC4.actionOp(scene); 
+   }
+       
+   public void afficherEquipementScene(Scene scene){
+       EquipementView nouvelle_vueD4 = new EquipementView(); 
+       nouvelle_vueD4.afficheequip(scene);
+   }
+   
+   public void afficherPersonnelScene (Scene scene){
+       PersonnelView nouvelle_vueE4 = new PersonnelView();
+       nouvelle_vueE4.actionPersonnel(scene);
+       
+   }
+   public void afficherposteScene (Scene scene){
+        PosteView nouvelle_vue2 = new PosteView();
+        nouvelle_vue2.afficheposte(scene);
+    }
+    public void affichermachineScene (Scene scene){
+        MachineView nouvelle_vue3 = new MachineView();
+        nouvelle_vue3.actionMach(scene);
     }
     
     public void creerProd() {

@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import controler.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import modele.Poste;
 
 /**
@@ -34,6 +36,14 @@ public class PosteView {
     Button aff_poste = new Button("Afficher");
     Button mod_poste = new Button("Modifier");
     Button supp_poste = new Button("Ajouter");
+    Menu produit_b = new Menu("Produit");
+    Menu gamme_b = new Menu("Gamme");
+    Menu operation_b = new Menu("Operation");
+    Menu equipement_b = new Menu("Equipement");
+    Menu personnel_b = new Menu("Personnel");
+    Menu machine_b = new Menu("Machine");
+    Menu poste_b = new Menu("Poste");
+    MenuBar barre_menu_poste = new MenuBar();
     
     public PosteView() {
         this.pane_poste_info.add(this.ref_poste,0,0,1,1);
@@ -42,8 +52,11 @@ public class PosteView {
         this.pane_poste_info.add(this.recup_des_poste,1,1,1,1);
         this.hb_poste.getChildren().addAll(this.creer_poste,this.aff_poste,this.mod_poste,this.supp_poste);
         this.pane_poste_next.setRightAnchor(this.hb_poste,10.0);
+        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
+        this.barre_menu_poste.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_poste.setBottom(this.pane_poste_next);
         this.pane_poste.setCenter(this.pane_poste_info);
+        this.pane_poste.setTop(this.barre_menu_poste);
     }
     
     public void afficheposte (Scene scene){
@@ -59,6 +72,13 @@ public class PosteView {
         this.aff_poste.setOnAction(evt -> {controler_poste.afficherPoste(poste_12);});
         this.mod_poste.setOnAction(evt -> {controler_poste.modifierPoste();});
         this.supp_poste.setOnAction(evt -> {controler_poste.supprimerPoste(poste_12);});
+        this.produit_b.setOnAction(e->{controler_poste.afficherProduitScene(scene);});
+        this.gamme_b.setOnAction(e->{controler_poste.afficherGammeScene(scene);});
+        this.operation_b.setOnAction(e->{controler_poste.afficherOperationScene(scene);});
+        this.equipement_b.setOnAction(e->{controler_poste.afficherEquipementScene(scene);});
+        this.personnel_b.setOnAction(e->{controler_poste.afficherPersonnelScene(scene);});
+        this.poste_b.setOnAction(evt -> {controler_poste.afficherposteScene(scene);});
+        this.machine_b.setOnAction(evt ->{controler_poste.affichermachineScene(scene);});
     }
     
     public TextField getRecup_ref_poste() {

@@ -6,8 +6,15 @@ package controler;
 
 import java.io.* ;
 import java.util.ArrayList;
+import javafx.scene.Scene;
 import view.MachineView ;
 import modele.Machine ;
+import view.EquipementView;
+import view.GammeView;
+import view.OperationView;
+import view.PersonnelView;
+import view.PosteView;
+import view.ProduitView;
 
 /**
  *
@@ -20,7 +27,39 @@ public class ControleMachine {
     public ControleMachine(MachineView v) {
         this.vue = v;
     }
+    public void afficherProduitScene (Scene scene){
+        ProduitView nouvelle_vueA7 = new ProduitView();
+        nouvelle_vueA7.actionProd(scene); 
+    }
     
+    public void afficherGammeScene (Scene scene) {
+        GammeView nouvelle_vueB7 = new GammeView();
+        nouvelle_vueB7.afficheGamme(scene); 
+    }
+    
+   public void afficherOperationScene (Scene scene){
+       OperationView nouvelle_vueC7 = new OperationView(); 
+       nouvelle_vueC7.actionOp(scene);
+   }
+       
+   public void afficherEquipementScene(Scene scene){
+       EquipementView nouvelle_vueD7 = new EquipementView(); 
+       nouvelle_vueD7.afficheequip(scene);
+   }
+   
+   public void afficherPersonnelScene (Scene scene){
+       PersonnelView nouvelle_vueE7 = new PersonnelView();
+       nouvelle_vueE7.actionPersonnel(scene);
+       
+   }
+   public void afficherposteScene (Scene scene){
+        PosteView nouvelle_vue7 = new PosteView();
+        nouvelle_vue7.afficheposte(scene);
+    }
+    public void affichermachineScene (Scene scene){
+        MachineView nouvelle_vue7 = new MachineView();
+        nouvelle_vue7.actionMach(scene);
+    }
     public void creerMac() {
 // ici je ne sais pas comment faire pour que on crée au fur et à mesure des machines avec le numéro qui augmente et qu'elles s'appellent pas toutes machine1
         Machine mach1 = new Machine(this.vue.getRecup_ref_mac().getText(),
