@@ -101,13 +101,11 @@ public class ControleMachine {
         File originalFile = new File("machines.txt");
         File tempFile = new File("machines_temporaire.txt");
         try (BufferedReader reader = new BufferedReader(new FileReader(originalFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))){
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true))){
             String line;
 
             while ((line = reader.readLine()) != null) {
-                // Exemple : modifier la ligne qui commence par "Machine1;"
                 if (line.startsWith(mach1.getRefMachine())) {
-                    // On change la ligne (par exemple on remplace par autre chose)
                     line = mach1.getRefMachine()+" : état "+mach1.getEtat()+", disponibilité "+mach1.getDisponibilite()+", position "+mach1.getX_pos()+";"+mach1.getY_pos()+" et cout "+mach1.getC();
                 }
                 writer.write(line);
