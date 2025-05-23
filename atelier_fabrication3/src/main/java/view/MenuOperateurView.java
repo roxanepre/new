@@ -24,10 +24,11 @@ import modele.Personnel;
  */
 public class MenuOperateurView {
     
-    /*GridPane pane_op_menu = new GridPane();
+    GridPane pane_op_menu = new GridPane();
     BorderPane pane_welop = new BorderPane();
-    Scene scene_welop = new Scene(pane_welop);    
-    Label welcome_op = new Label("Bonjour "+this.Nom_Operateur+"!");//grosse manip à faire pour le nom op hash map et iteration de verification d'identifiation
+    Scene scene_welop = new Scene(pane_welop); 
+    Personnel p;
+    Label welcome_op = new Label(); 
     Label indic_wel_op = new Label("Veuillez choisir le menu sur lequel vous souhaitez aller !");
     MenuBar barre_menu_op = new MenuBar();
     Menu produit_b = new Menu("Produit");
@@ -38,7 +39,9 @@ public class MenuOperateurView {
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
 
-    public MenuOperateurView() {
+    public MenuOperateurView(Personnel p) {
+        this.p=p;
+        welcome_op.setText("Bonjour "+p.getNom()+"!");
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_op.getMenus().addAll(this.produit_b,this.gamme_b,this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_op_menu.add(this.welcome_op,0,0,1,1);
@@ -47,12 +50,12 @@ public class MenuOperateurView {
         this.pane_welop.setTop(this.barre_menu_op);
     }
     
-     public void afficherMenuOp(Scene scene){
+     public void afficherMenuOp(Scene scene, Personnel p){
         this.scene_welop = scene;
         AccueilView.getFenetre_principale().setScene(scene);
         AccueilView.getFenetre_principale().show();
         
-        MenuOperateurView view_menu_op = new MenuOperateurView();
+        MenuOperateurView view_menu_op = new MenuOperateurView(p);
         ControleMenuOp controle_menu_op = new ControleMenuOp(view_menu_op);
         
         this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
@@ -63,7 +66,8 @@ public class MenuOperateurView {
         this.machine_b.setOnAction(evt ->{controle_menu_op.affichermachineScene(scene);});
         
         
-    }  */
+    } 
+     /*
     Personnel p;
     FlowPane pane_welop_info = new FlowPane();
     BorderPane pane_welop = new BorderPane();
@@ -93,7 +97,7 @@ public class MenuOperateurView {
         this.operation_b.setOnAction(e->{controle_menu_op.afficherOperation(scene);});
         this.equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement(scene);});
         
-    }  
+    }  */
      
     
     
