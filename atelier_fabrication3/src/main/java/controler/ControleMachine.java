@@ -61,7 +61,7 @@ public class ControleMachine {
         nouvelle_vue7.actionMach(scene);
     }
     public void creerMac() {
-// ici je ne sais pas comment faire pour que on crée au fur et à mesure des machines avec le numéro qui augmente et qu'elles s'appellent pas toutes machine1
+
         Machine mach1 = new Machine(this.vue.getRecup_ref_mac().getText(),
                                     this.vue.getRecup_desc_mac().getText(),
                                     Integer.parseInt(this.vue.getRecup_dispo_mac().getText()),
@@ -96,8 +96,31 @@ public class ControleMachine {
         }  
     }
     
-    public void modifierMach(){
-        
+    public void modifierMach(Machine mach1){
+// pour modifier, je pars du principe que refmachine ne peut pas être modifié pour reconnaître la machine et changer les autres attributs si ncéessaire
+        File originalFile = new File("machines.txt");
+        File tempFile = new File("machines_temporaire.txt");
+        try (BufferedReader reader = new BufferedReader(new FileReader(originalFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))){
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                // Exemple : modifier la ligne qui commence par "Machine1;"
+                if (line.startsWith(mach1.getRefMachine())) {
+                    // On change la ligne (par exemple on remplace par autre chose)
+                    line = mach1.getRefMachine()+" : état "+mach1.getEtat()+", disponibilité "+mach1.getDisponibilite()+", position "+mach1.getX_pos()+";"+mach1.getY_pos()+" et cout "+mach1.getC();
+                }
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Remplacement du fichier original
+        if (originalFile.delete()) {
+            tempFile.renameTo(originalFile);
+        }
     }
     
     public void supprimerMach(Machine mach1){
