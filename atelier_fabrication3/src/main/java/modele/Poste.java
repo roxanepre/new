@@ -19,6 +19,11 @@ public class Poste extends Equipement {
         //this.refPoste = refposte;
         //this.dPoste = dposte;
     }
+    
+    public Poste(){
+        super();
+        this.listMachine = new ArrayList();
+    }
 
     /*public String getRefPoste() {
         return refPoste;

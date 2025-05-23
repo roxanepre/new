@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import modele.Operation;
 
 /**
  *
@@ -53,9 +54,10 @@ public class OperationView {
         
         OperationView view_operation = new OperationView();
         ControleOperation controler_operation = new ControleOperation(view_operation);
+        Operation op_12 = new Operation();
         
         this.creer_op.setOnAction(evt -> {controler_operation.creerOperation();});
-        this.aff_op.setOnAction(evt -> {controler_operation.afficherOperation();});
+        this.aff_op.setOnAction(evt -> {controler_operation.afficherOperation(op_12);});
         
     }
 

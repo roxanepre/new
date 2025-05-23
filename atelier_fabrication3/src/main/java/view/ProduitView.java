@@ -13,6 +13,7 @@ import controler.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import modele.Produit;
 
 /**
  *
@@ -52,11 +53,12 @@ public class ProduitView {
         
         ProduitView view_prod = new ProduitView();
         ControleProduit controler_prod = new ControleProduit(view_prod);
+        Produit prod_12 = new Produit();
         
         this.creer_prod.setOnAction(evt -> {controler_prod.creerProd();});
-        this.aff_prod.setOnAction(evt -> {controler_prod.afficherProd();});
+        this.aff_prod.setOnAction(evt -> {controler_prod.afficherProd(prod_12);});
         this.mod_prod.setOnAction(evt -> {controler_prod.modifierProd();});
-        this.supp_prod.setOnAction(evt -> {controler_prod.supprimerProd();});
+        this.supp_prod.setOnAction(evt -> {controler_prod.supprimerProd(prod_12);});
     
     }
     

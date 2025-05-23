@@ -41,6 +41,16 @@ public class Machine extends Equipement {
         this.c = 0;
         //this.type = 0;
     }
+    
+    public Machine(){
+        super();
+        this.refMachine = "";
+        this.etat = 1;
+        this.disponibilite = 0;
+        this.x_pos = 0;
+        this.y_pos = 0;
+        this.c = 0;
+    }
     public int getEtat() {
         return etat;
     }

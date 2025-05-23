@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import controler.ControlePersonnel;
+import modele.Personnel;
 
 /**
  *
@@ -68,10 +69,11 @@ public class PersonnelView {
         
         PersonnelView view_pers = new PersonnelView();
         ControlePersonnel controler_pers = new ControlePersonnel(view_pers);
+        Personnel pers_12 = new Personnel();
         
-        this.fiche.setOnAction(evt -> {controler_pers.fichePersonnel();});
+        this.fiche.setOnAction(evt -> {controler_pers.fichePersonnel(pers_12);});
         this.embauche.setOnAction(evt -> {controler_pers.embaucherPersonnel();});
-        this.virer.setOnAction(evt -> {controler_pers.virerPersonnel();}); 
+        this.virer.setOnAction(evt -> {controler_pers.virerPersonnel(pers_12);}); 
     }
 
     public TextField getRecup_id_pers() {

@@ -22,6 +22,13 @@ public class Operation {
         this.dureeOperation = dureeOp;
     }
     
+    public Operation(){
+        this.idOperation = "";
+        this.dOperation = "";
+        //this.refMachine = refMachine; pour les raisons précédentes
+        this.dureeOperation = 0;
+    }
+    
     public String getIdOperation() {
         return idOperation;
     }

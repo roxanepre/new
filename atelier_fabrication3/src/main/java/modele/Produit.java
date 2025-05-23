@@ -16,6 +16,11 @@ public class Produit {
         this.codeProduit = codeProduit ;
         this.dproduit = dproduit ;
     }  
+    
+    public Produit(){
+        this.codeProduit ="";
+        this.dproduit = "";
+    }
     public String getCodeProduit() {
         return codeProduit;
     }

@@ -33,8 +33,8 @@ public class Personnel {
         Personnel.liste_personnel.add(idPersonne);
     }
     
-    public Personnel (String idPersonne){
-        this.idPersonne=idPersonne;
+    public Personnel (){
+        this.idPersonne="";
         this.Nom="";
         this.Prenom="";
     }

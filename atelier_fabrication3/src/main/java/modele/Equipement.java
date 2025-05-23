@@ -17,6 +17,11 @@ public class Equipement {
         this.dEquipement = dEquipement ;
     }
     
+    public Equipement(){
+        this.dEquipement="";
+        this.idEquipement="";
+    }
+    
     public String getIdEquipement() {
         return idEquipement;
     }

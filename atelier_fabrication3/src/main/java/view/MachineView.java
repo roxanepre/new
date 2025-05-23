@@ -11,6 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
+import modele.Machine;
 import controler.* ;
 
 /**
@@ -37,29 +40,10 @@ public class MachineView {
     TextField recup_cout_mac = new TextField();
     Label etat_mac = new Label("état");
     TextField recup_etat_mac = new TextField();
-    Button creer_mac = new Button("ajouter une machine à l'atelier");
-    
-    ControleMachine controler_mach = new ControleMachine();
-    
-    creer_mac.setOnAction(evt -> {
-        controler_mach.creerMac();});
-        
-    Button aff_mac = new Button("afficher");
-        
-    aff_mac.setOnAction(evt -> {
-        controler_mach.afficherMach();});
-    
-    Button mod_mac = new Button("modifier");
-        
-    mod_mac.setOnAction(evt -> {
-        controler_mach.modifierMach();});
-    
-    Button supp_mac = new Button("supprimer");
-        
-    supp_mac.setOnAction(evt -> {
-        controler_mach.supprimerMach();});
-        
-    pane_machine.getChildren().addAll(ref_mac,recup_ref_mac,desc_mac,recup_desc_mac,dispo_mac,recup_dispo_mac,abs_mac,recup_abs_mac,ord_mac,recup_ord_mac,cout_mac,recup_cout_mac,creer_mac,mod_mac,aff_mac,supp_mac);
+    Button creer_mac = new Button("Ajouter");
+    Button mod_mac = new Button("Modifier");
+    Button aff_mac = new Button("Afficher");
+    Button supp_mac = new Button("Supprimer");
 
     public MachineView() {
         this.pane_machine_info.add(this.ref_mac,0,0,1,1);
@@ -85,10 +69,11 @@ public class MachineView {
         AccueilView.getFenetre_principale().show();
         MachineView view_mach = new MachineView();
         ControleMachine controler_mach = new ControleMachine(view_mach);
+        Machine mach_12 = new Machine();
         this.creer_mac.setOnAction(evt -> {controler_mach.creerMac();});
-        this.aff_mac.setOnAction(evt -> {controler_mach.afficherMach();});
+        this.aff_mac.setOnAction(evt -> {controler_mach.afficherMach(mach_12);});
         this.mod_mac.setOnAction(evt -> {controler_mach.modifierMach();});
-        this.supp_mac.setOnAction(evt -> {controler_mach.supprimerMach();});
+        this.supp_mac.setOnAction(evt -> {controler_mach.supprimerMach(mach_12);});
         
     }
      public TextField getRecup_ref_mac() {

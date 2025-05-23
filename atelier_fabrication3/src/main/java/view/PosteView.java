@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import controler.*;
+import modele.Poste;
 
 /**
  *
@@ -52,10 +53,12 @@ public class PosteView {
         
         PosteView view_poste = new PosteView();
         ControlePoste controler_poste = new ControlePoste(view_poste) ;
+        Poste poste_12 = new Poste();
+        
         this.creer_poste.setOnAction(evt -> {controler_poste.creerPoste();});
-        this.aff_poste.setOnAction(evt -> {controler_poste.afficherPoste();});
+        this.aff_poste.setOnAction(evt -> {controler_poste.afficherPoste(poste_12);});
         this.mod_poste.setOnAction(evt -> {controler_poste.modifierPoste();});
-        this.supp_poste.setOnAction(evt -> {controler_poste.supprimerPoste();});
+        this.supp_poste.setOnAction(evt -> {controler_poste.supprimerPoste(poste_12);});
     }
     
     public TextField getRecup_ref_poste() {
