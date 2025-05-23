@@ -10,13 +10,13 @@ import view.AccueilView;
 public class App extends Application {
 
     public void start(Stage stage) {
-       AccueilView fen_main = new AccueilView(stage);
-       fen_main.actionAccueil();
+       AccueilView main_w = new AccueilView(stage);
+       stage.setTitle("Atelier de fabrication");
        stage.show();
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
 }
