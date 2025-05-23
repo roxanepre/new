@@ -1,15 +1,8 @@
 package main;
 
-import controler.ControleAccueil;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import view.AccueilView;
 
 /**
  * JavaFX App
@@ -17,20 +10,18 @@ import javafx.scene.layout.VBox;
 public class App extends Application {
 
     public void start(Stage stage) {
-    
-        // paramèttres de la fenêtre
-        stage.setTitle("Atelier de fabrication");
-        stage.setScene(scene_welcome);
-        stage.show();
+       AccueilView fen_main = new AccueilView(stage);
+       fen_main.actionAccueil();
+       stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }
 
-public class AccueilView {
+/*public class AccueilView {
     public static Stage fenetre_principale ;//on peut déclarer la fenetre_principale, mais on l'instancie dans le constructeur
     VBox pane_welcome = new VBox(50);
     Scene scene = new Scene(pane_welcome,400,300);//ici j'ai renommé scene_welcomme en scene car cette scene
@@ -53,7 +44,7 @@ public class AccueilView {
         // ( appeler le constructeur dans le constructeur....
         ControleAccueil controleur = new ControleAccueil(this);   //là il faut passer la l'instance d'AccueilView en paramètre, 
         //c'est à dire this
-        enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
+        enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale/);});
     }
 
     public Scene getScene() {
@@ -67,5 +58,5 @@ public class AccueilView {
 
     public void setFenetre_principale(Stage fenetre_principale) {
         AccueilView.fenetre_principale = fenetre_principale;
-    }
+    }*/
  

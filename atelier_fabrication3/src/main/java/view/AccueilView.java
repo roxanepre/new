@@ -38,11 +38,10 @@ public class AccueilView {
         
     }
     
-    public void actionAccueil(Stage stage){
+    public void actionAccueil(){
         AccueilView acc_view = new AccueilView(AccueilView.fenetre_principale);
         ControleAccueil controleur = new ControleAccueil(acc_view);        
         this.enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
-        stage.show();
     }
         
 
