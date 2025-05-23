@@ -112,7 +112,28 @@ public class ControlePoste {
         }
     }
     
-    public void modifierPoste(){
-        
+    public void modifierPoste(Poste poste1){
+// pour modifier, je pars du principe que idEquipement ne peut pas être modifié pour reconnaître la machine et changer les autres attributs si ncéessaire
+        File originalFile = new File("postes.txt");
+        File tempFile = new File("postes_temporaire.txt");
+        try (BufferedReader reader = new BufferedReader(new FileReader(originalFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true))){
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(poste1.getIdEquipement())) {
+                    line = poste1.getIdEquipement()+" : sa description est "+poste1.getdEquipement()+" et ce poste contient les machines suivantes "+poste1.getListMachine();
+                }
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Remplacement du fichier original
+        if (originalFile.delete()) {
+            tempFile.renameTo(originalFile);
+        }
     }
 }

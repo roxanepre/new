@@ -114,7 +114,28 @@ public class ControleProduit {
         }
     }
     
-    public void modifierProd(){
-        
+    public void modifierProd(Produit prod1){
+// pour modifier, je pars du principe que codeProduit ne peut pas être modifié pour reconnaître la machine et changer les autres attributs si ncéessaire
+        File originalFile = new File("produits.txt");
+        File tempFile = new File("produits_temporaire.txt");
+        try (BufferedReader reader = new BufferedReader(new FileReader(originalFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true))){
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(prod1.getCodeProduit())) {
+                    line = prod1.getCodeProduit()+" : description "+prod1.getDproduit();
+                }
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Remplacement du fichier original
+        if (originalFile.delete()) {
+            tempFile.renameTo(originalFile);
+        }
     }
 }
