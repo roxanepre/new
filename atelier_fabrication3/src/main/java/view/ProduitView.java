@@ -22,12 +22,13 @@ import modele.Produit;
  * @author roxanepierre
  */
 public class ProduitView {
+    Scene scene_produit;
     
     GridPane pane_produit_info = new GridPane();
     AnchorPane pane_produit_next = new AnchorPane();
     BorderPane pane_produit = new BorderPane();
     HBox hb_produit = new HBox(15);
-    Scene scene_produit = new Scene(pane_produit);
+    //Scene scene_produit = new Scene(pane_produit);
     Label code_prod = new Label("code produit");
     TextField recup_code_prod = new TextField();
     Label desc_prod = new Label("description ");
@@ -61,26 +62,30 @@ public class ProduitView {
     
     public void actionProd(Scene scene){
         this.scene_produit = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
+        scene.setRoot(pane_produit);
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
         
-        ProduitView view_prod = new ProduitView();
-        ControleProduit controler_prod = new ControleProduit(view_prod);
+        //ProduitView view_prod = new ProduitView();
+        ControleProduit controler_prod = new ControleProduit(this);
         Produit prod_12 = new Produit();
         
         this.creer_prod.setOnAction(evt -> {controler_prod.creerProd();});
         this.aff_prod.setOnAction(evt -> {controler_prod.afficherProd(prod_12);});
         this.mod_prod.setOnAction(evt -> {controler_prod.modifierProd(prod_12);});
         this.supp_prod.setOnAction(evt -> {controler_prod.supprimerProd(prod_12);});
-        this.produit_b.setOnAction(e->{controler_prod.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controler_prod.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controler_prod.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controler_prod.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controler_prod.afficherPersonnelScene(scene);});
-        this.poste_b.setOnAction(evt -> {controler_prod.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controler_prod.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controler_prod.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controler_prod.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controler_prod.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controler_prod.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controler_prod.afficherPersonnelScene();});
+        this.poste_b.setOnAction(evt -> {controler_prod.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controler_prod.affichermachineScene();});
         
     
+    }
+    public Scene getScene(){
+        return scene_produit;
     }
     
     public TextField getRecup_code_prod() {

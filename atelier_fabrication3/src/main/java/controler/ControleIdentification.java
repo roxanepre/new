@@ -35,7 +35,7 @@ public class ControleIdentification {
     //il faut que je fasse la méthode action dont je parle dans la classe View
     
     
-    public void verification(String id, String pwd, Scene scene){
+    public void verification(String id, String pwd){
         //Pane new_pane2 = new Pane();
         //Scene new_scene2 = new Scene(new_pane2);
         int i;
@@ -44,12 +44,12 @@ public class ControleIdentification {
                 if (Personnel.getListe_mdp().get(Personnel.getListe_personnel().get(i))==pwd){
                     if (id==Personnel.getId_chef()){
                         MenuChefView nouvelle_vuechef = new MenuChefView();
-                        nouvelle_vuechef.afficherMenuChef(scene);
+                        nouvelle_vuechef.afficherMenuChef(view.getScene());
                         
                     }
                     else{
                         MenuOperateurView nouvelle_scene_1 = new MenuOperateurView();
-                        nouvelle_scene_1.afficherMenuOp(scene);
+                        nouvelle_scene_1.afficherMenuOp(view.getScene());
                     }
                 }
                 else {

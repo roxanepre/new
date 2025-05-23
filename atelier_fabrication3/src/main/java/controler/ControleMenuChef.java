@@ -25,39 +25,39 @@ public class ControleMenuChef {
     public ControleMenuChef(MenuChefView view) {
         this.view = view;
     }
-    public void afficherProduit (Scene scene){
+    public void afficherProduit (){
         ProduitView nouvelle_vueA = new ProduitView();
         //c'est bizarre que scene ne marche pas, je crois que l'erreur vient de "scene", mais pour le scene est bien définit dans le constructeur de la classe ProduitView
-        nouvelle_vueA.actionProd(scene); //il faudra créer la méthode afficheProduit dans la classe ProduitView mais je n'ai pas osé y toucher pour l'instant
+        nouvelle_vueA.actionProd(view.getScene()); //il faudra créer la méthode afficheProduit dans la classe ProduitView mais je n'ai pas osé y toucher pour l'instant
         }
     
-    public void afficherGamme (Scene scene) {
+    public void afficherGamme () {
         GammeView nouvelle_vueB = new GammeView(); //bizarre car ca marche ici
-        nouvelle_vueB.afficheGamme(scene); // Pareil je ne sais pas si cette méthode existe, j'adapterai le nom en fonction de ce qui a été mis dans GammeView
+        nouvelle_vueB.afficheGamme(view.getScene()); // Pareil je ne sais pas si cette méthode existe, j'adapterai le nom en fonction de ce qui a été mis dans GammeView
         }
     
-   public void afficherOperation (Scene scene){
+   public void afficherOperation (){
        OperationView nouvelle_vueC = new OperationView(); //normal que ce ne marche pas, je crois qu'il n'y a pas de constucteur dans la classe OperationView
-       nouvelle_vueC.actionOp(scene); //pareil il faudra que j'aille faire la méthode
+       nouvelle_vueC.actionOp(view.getScene()); //pareil il faudra que j'aille faire la méthode
    }
        
-   public void afficherEquipement(Scene scene){
+   public void afficherEquipement(){
        EquipementView nouvelle_vueD = new EquipementView(); // pas compris : car il y a bien un scene dasn le controleur de EuipementView???
-       nouvelle_vueD.afficheequip(scene); // de meme 
+       nouvelle_vueD.afficheequip(view.getScene()); // de meme 
    }
    
-   public void afficherPersonnel (Scene scene){
+   public void afficherPersonnel (){
        PersonnelView nouvelle_vueE = new PersonnelView();
-       nouvelle_vueE.actionPersonnel(scene);
+       nouvelle_vueE.actionPersonnel(view.getScene());
        
    }
-   public void afficherposteScene (Scene scene){
+   public void afficherposteScene (){
         PosteView nouvelle_vue2 = new PosteView();
-        nouvelle_vue2.afficheposte(scene);
+        nouvelle_vue2.afficheposte(view.getScene());
    }
-   public void affichermachineScene (Scene scene){
+   public void affichermachineScene (){
         MachineView nouvelle_vue3 = new MachineView();
-        nouvelle_vue3.actionMach(scene);
+        nouvelle_vue3.actionMach(view.getScene());
    }
        
        

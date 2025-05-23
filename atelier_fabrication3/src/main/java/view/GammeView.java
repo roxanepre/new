@@ -26,11 +26,13 @@ import modele.Machine;
  */
 
 public class GammeView {
+    Scene scene_gamme;
+    
     GridPane pane_gamme_info = new GridPane();
     AnchorPane pane_gamme_loc = new AnchorPane();
     BorderPane pane_gamme = new BorderPane();
     HBox hb_gamme = new HBox(15);
-    Scene scene_gamme = new Scene(pane_gamme,400,300);
+    //Scene scene_gamme = new Scene(pane_gamme,400,300);
     Label ref_gam = new Label("reference");
     TextField recup_ref_gam = new TextField();
     Label id_gam = new Label("identifiant");
@@ -69,15 +71,16 @@ public class GammeView {
     
     public void afficheGamme(Scene scene){
         this.scene_gamme = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
+        scene.setRoot(pane_gamme);
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
         Produit prod_g = new Produit();
         Gamme gamme_g = new Gamme();
         Machine mach_g = new Machine();
         Operation op_g = new Operation();
         
-        GammeView vue_gam = new GammeView();
-        ControleGamme controler_gamme = new ControleGamme(vue_gam);
+        //GammeView vue_gam = new GammeView();
+        ControleGamme controler_gamme = new ControleGamme(this);
         
         this.creer_gamme.setOnAction(evt -> {controler_gamme.creerGamme(prod_g);});
         this.aff_gamme.setOnAction(evt -> {controler_gamme.afficherGamme(gamme_g);});
@@ -85,15 +88,18 @@ public class GammeView {
         this.supp_gamme.setOnAction(evt -> {controler_gamme.supprimerGamme(gamme_g);});
         this.ajout_op.setOnAction(evt -> {controler_gamme.ajouterOp(gamme_g,op_g);});
         this.ajout_mach.setOnAction(evt -> {controler_gamme.ajouterMach(gamme_g,mach_g);});
-        this.produit_b.setOnAction(e->{controler_gamme.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controler_gamme.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controler_gamme.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controler_gamme.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controler_gamme.afficherPersonnelScene(scene);});
-        this.poste_b.setOnAction(evt -> {controler_gamme.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controler_gamme.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controler_gamme.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controler_gamme.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controler_gamme.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controler_gamme.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controler_gamme.afficherPersonnelScene();});
+        this.poste_b.setOnAction(evt -> {controler_gamme.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controler_gamme.affichermachineScene();});
         
         
+    }
+    public Scene getScene(){
+        return scene_gamme;
     }
     public TextField getRecup_ref_gam() {
         return recup_ref_gam;

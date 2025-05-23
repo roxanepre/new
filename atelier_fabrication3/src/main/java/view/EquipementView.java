@@ -18,9 +18,9 @@ import view.PosteView;
  * @author roxanepierre
  */
 public class EquipementView {
-    
+    Scene scene_equip;
     BorderPane pane_equip_tot = new BorderPane();
-    Scene scene_equip = new Scene(pane_equip_tot,400,300);
+    //Scene scene_equip = new Scene(pane_equip_tot,400,300);
     Label choix_equip = new Label("Veuillez choisir le menu dans lequel vous osuhaitez aller");
     Menu produit_b = new Menu("Produit");
     Menu gamme_b = new Menu("Gamme");
@@ -41,18 +41,21 @@ public class EquipementView {
     
     public void afficheequip(Scene scene){
         this.scene_equip = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
-        EquipementView view_equip = new EquipementView();
-        ControleEquipement controle_equip = new ControleEquipement(view_equip);
-        this.poste_b.setOnAction(evt -> {controle_equip.afficherposte(scene);});
-        this.machine_b.setOnAction(evt ->{controle_equip.affichermachine(scene);});
-        this.produit_b.setOnAction(e->{controle_equip.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controle_equip.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controle_equip.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controle_equip.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controle_equip.afficherPersonnelScene(scene);});
-
+        scene.setRoot(pane_equip_tot);
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
+        //EquipementView view_equip = new EquipementView();
+        ControleEquipement controle_equip = new ControleEquipement(this);
         
+        this.poste_b.setOnAction(evt -> {controle_equip.afficherposte();});
+        this.machine_b.setOnAction(evt ->{controle_equip.affichermachine();});
+        this.produit_b.setOnAction(e->{controle_equip.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controle_equip.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controle_equip.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controle_equip.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controle_equip.afficherPersonnelScene();});
+    }
+    public Scene getScene(){
+        return scene_equip;
     }
 }

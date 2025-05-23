@@ -23,11 +23,12 @@ import javafx.scene.control.MenuBar;
  * @author roxanepierre
  */
 public class MachineView {
+    Scene scene_machine;
     GridPane pane_machine_info = new GridPane();
     AnchorPane pane_mach_next = new AnchorPane();
     BorderPane pane_machine = new BorderPane();
     HBox hb_machine = new HBox(15);
-    Scene scene_machine = new Scene(pane_machine);
+   // Scene scene_machine = new Scene(pane_machine);
     Label ref_mac = new Label("reference");
     TextField recup_ref_mac = new TextField();
     Label desc_mac = new Label("description");
@@ -78,24 +79,28 @@ public class MachineView {
     
     public void actionMach(Scene scene){
         this.scene_machine = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
-        MachineView view_mach = new MachineView();
-        ControleMachine controler_mach = new ControleMachine(view_mach);
+        scene.setRoot(pane_machine);
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
+        //MachineView view_mach = new MachineView();
+        ControleMachine controler_mach = new ControleMachine(this);
         Machine mach_12 = new Machine();
         this.creer_mac.setOnAction(evt -> {controler_mach.creerMac();});
         this.aff_mac.setOnAction(evt -> {controler_mach.afficherMach(mach_12);});
         this.mod_mac.setOnAction(evt -> {controler_mach.modifierMach(mach_12);});
         this.supp_mac.setOnAction(evt -> {controler_mach.supprimerMach(mach_12);});
-        this.produit_b.setOnAction(e->{controler_mach.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controler_mach.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controler_mach.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controler_mach.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controler_mach.afficherPersonnelScene(scene);});
-        this.poste_b.setOnAction(evt -> {controler_mach.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controler_mach.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controler_mach.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controler_mach.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controler_mach.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controler_mach.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controler_mach.afficherPersonnelScene();});
+        this.poste_b.setOnAction(evt -> {controler_mach.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controler_mach.affichermachineScene();});
     
         
+    }
+    public Scene getScene(){
+        return scene_machine;
     }
      public TextField getRecup_ref_mac() {
         return recup_ref_mac;

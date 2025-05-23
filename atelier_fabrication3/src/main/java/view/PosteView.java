@@ -22,12 +22,12 @@ import modele.Poste;
  * @author roxanepierre
  */
 public class PosteView {
-    
+    Scene scene_poste;
     GridPane pane_poste_info = new GridPane();
     AnchorPane pane_poste_next = new AnchorPane();
     BorderPane pane_poste = new BorderPane();
     HBox hb_poste = new HBox(15);
-    Scene scene_poste = new Scene(pane_poste);
+    //Scene scene_poste = new Scene(pane_poste);
     Label ref_poste = new Label("Référence");
     TextField recup_ref_poste = new TextField();
     Label des_poste = new Label("Désignation");
@@ -61,26 +61,30 @@ public class PosteView {
     
     public void afficheposte (Scene scene){
         this.scene_poste = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
+        scene.setRoot(pane_poste);
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
         
-        PosteView view_poste = new PosteView();
-        ControlePoste controler_poste = new ControlePoste(view_poste) ;
+        //PosteView view_poste = new PosteView();
+        ControlePoste controler_poste = new ControlePoste(this) ;
         Poste poste_12 = new Poste();
         
         this.creer_poste.setOnAction(evt -> {controler_poste.creerPoste();});
         this.aff_poste.setOnAction(evt -> {controler_poste.afficherPoste(poste_12);});
         this.mod_poste.setOnAction(evt -> {controler_poste.modifierPoste(poste_12);});
         this.supp_poste.setOnAction(evt -> {controler_poste.supprimerPoste(poste_12);});
-        this.produit_b.setOnAction(e->{controler_poste.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controler_poste.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controler_poste.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controler_poste.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controler_poste.afficherPersonnelScene(scene);});
-        this.poste_b.setOnAction(evt -> {controler_poste.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controler_poste.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controler_poste.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controler_poste.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controler_poste.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controler_poste.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controler_poste.afficherPersonnelScene();});
+        this.poste_b.setOnAction(evt -> {controler_poste.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controler_poste.affichermachineScene();});
     }
     
+    public Scene getScene(){
+        return scene_poste;
+    }
     public TextField getRecup_ref_poste() {
         return recup_ref_poste;
     }

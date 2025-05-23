@@ -20,38 +20,38 @@ public class ControlePersonnel {
         this.vue = v;
     }
     
-    public void afficherProduitScene (Scene scene){
+    public void afficherProduitScene (){
         ProduitView nouvelle_vueA2 = new ProduitView();
-        nouvelle_vueA2.actionProd(scene); 
+        nouvelle_vueA2.actionProd(vue.getScene()); 
     }
     
-    public void afficherGammeScene (Scene scene) {
+    public void afficherGammeScene () {
         GammeView nouvelle_vueB2 = new GammeView();
-        nouvelle_vueB2.afficheGamme(scene); 
+        nouvelle_vueB2.afficheGamme(vue.getScene()); 
     }
     
-   public void afficherOperationScene (Scene scene){
+   public void afficherOperationScene (){
        OperationView nouvelle_vueC2 = new OperationView(); 
-       nouvelle_vueC2.actionOp(scene); 
+       nouvelle_vueC2.actionOp(vue.getScene()); 
    }
        
-   public void afficherEquipementScene(Scene scene){
+   public void afficherEquipementScene(){
        EquipementView nouvelle_vueD2 = new EquipementView(); 
-       nouvelle_vueD2.afficheequip(scene);
+       nouvelle_vueD2.afficheequip(vue.getScene());
    }
    
-   public void afficherPersonnelScene (Scene scene){
+   public void afficherPersonnelScene (){
        PersonnelView nouvelle_vueE2 = new PersonnelView();
-       nouvelle_vueE2.actionPersonnel(scene);
+       nouvelle_vueE2.actionPersonnel(vue.getScene());
        
    }
-   public void afficherposteScene (Scene scene){
+   public void afficherposteScene (){
         PosteView nouvelle_vue2 = new PosteView();
-        nouvelle_vue2.afficheposte(scene);
+        nouvelle_vue2.afficheposte(vue.getScene());
     }
-    public void affichermachineScene (Scene scene){
+    public void affichermachineScene (){
         MachineView nouvelle_vue3 = new MachineView();
-        nouvelle_vue3.actionMach(scene);
+        nouvelle_vue3.actionMach(vue.getScene());
     }
     public void embaucherPersonnel(){
         Personnel pers1 = new Personnel(this.vue.getRecup_id_pers().getText(),

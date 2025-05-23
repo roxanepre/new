@@ -23,10 +23,10 @@ import modele.Personnel;
  * @author User
  */
 public class MenuChefView {
-    
+    Scene scene_welchef;
     BorderPane pane_welchef = new BorderPane();
     GridPane pane_chef_menu = new GridPane();
-    Scene scene_welchef = new Scene(pane_welchef);
+    //Scene scene_welchef = new Scene(pane_welchef);
     //Personnel p;
     Label welcome_chef = new Label(); 
     Label pane_welchef_info = new Label("Veuillez choisir le menu dans lequel vous souhaitez aller");
@@ -43,32 +43,35 @@ public class MenuChefView {
     public MenuChefView(/*Personnel p*/) {
         //this.p=p;
         welcome_chef.setText("Bonjour "/*+ p.getNom() */+"!");
-        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
-        this.barre_menu_chef.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
-        this.pane_chef_menu.add(this.welcome_chef,0,0,1,1);
-        this.pane_chef_menu.add(this.pane_welchef_info,1,0,1,1);
-        this.pane_welchef.setCenter(this.pane_chef_menu);
-        this.pane_welchef.setTop(this.barre_menu_chef);
+        equipement_b.getItems().addAll(this.machine_b,this.poste_b);
+        barre_menu_chef.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
+        pane_chef_menu.add(welcome_chef,0,0,1,1);
+        pane_chef_menu.add(pane_welchef_info,1,0,1,1);
+        pane_welchef.setCenter(pane_chef_menu);
+        pane_welchef.setTop(barre_menu_chef);
     }
     
     public void afficherMenuChef(Scene scene){
         this.scene_welchef = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
+        scene.setRoot(pane_welchef);
+        //MenuChefView view_menu_chef = new MenuChefView();
+        ControleMenuChef controle_menu_chef = new ControleMenuChef(this);
         
-        MenuChefView view_menu_chef = new MenuChefView();
-        ControleMenuChef controle_menu_chef = new ControleMenuChef(view_menu_chef);
-        
-        this.produit_b.setOnAction(e->{controle_menu_chef.afficherProduit(scene);});
-        this.gamme_b.setOnAction(e->{controle_menu_chef.afficherGamme(scene);});
-        this.operation_b.setOnAction(e->{controle_menu_chef.afficherOperation(scene);});
-        this.equipement_b.setOnAction(e->{controle_menu_chef.afficherEquipement(scene);});
-        this.personnel_b.setOnAction(e->{controle_menu_chef.afficherPersonnel(scene);});
-        this.poste_b.setOnAction(evt -> {controle_menu_chef.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controle_menu_chef.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controle_menu_chef.afficherProduit();});
+        this.gamme_b.setOnAction(e->{controle_menu_chef.afficherGamme();});
+        this.operation_b.setOnAction(e->{controle_menu_chef.afficherOperation();});
+        this.equipement_b.setOnAction(e->{controle_menu_chef.afficherEquipement();});
+        this.personnel_b.setOnAction(e->{controle_menu_chef.afficherPersonnel();});
+        this.poste_b.setOnAction(evt -> {controle_menu_chef.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controle_menu_chef.affichermachineScene();});
         
     }
-        
+    
+    public Scene getScene(){
+        return scene_welchef;
+    }
        // ControleMenuChef controle_menu_chef = new
     }
     

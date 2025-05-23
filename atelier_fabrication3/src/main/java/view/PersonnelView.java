@@ -23,12 +23,13 @@ import modele.Personnel;
  * @author roxanepierre
  */
 public class PersonnelView {
- 
+    Scene scene_personnel;
+    
     GridPane pane_personnel_info = new GridPane();
     AnchorPane pane_personnel_next = new AnchorPane();
     BorderPane pane_personnel = new BorderPane();
     HBox hb_personnel = new HBox(15);
-    Scene scene_personnel = new Scene(pane_personnel);
+    //Scene scene_personnel = new Scene(pane_personnel);
     Label id_pers = new Label("identifiant personnel");
     TextField recup_id_pers = new TextField();
     Label nom_pers = new Label("Nom");
@@ -77,27 +78,30 @@ public class PersonnelView {
     
     public void actionPersonnel(Scene scene){
         this.scene_personnel = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
-        
-        PersonnelView view_pers = new PersonnelView();
-        ControlePersonnel controler_pers = new ControlePersonnel(view_pers);
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
+        scene.setRoot(pane_personnel);
+        //PersonnelView view_pers = new PersonnelView();
+        ControlePersonnel controler_pers = new ControlePersonnel(this);
         Personnel pers_12 = new Personnel();
         
         this.fiche.setOnAction(evt -> {controler_pers.fichePersonnel(pers_12);});
         this.embauche.setOnAction(evt -> {controler_pers.embaucherPersonnel();});
         this.virer.setOnAction(evt -> {controler_pers.virerPersonnel(pers_12);}); 
-        this.produit_b.setOnAction(e->{controler_pers.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controler_pers.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controler_pers.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controler_pers.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controler_pers.afficherPersonnelScene(scene);});
-        this.poste_b.setOnAction(evt -> {controler_pers.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controler_pers.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controler_pers.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controler_pers.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controler_pers.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controler_pers.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controler_pers.afficherPersonnelScene();});
+        this.poste_b.setOnAction(evt -> {controler_pers.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controler_pers.affichermachineScene();});
         
         
     }
 
+    public Scene getScene(){
+        return scene_personnel;
+    }
     public TextField getRecup_id_pers() {
         return recup_id_pers;
     }

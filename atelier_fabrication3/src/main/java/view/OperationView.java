@@ -22,11 +22,13 @@ import modele.Operation;
  * @author roxanepierre
  */
 public class OperationView {
+    Scene scene_operation;
+    
     GridPane pane_op_info = new GridPane();
     AnchorPane pane_op_next = new AnchorPane();
     BorderPane pane_operation = new BorderPane();
     HBox hb_op = new HBox(15);
-    Scene scene_operation = new Scene(pane_operation);
+    //Scene scene_operation = new Scene(pane_operation);
     Label id_op = new Label("identifiant");
     TextField recup_id_op = new TextField();
     Label desc_op = new Label("description");
@@ -62,25 +64,29 @@ public class OperationView {
     
     public void actionOp(Scene scene){
         this.scene_operation = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
         
-        OperationView view_operation = new OperationView();
-        ControleOperation controler_operation = new ControleOperation(view_operation);
+        //OperationView view_operation = new OperationView();
+        ControleOperation controler_operation = new ControleOperation(this);
         Operation op_12 = new Operation();
         
         this.creer_op.setOnAction(evt -> {controler_operation.creerOperation();});
         this.aff_op.setOnAction(evt -> {controler_operation.afficherOperation(op_12);});
-        this.produit_b.setOnAction(e->{controler_operation.afficherProduitScene(scene);});
-        this.gamme_b.setOnAction(e->{controler_operation.afficherGammeScene(scene);});
-        this.operation_b.setOnAction(e->{controler_operation.afficherOperationScene(scene);});
-        this.equipement_b.setOnAction(e->{controler_operation.afficherEquipementScene(scene);});
-        this.personnel_b.setOnAction(e->{controler_operation.afficherPersonnelScene(scene);});
-        this.poste_b.setOnAction(evt -> {controler_operation.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controler_operation.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controler_operation.afficherProduitScene();});
+        this.gamme_b.setOnAction(e->{controler_operation.afficherGammeScene();});
+        this.operation_b.setOnAction(e->{controler_operation.afficherOperationScene();});
+        this.equipement_b.setOnAction(e->{controler_operation.afficherEquipementScene();});
+        this.personnel_b.setOnAction(e->{controler_operation.afficherPersonnelScene();});
+        this.poste_b.setOnAction(evt -> {controler_operation.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controler_operation.affichermachineScene();});
         
         
         
+    }
+    
+    public Scene getScene(){
+        return scene_operation;
     }
 
     public TextField getRecup_id_op() {

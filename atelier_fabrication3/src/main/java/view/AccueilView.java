@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 public class AccueilView {
     public static Stage fenetre_principale = new Stage();
     StackPane pane_welcome = new StackPane();
-    Scene scene_welcome = new Scene(pane_welcome,400,300);
+    Scene scene = new Scene(pane_welcome,400,300);
     Label welcome = new Label("Bienvenue dans l'application de votre atelier !");
     Button enter_atelier = new Button("Entrer dans l'atelier");
     
@@ -33,7 +33,7 @@ public class AccueilView {
         //stage.isResizable();
         //stage.isMaximized();
         pane_welcome.getChildren().addAll(welcome,enter_atelier);
-        stage.setScene(scene_welcome);
+        stage.setScene(scene);
         ControleAccueil controleur = new ControleAccueil(this);
         enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
     }
@@ -45,7 +45,7 @@ public class AccueilView {
     //}
         
     public Scene getScene() {
-        return scene_welcome;
+        return scene;
     }
     public static Stage getFenetre_principale() {
         return fenetre_principale;

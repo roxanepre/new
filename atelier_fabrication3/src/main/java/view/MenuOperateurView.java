@@ -24,9 +24,10 @@ import modele.Personnel;
  */
 public class MenuOperateurView {
     
+    Scene scene_welop;
     GridPane pane_op_menu = new GridPane();
     BorderPane pane_welop = new BorderPane();
-    Scene scene_welop = new Scene(pane_welop); 
+    //Scene scene_welop = new Scene(pane_welop); 
     //Personnel p;
     Label welcome_op = new Label(); 
     Label indic_wel_op = new Label("Veuillez choisir le menu sur lequel vous souhaitez aller !");
@@ -52,21 +53,25 @@ public class MenuOperateurView {
     
      public void afficherMenuOp(Scene scene){
         this.scene_welop = scene;
-        AccueilView.getFenetre_principale().setScene(scene);
-        AccueilView.getFenetre_principale().show();
+        //AccueilView.getFenetre_principale().setScene(scene);
+        //AccueilView.getFenetre_principale().show();
+        scene.setRoot(pane_welop);
+       // MenuOperateurView view_menu_op = new MenuOperateurView();
+        ControleMenuOp controle_menu_op = new ControleMenuOp(this);
         
-        MenuOperateurView view_menu_op = new MenuOperateurView();
-        ControleMenuOp controle_menu_op = new ControleMenuOp(view_menu_op);
-        
-        this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
-        this.gamme_b.setOnAction(e->{controle_menu_op.afficherGamme(scene);});
-        this.operation_b.setOnAction(e->{controle_menu_op.afficherOperation(scene);});
-        this.equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement(scene);});
-        this.poste_b.setOnAction(evt -> {controle_menu_op.afficherposteScene(scene);});
-        this.machine_b.setOnAction(evt ->{controle_menu_op.affichermachineScene(scene);});
+        this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit();});
+        this.gamme_b.setOnAction(e->{controle_menu_op.afficherGamme();});
+        this.operation_b.setOnAction(e->{controle_menu_op.afficherOperation();});
+        this.equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement();});
+        this.poste_b.setOnAction(evt -> {controle_menu_op.afficherposteScene();});
+        this.machine_b.setOnAction(evt ->{controle_menu_op.affichermachineScene();});
         
         
     } 
+     
+    public Scene getScene(){
+        return scene_welop;
+    }
      /*
     Personnel p;
     FlowPane pane_welop_info = new FlowPane();

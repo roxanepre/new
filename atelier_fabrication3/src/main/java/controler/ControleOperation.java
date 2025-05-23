@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import view.OperationView;
 import modele.*;
 import view.*; 
 /**
@@ -22,38 +23,38 @@ public class ControleOperation {
         this.vue = v;
     }
     
-    public void afficherProduitScene (Scene scene){
+    public void afficherProduitScene (){
         ProduitView nouvelle_vueA1 = new ProduitView();
-        nouvelle_vueA1.actionProd(scene); 
+        nouvelle_vueA1.actionProd(vue.getScene()); 
     }
     
-    public void afficherGammeScene (Scene scene) {
+    public void afficherGammeScene () {
         GammeView nouvelle_vueB1 = new GammeView();
-        nouvelle_vueB1.afficheGamme(scene); 
+        nouvelle_vueB1.afficheGamme(vue.getScene()); 
     }
     
-   public void afficherOperationScene (Scene scene){
+   public void afficherOperationScene (){
        OperationView nouvelle_vueC1 = new OperationView(); 
-       nouvelle_vueC1.actionOp(scene); 
+       nouvelle_vueC1.actionOp(vue.getScene()); 
    }
        
-   public void afficherEquipementScene(Scene scene){
+   public void afficherEquipementScene(){
        EquipementView nouvelle_vueD1 = new EquipementView(); 
-       nouvelle_vueD1.afficheequip(scene);
+       nouvelle_vueD1.afficheequip(vue.getScene());
    }
    
-   public void afficherPersonnelScene (Scene scene){
+   public void afficherPersonnelScene (){
        PersonnelView nouvelle_vueE1 = new PersonnelView();
-       nouvelle_vueE1.actionPersonnel(scene);
+       nouvelle_vueE1.actionPersonnel(vue.getScene());
        
    }
-   public void afficherposteScene (Scene scene){
+   public void afficherposteScene (){
         PosteView nouvelle_vueF1 = new PosteView();
-        nouvelle_vueF1.afficheposte(scene);
+        nouvelle_vueF1.afficheposte(vue.getScene());
     }
-    public void affichermachineScene (Scene scene){
+    public void affichermachineScene (){
         MachineView nouvelle_vueG1 = new MachineView();
-        nouvelle_vueG1.actionMach(scene);
+        nouvelle_vueG1.actionMach(vue.getScene());
     }
     public void creerOperation(){
         Operation op1 = new Operation(this.vue.getRecup_id_op().getText(),
