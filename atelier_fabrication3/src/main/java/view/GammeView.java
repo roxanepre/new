@@ -25,20 +25,10 @@ public class GammeView {
     BorderPane pane_gamme = new BorderPane();
     HBox hb_gamme = new HBox(15);
     Scene scene_gamme = new Scene(pane_gamme,400,300);
-    
     Label ref_gam = new Label("reference");
     TextField recup_ref_gam = new TextField();
     Label id_gam = new Label("identifiant");
     TextField recup_id_gam = new TextField();
-
-    public TextField getRecup_ref_gam() {
-        return recup_ref_gam;
-    }
-
-    public TextField getRecup_id_gam() {
-        return recup_id_gam;
-    }
-    
     Button creer_gamme = new Button("Créer");
     Button aff_gamme = new Button("Afficher");
     Button mod_gamme = new Button("Modifier");
@@ -69,6 +59,15 @@ public class GammeView {
         
         
     }
+    public TextField getRecup_ref_gam() {
+        return recup_ref_gam;
+    }
+
+    public TextField getRecup_id_gam() {
+        return recup_id_gam;
+    }
+    
+   
 }
     
     
