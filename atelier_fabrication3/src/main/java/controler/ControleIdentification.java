@@ -35,7 +35,7 @@ public class ControleIdentification {
     //il faut que je fasse la méthode action dont je parle dans la classe View
     
     
-   /* public void verification(String id, String pwd, Scene scene){
+    public void verification(String id, String pwd, Scene scene){
         //Pane new_pane2 = new Pane();
         //Scene new_scene2 = new Scene(new_pane2);
         int i;
@@ -73,7 +73,7 @@ public class ControleIdentification {
             }
         }
     }
-    */ // Roxane j'ai du faire une autre methode car la methode verificationne prenait pas en parametre le personnel
+     // Roxane j'ai du faire une autre methode car la methode verificationne prenait pas en parametre le personnel
  
     
     //il faut que je fasse la méthode action dont je parle dans la classe View
@@ -81,7 +81,7 @@ public class ControleIdentification {
     //il suffit de voir si elle revoie un utilisateur ou null et si elle renvoie un utilisateur,
     //on recupère ce qu'on veut de celuici
     
-     public void verification(){
+    /* public void verification(){
         System.out.println(view.getRecup_identifiant().getText());
         System.out.println(view.getRecup_pwd().getText());
         Personnel verif=Personnels.verifierConnexion(view.getRecup_identifiant().getText(),view.getRecup_pwd().getText());
@@ -107,7 +107,7 @@ public class ControleIdentification {
         }               
         else{view.getMessage().setText("identification erronée");}
         //sinon on fourni au label message de la view "identification erronée"      
-            }
+            }*/
     
     
 }

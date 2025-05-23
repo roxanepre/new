@@ -27,7 +27,7 @@ public class MenuOperateurView {
     GridPane pane_op_menu = new GridPane();
     BorderPane pane_welop = new BorderPane();
     Scene scene_welop = new Scene(pane_welop); 
-    Personnel p;
+    //Personnel p;
     Label welcome_op = new Label(); 
     Label indic_wel_op = new Label("Veuillez choisir le menu sur lequel vous souhaitez aller !");
     MenuBar barre_menu_op = new MenuBar();
@@ -39,9 +39,9 @@ public class MenuOperateurView {
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
 
-    public MenuOperateurView(Personnel p) {
-        this.p=p;
-        welcome_op.setText("Bonjour "+p.getNom()+"!");
+    public MenuOperateurView(/*Personnel p*/) {
+        //this.p=p;
+        welcome_op.setText("Bonjour "/*p.getNom()*/+"!");
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_op.getMenus().addAll(this.produit_b,this.gamme_b,this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_op_menu.add(this.welcome_op,0,0,1,1);
@@ -50,12 +50,12 @@ public class MenuOperateurView {
         this.pane_welop.setTop(this.barre_menu_op);
     }
     
-     public void afficherMenuOp(Scene scene, Personnel p){
+     public void afficherMenuOp(Scene scene){
         this.scene_welop = scene;
         AccueilView.getFenetre_principale().setScene(scene);
         AccueilView.getFenetre_principale().show();
         
-        MenuOperateurView view_menu_op = new MenuOperateurView(p);
+        MenuOperateurView view_menu_op = new MenuOperateurView();
         ControleMenuOp controle_menu_op = new ControleMenuOp(view_menu_op);
         
         this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit(scene);});
