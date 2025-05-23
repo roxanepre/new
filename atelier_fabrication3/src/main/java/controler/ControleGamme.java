@@ -22,14 +22,14 @@ public class ControleGamme {
         this.vue = vue;
     }
     
-    public void creerGamme() {
+    public void creerGamme(Produit prod1) {
 
         Gamme gamme1 = new Gamme(this.vue.getRecup_id_gam().getText(),
                                  this.vue.getRecup_ref_gam().getText());
         gamme1.creerGamme(prod1, gamme1.getIdGamme(), gamme1.getRefGamme());
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter("gammes.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
-            pw.write(gamme1.getIdGamme()+" : référence "+gamme1.getRefGamme()+", liste de machines "+gamme1.getListMachine());
+            pw.write(gamme1.getIdGamme()+" : référence "+gamme1.getRefGamme()+", liste de machines "+gamme1.getListMachine()+", durée "+gamme1.dureeGamme(gamme1.getListOp(), 0)+" et coût "+gamme1.cout_gamme());
             pw.newLine();
             //pw.close()
             System.out.println(gamme1.getIdGamme()+" ajoutée au fichier");
@@ -39,7 +39,7 @@ public class ControleGamme {
     }
     
     public void afficherGamme(Gamme gamme1){
-// ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
+
         try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
@@ -53,7 +53,9 @@ public class ControleGamme {
         }  
     }
     
-    
+    public void modifierGamme(Gamme gamme1){
+        
+    }
     
     public void supprimerGamme(Gamme gamme1){
 // ici je vais lire toutes les lignes du fichier sauf celle commençant par machine1 pour les sauvegarder dans une liste 
@@ -81,4 +83,13 @@ public class ControleGamme {
             e.printStackTrace();
         }
     }
+    
+    public void ajouterOp(Gamme gamme1, Operation op1){
+        gamme1.ajouterOp(op1);
+    }
+    
+    public void ajouterMach(Gamme gamme1, Machine mach1){
+        gamme1.ajouterMachine(mach1);
+    }
+    
 }

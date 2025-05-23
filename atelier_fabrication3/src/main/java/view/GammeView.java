@@ -43,15 +43,18 @@ public class GammeView {
     Button aff_gamme = new Button("Afficher");
     Button mod_gamme = new Button("Modifier");
     Button supp_gamme = new Button("Ajouter");
-    Button dur_gamme = new Button("Durée gamme");
-    Button c_gamme = new Button("Coût gamme");
+    Button ajout_mach = new Button("Ajouter une machine");
+    Button ajout_op = new Button("Ajouter une opération");
+    //Button dur_gamme = new Button("Durée gamme");
+    //Button c_gamme = new Button("Coût gamme");
+    //j'ai déjà mis les calculs de durée et de cout directement dans creerGamme en appelant les méthodes de Gamme qui le font
     
     public GammeView() {
         this.pane_gamme_info.add(this.ref_gam,0,0,1,1);
         this.pane_gamme_info.add(this.recup_ref_gam,0,1,1,1);
         this.pane_gamme_info.add(this.id_gam,1,0,1,1);
         this.pane_gamme_info.add(this.recup_id_gam,1,1,1,1);
-        this.hb_gamme.getChildren().addAll(this.creer_gamme,this.aff_gamme,this.mod_gamme,this.supp_gamme,this.c_gamme,this.dur_gamme);
+        this.hb_gamme.getChildren().addAll(this.creer_gamme,this.aff_gamme,this.mod_gamme,this.supp_gamme, this.ajout_mach, this.ajout_op);
         this.pane_gamme_loc.setRightAnchor(this.hb_gamme,10.0);
         this.pane_gamme.setCenter(this.pane_gamme_info);
         this.pane_gamme.setBottom(this.pane_gamme_loc);
