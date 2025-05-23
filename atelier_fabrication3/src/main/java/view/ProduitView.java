@@ -70,7 +70,7 @@ public class ProduitView {
         
         this.creer_prod.setOnAction(evt -> {controler_prod.creerProd();});
         this.aff_prod.setOnAction(evt -> {controler_prod.afficherProd(prod_12);});
-        this.mod_prod.setOnAction(evt -> {controler_prod.modifierProd();});
+        this.mod_prod.setOnAction(evt -> {controler_prod.modifierProd(prod_12);});
         this.supp_prod.setOnAction(evt -> {controler_prod.supprimerProd(prod_12);});
         this.produit_b.setOnAction(e->{controler_prod.afficherProduitScene(scene);});
         this.gamme_b.setOnAction(e->{controler_prod.afficherGammeScene(scene);});

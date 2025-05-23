@@ -70,7 +70,7 @@ public class PosteView {
         
         this.creer_poste.setOnAction(evt -> {controler_poste.creerPoste();});
         this.aff_poste.setOnAction(evt -> {controler_poste.afficherPoste(poste_12);});
-        this.mod_poste.setOnAction(evt -> {controler_poste.modifierPoste();});
+        this.mod_poste.setOnAction(evt -> {controler_poste.modifierPoste(poste_12);});
         this.supp_poste.setOnAction(evt -> {controler_poste.supprimerPoste(poste_12);});
         this.produit_b.setOnAction(e->{controler_poste.afficherProduitScene(scene);});
         this.gamme_b.setOnAction(e->{controler_poste.afficherGammeScene(scene);});

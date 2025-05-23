@@ -85,7 +85,7 @@ public class MachineView {
         Machine mach_12 = new Machine();
         this.creer_mac.setOnAction(evt -> {controler_mach.creerMac();});
         this.aff_mac.setOnAction(evt -> {controler_mach.afficherMach(mach_12);});
-        this.mod_mac.setOnAction(evt -> {controler_mach.modifierMach();});
+        this.mod_mac.setOnAction(evt -> {controler_mach.modifierMach(mach_12);});
         this.supp_mac.setOnAction(evt -> {controler_mach.supprimerMach(mach_12);});
         this.produit_b.setOnAction(e->{controler_mach.afficherProduitScene(scene);});
         this.gamme_b.setOnAction(e->{controler_mach.afficherGammeScene(scene);});
