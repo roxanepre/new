@@ -60,7 +60,7 @@ public class ControlePersonnel {
                                     this.vue.getRecup_mdp_pers().getText());
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("personnels.txt",true));
-            bw.write(pers1.idPersonne+" : nom "+pers1.getNom()+", prénom "+pers1.getPrenom());
+            bw.write(pers1.idPersonne+" : nom "+pers1.getNom()+", prénom "+pers1.getPrenom()+" et mot de passe "+pers1.getPassword());
             bw.newLine();
             //bw.close()
             System.out.println(pers1.idPersonne+" ajouté au fichier");
