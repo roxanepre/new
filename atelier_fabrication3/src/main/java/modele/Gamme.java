@@ -57,6 +57,18 @@ public class Gamme {
         System.out.println("La nouvelle gamme a été créée avec succès !");
     }
     
+    public Gamme(){
+       this.idGamme = "";
+        this.refGamme = "";
+        /*this.listEquipement= new ArrayList(); en commentaire pour la raison qui précède*/
+        this.listOp = new ArrayList();
+        this.gamme_op = new LinkedHashMap();
+        this.listMachine = new ArrayList();
+        //this.listeGamme = new ArrayList();
+        this.cout_gamme=0;
+        this.duree_gamme=0;
+    }
+    
     public String getIdGamme() {
         return idGamme;
     }
