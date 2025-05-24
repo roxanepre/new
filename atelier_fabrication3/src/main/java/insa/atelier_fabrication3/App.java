@@ -2,9 +2,6 @@ package insa.atelier_fabrication3;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import view.AccueilView;
 

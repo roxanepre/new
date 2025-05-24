@@ -56,19 +56,19 @@ public class PersonnelView {
 
     public PersonnelView() {
         this.pane_personnel_info.add(this.id_pers,0,0,1,1);
-        this.pane_personnel_info.add(this.recup_id_pers,0,1,1,1);
-        this.pane_personnel_info.add(this.nom_pers,1,0,1,1);
+        this.pane_personnel_info.add(this.recup_id_pers,1,0,1,1);
+        this.pane_personnel_info.add(this.nom_pers,0,1,1,1);
         this.pane_personnel_info.add(this.recup_nom_pers,1,1,1,1);
-        this.pane_personnel_info.add(this.pren_pers,2,0,1,1);
-        this.pane_personnel_info.add(this.recup_pren_pers,2,1,1,1);
-        this.pane_personnel_info.add(this.mdp_pers,3,0,1,1);
-        this.pane_personnel_info.add(this.recup_mdp_pers,3,1,1,1);
-        this.pane_personnel_info.add(this.dispo_pers,4,0,1,1);
-        this.pane_personnel_info.add(this.recup_dispo_pers,4,1,1,1);
-        this.pane_personnel_info.add(this.comp_mac,5,0,1,1);
-        this.pane_personnel_info.add(this.recup_comp_mac,5,1,1,1);
+        this.pane_personnel_info.add(this.pren_pers,0,2,1,1);
+        this.pane_personnel_info.add(this.recup_pren_pers,1,2,1,1);
+        this.pane_personnel_info.add(this.mdp_pers,0,3,1,1);
+        this.pane_personnel_info.add(this.recup_mdp_pers,1,3,1,1);
+        this.pane_personnel_info.add(this.dispo_pers,0,4,1,1);
+        this.pane_personnel_info.add(this.recup_dispo_pers,1,4,1,1);
+        this.pane_personnel_info.add(this.comp_mac,0,5,1,1);
+        this.pane_personnel_info.add(this.recup_comp_mac,1,5,1,1);
         this.hb_personnel.getChildren().addAll(this.fiche, this.embauche,this.virer);
-        this.pane_personnel_next.setRightAnchor(this.hb_personnel,10.0);
+        pane_personnel_next.getChildren().add(this.hb_personnel);
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_personnel.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_personnel.setCenter(this.pane_personnel_info);

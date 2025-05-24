@@ -46,7 +46,7 @@ public class MenuOperateurView {
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_op.getMenus().addAll(this.produit_b,this.gamme_b,this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_op_menu.add(this.welcome_op,0,0,1,1);
-        this.pane_op_menu.add(this.indic_wel_op,1,0,1,1);
+        this.pane_op_menu.add(this.indic_wel_op,0,1,1,1);
         this.pane_welop.setCenter(this.pane_op_menu);
         this.pane_welop.setTop(this.barre_menu_op);
     }

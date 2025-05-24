@@ -11,28 +11,28 @@ import java.util.LinkedHashMap;
  * @author mpommier01
  */
 public class Personnel {
+
     public String idPersonne;
     private String Nom;
     private String Prenom;
     public String password;
-    public static String id_chef = "r0x64i5d";
-    public String pwd_chef = "atelier67";
-    public static ArrayList liste_personnel;
-    public static LinkedHashMap<String,String> liste_mdp;
+    public static String id_chef = "roxane";
+    public static String pwd_chef = "atelier67";
+    public static ArrayList liste_personnel = new ArrayList();
+    public static LinkedHashMap<String,String> liste_mdp = new LinkedHashMap();
+    //Personnel.liste_personnel.add(Personnel.id_chef);
+    //liste_mdp.put(Personnelid_chef,pwd_chef);
+
+
 
     public Personnel(String idPersonne, String Nom, String Prenom, String pwd){
         this.idPersonne =idPersonne;
         this.Nom = Nom;
         this.Prenom = Prenom;
         this.password = pwd;
-        Personnel.liste_mdp = new LinkedHashMap();
-        Personnel.liste_personnel = new ArrayList();
-        Personnel.liste_mdp.put(Personnel.id_chef,pwd_chef);
         Personnel.liste_mdp.put(idPersonne, pwd);
-        Personnel.liste_personnel.add(Personnel.id_chef);
         Personnel.liste_personnel.add(idPersonne);
     }
-    
     public Personnel (){
         this.idPersonne="";
         this.Nom="";
@@ -78,12 +78,12 @@ public class Personnel {
         Personnel.id_chef = id_chef;
     }
 
-    public String getPwd_chef() {
+    public static String getPwd_chef() {
         return pwd_chef;
     }
 
     public void setPwd_chef(String pwd_chef) {
-        this.pwd_chef = pwd_chef;
+        Personnel.pwd_chef = pwd_chef;
     }
 
     public static ArrayList getListe_personnel() {

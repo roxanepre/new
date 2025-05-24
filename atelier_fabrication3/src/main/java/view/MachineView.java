@@ -58,18 +58,18 @@ public class MachineView {
 
     public MachineView() {
         this.pane_machine_info.add(this.ref_mac,0,0,1,1);
-        this.pane_machine_info.add(this.recup_ref_mac,0,1,1,1);
-        this.pane_machine_info.add(this.desc_mac,1,0,1,1);
+        this.pane_machine_info.add(this.recup_ref_mac,1,0,1,1);
+        this.pane_machine_info.add(this.desc_mac,0,1,1,1);
         this.pane_machine_info.add(this.recup_desc_mac,1,1,1,1);
-        this.pane_machine_info.add(this.dispo_mac,2,0,1,1);
-        this.pane_machine_info.add(this.recup_dispo_mac,2,1,1,1);
-        this.pane_machine_info.add(this.abs_mac,3,0,1,1);
-        this.pane_machine_info.add(this.recup_abs_mac,3,1,1,1);
-        this.pane_machine_info.add(this.ord_mac,4,0,1,1);
-        this.pane_machine_info.add(this.recup_ord_mac,4,1,1,1);
-        this.pane_machine_info.add(this.etat_mac,5,0,1,1);
+        this.pane_machine_info.add(this.dispo_mac,0,2,1,1);
+        this.pane_machine_info.add(this.recup_dispo_mac,1,2,1,1);
+        this.pane_machine_info.add(this.abs_mac,0,3,1,1);
+        this.pane_machine_info.add(this.recup_abs_mac,1,3,1,1);
+        this.pane_machine_info.add(this.ord_mac,0,4,1,1);
+        this.pane_machine_info.add(this.recup_ord_mac,1,4,1,1);
+        this.pane_machine_info.add(this.etat_mac,0,5,1,1);
         this.hb_machine.getChildren().addAll(this.creer_mac,this.mod_mac,this.aff_mac,this.supp_mac);
-        this.pane_mach_next.setRightAnchor(hb_machine,10.0);
+        this.pane_mach_next.getChildren().add(hb_machine);
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_machine.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_machine.setCenter(this.pane_machine_info);

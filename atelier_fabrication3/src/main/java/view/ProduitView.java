@@ -48,11 +48,11 @@ public class ProduitView {
 
     public ProduitView() {
         this.pane_produit_info.add(this.code_prod,0,0,1,1);
-        this.pane_produit_info.add(this.recup_code_prod,0,1,1,1);
-        this.pane_produit_info.add(this.desc_prod,1,0,1,1);
+        this.pane_produit_info.add(this.recup_code_prod,1,0,1,1);
+        this.pane_produit_info.add(this.desc_prod,0,1,1,1);
         this.pane_produit_info.add(this.recup_desc_prod,1,1,1,1);
         this.hb_produit.getChildren().addAll(this.creer_prod,this.aff_prod,this.mod_prod,this.supp_prod);
-        this.pane_produit_next.setRightAnchor(this.hb_produit,10.0);
+        pane_produit_next.getChildren().add(this.hb_produit);
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_produit.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_produit.setCenter(this.pane_produit_info);

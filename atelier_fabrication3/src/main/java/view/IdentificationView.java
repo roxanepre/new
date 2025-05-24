@@ -36,10 +36,10 @@ public class IdentificationView {
     
     public IdentificationView(){
         pane_identification_info.add(identifiant,0,0,1,1);
-        pane_identification_info.add(recup_identifiant,0,1,1,1);
-        pane_identification_info.add(pwd,1,0,1,1);
+        pane_identification_info.add(recup_identifiant,1,0,1,1);
+        pane_identification_info.add(pwd,0,1,1,1);
         pane_identification_info.add(recup_pwd,1,1,1,1);
-        pane_id_next.setRightAnchor(next_id,10.0);
+        pane_id_next.getChildren().add(next_id);
         pane_identification.setTop(id);
         pane_identification.setCenter(pane_identification_info);
         pane_identification.setBottom(pane_id_next);
@@ -60,7 +60,9 @@ public class IdentificationView {
        //on affcihe avec show
        
        ControleIdentification controleur_id = new ControleIdentification(this);
-       next_id.setOnAction(evt -> {controleur_id.verification(this.recup_identifiant.getText(),this.recup_pwd.getText());});
+       next_id.setOnAction(evt -> {
+           controleur_id.verification(this.recup_identifiant.getText(),this.recup_pwd.getText());
+           System.out.println("bouton marche");});
                 
            }
     /* de ce que j'ai compris il faut déclarer un objet de la classe controleur,

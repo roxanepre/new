@@ -47,11 +47,11 @@ public class PosteView {
     
     public PosteView() {
         this.pane_poste_info.add(this.ref_poste,0,0,1,1);
-        this.pane_poste_info.add(this.recup_ref_poste,0,1,1,1);
-        this.pane_poste_info.add(this.des_poste,1,0,1,1);
+        this.pane_poste_info.add(this.recup_ref_poste,1,0,1,1);
+        this.pane_poste_info.add(this.des_poste,0,1,1,1);
         this.pane_poste_info.add(this.recup_des_poste,1,1,1,1);
         this.hb_poste.getChildren().addAll(this.creer_poste,this.aff_poste,this.mod_poste,this.supp_poste);
-        this.pane_poste_next.setRightAnchor(this.hb_poste,10.0);
+        pane_poste_next.getChildren().add(this.hb_poste);
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_poste.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_poste.setBottom(this.pane_poste_next);

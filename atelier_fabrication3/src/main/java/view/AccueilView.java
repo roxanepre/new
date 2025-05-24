@@ -8,7 +8,8 @@ import controler.ControleAccueil;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
@@ -18,21 +19,22 @@ import javafx.stage.Stage;
  */
 public class AccueilView {
     public static Stage fenetre_principale = new Stage();
-    StackPane pane_welcome = new StackPane();
-    Scene scene = new Scene(pane_welcome,400,300);
+    BorderPane layout = new BorderPane();
+    VBox pane_welcome = new VBox(8);
+    Scene scene = new Scene(layout);
     Label welcome = new Label("Bienvenue dans l'application de votre atelier !");
     Button enter_atelier = new Button("Entrer dans l'atelier");
     
     public AccueilView(Stage stage) {
         AccueilView.fenetre_principale = stage;
         stage.setTitle("Atelier de fabrication");
-        //stage.setMaxHeight(2362);
-        //stage.setMaxWidth(2573);
-        //stage.setMinHeight(1772);
-        //stage.setMinWidth(2362);
-        //stage.isResizable();
-        //stage.isMaximized();
+        stage.setMaxHeight(800);
+        stage.setMaxWidth(1000);
+        stage.setMinHeight(400);
+        stage.setMinWidth(600);
+        stage.isResizable();
         pane_welcome.getChildren().addAll(welcome,enter_atelier);
+        layout.setCenter(pane_welcome);
         stage.setScene(scene);
         ControleAccueil controleur = new ControleAccueil(this);
         enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});

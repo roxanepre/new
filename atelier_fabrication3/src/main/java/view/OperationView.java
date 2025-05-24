@@ -48,13 +48,13 @@ public class OperationView {
 
     public OperationView() {
         this.pane_op_info.add(this.id_op,0,0,1,1);
-        this.pane_op_info.add(this.recup_id_op,0,1,1,1);
-        this.pane_op_info.add(this.recup_desc_op,1,0,1,1);
+        this.pane_op_info.add(this.recup_id_op,1,0,1,1);
+        this.pane_op_info.add(this.desc_op,0,1,1,1);
         this.pane_op_info.add(this.recup_desc_op,1,1,1,1);
-        this.pane_op_info.add(this.dur_op,2,0,1,1);
-        this.pane_op_info.add(this.recup_dur_op,2,1,1,1);
+        this.pane_op_info.add(this.dur_op,0,2,1,1);
+        this.pane_op_info.add(this.recup_dur_op,1,2,1,1);
         this.hb_op.getChildren().addAll(this.creer_op,this.aff_op);
-        this.pane_op_next.setRightAnchor(this.hb_op,10.0);
+        pane_op_next.getChildren().add(this.hb_op);
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_operation.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_operation.setCenter(this.pane_op_info);

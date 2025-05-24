@@ -46,7 +46,7 @@ public class MenuChefView {
         equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         barre_menu_chef.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         pane_chef_menu.add(welcome_chef,0,0,1,1);
-        pane_chef_menu.add(pane_welchef_info,1,0,1,1);
+        pane_chef_menu.add(pane_welchef_info,0,1,1,1);
         pane_welchef.setCenter(pane_chef_menu);
         pane_welchef.setTop(barre_menu_chef);
     }

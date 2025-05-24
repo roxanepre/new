@@ -57,11 +57,11 @@ public class GammeView {
     
     public GammeView() {
         this.pane_gamme_info.add(this.ref_gam,0,0,1,1);
-        this.pane_gamme_info.add(this.recup_ref_gam,0,1,1,1);
-        this.pane_gamme_info.add(this.id_gam,1,0,1,1);
+        this.pane_gamme_info.add(this.recup_ref_gam,1,0,1,1);
+        this.pane_gamme_info.add(this.id_gam,0,1,1,1);
         this.pane_gamme_info.add(this.recup_id_gam,1,1,1,1);
         this.hb_gamme.getChildren().addAll(this.creer_gamme,this.aff_gamme,this.mod_gamme,this.supp_gamme, this.ajout_mach, this.ajout_op);
-        this.pane_gamme_loc.setRightAnchor(this.hb_gamme,10.0);
+        AnchorPane.setRightAnchor(this.hb_gamme,10.0);
         this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
         this.barre_menu_gamme.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
         this.pane_gamme.setCenter(this.pane_gamme_info);
