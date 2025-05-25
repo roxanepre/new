@@ -28,7 +28,6 @@ public class MachineView {
     AnchorPane pane_mach_next = new AnchorPane();
     BorderPane pane_machine = new BorderPane();
     HBox hb_machine = new HBox(15);
-   // Scene scene_machine = new Scene(pane_machine);
     Label ref_mac = new Label("Référence :  ");
     TextField recup_ref_mac = new TextField();
     Label desc_mac = new Label("Description :  ");
