@@ -32,10 +32,18 @@ public class ControleIdentification {
         this.view=view;
         
     }
+    public void afficherMenuC(){
+        MenuChefView nouvelle_vuechef = new MenuChefView();
+        nouvelle_vuechef.afficherMenuChef(view.getScene());
+    }
+    public void afficherMenuO(){
+        MenuOperateurView nouvelle_scene_1 = new MenuOperateurView();
+        nouvelle_scene_1.afficherMenuOp(view.getScene());
+    }
     //il faut que je fasse la méthode action dont je parle dans la classe View
     
     
-    public void verification(String id, String pwd){
+    /*public void verification(String id, String pwd){
         //Pane new_pane2 = new Pane();
         //Scene new_scene2 = new Scene(new_pane2);
         int i;
@@ -72,7 +80,7 @@ public class ControleIdentification {
                 error_mdp.show();
             }
         }
-    }
+    }*/
      // Roxane j'ai du faire une autre methode car la methode verificationne prenait pas en parametre le personnel
  
     
