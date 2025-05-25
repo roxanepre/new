@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.BorderPane;
 //import javafx.scene.layout.HBox;
 //import javafx.stage.Stage;
@@ -22,7 +22,7 @@ import controler.ControleIdentification;
 public class IdentificationView {
     Scene scene_identification;
     GridPane pane_identification_info = new GridPane();
-    AnchorPane pane_id_next = new AnchorPane();
+    HBox pane_id_next = new HBox(15);
     BorderPane pane_identification = new BorderPane();
     //Scene scene_identification = new Scene(pane_identification,400,300);
     Label id = new Label("Identifiez-vous");
@@ -30,7 +30,8 @@ public class IdentificationView {
     public TextField recup_identifiant = new TextField();
     Label pwd = new Label ("Mot de passe :");
     public TextField recup_pwd = new TextField();
-    Button next_id = new Button("Suivant");
+    Button next_id = new Button("Chef");
+    Button next_idO = new Button("Op");
     //Label message = new Label();
     
     
@@ -39,7 +40,7 @@ public class IdentificationView {
         pane_identification_info.add(recup_identifiant,1,0,1,1);
         pane_identification_info.add(pwd,0,1,1,1);
         pane_identification_info.add(recup_pwd,1,1,1,1);
-        pane_id_next.getChildren().add(next_id);
+        pane_id_next.getChildren().addAll(next_id,next_idO);
         pane_identification.setTop(id);
         pane_identification.setCenter(pane_identification_info);
         pane_identification.setBottom(pane_id_next);
@@ -60,11 +61,9 @@ public class IdentificationView {
        //on affcihe avec show
        
        ControleIdentification controleur_id = new ControleIdentification(this);
-       next_id.setOnAction(evt -> {
-           controleur_id.verification(this.recup_identifiant.getText(),this.recup_pwd.getText());
-           System.out.println("bouton marche");});
-                
-           }
+       next_id.setOnAction(evt -> {controleur_id.afficherMenuC(/*this.recup_identifiant.getText(),this.recup_pwd.getText()*/);System.out.println("bouton marche");});
+       next_idO.setOnAction(evt ->{controleur_id.afficherMenuO();});
+       }
     /* de ce que j'ai compris il faut déclarer un objet de la classe controleur,
     puis on défénit ce qu'il se passe en clicant sur les boutons avec les setOnaction et les methodes qui se trouveront dans la classe controleur
     

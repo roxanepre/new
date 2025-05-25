@@ -35,7 +35,7 @@ public class PosteView {
     Button creer_poste = new Button("Créer");
     Button aff_poste = new Button("Afficher");
     Button mod_poste = new Button("Modifier");
-    Button supp_poste = new Button("Ajouter");
+    Button supp_poste = new Button("Supprimer");
     Menu produit_b = new Menu("Produit");
     Menu gamme_b = new Menu("Gamme");
     Menu operation_b = new Menu("Operation");
