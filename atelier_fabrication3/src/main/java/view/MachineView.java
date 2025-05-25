@@ -130,5 +130,29 @@ public class MachineView {
     public TextField getRecup_etat_mac() {
         return recup_etat_mac;
     }
+
+    public Label getRef_mac() {
+        return ref_mac;
+    }
+
+    public Label getDesc_mac() {
+        return desc_mac;
+    }
+
+    public Label getDispo_mac() {
+        return dispo_mac;
+    }
+
+    public Label getAbs_mac() {
+        return abs_mac;
+    }
+
+    public Label getOrd_mac() {
+        return ord_mac;
+    }
+
+    public Label getEtat_mac() {
+        return etat_mac;
+    }
     
 }

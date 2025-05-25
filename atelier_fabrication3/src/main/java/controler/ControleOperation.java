@@ -17,44 +17,44 @@ import view.*;
  */
 public class ControleOperation {
     
-    private OperationView vue;
+    private final OperationView vue;
     
     public ControleOperation(OperationView v) {
         this.vue = v;
     }
     
     public void afficherProduitScene (){
-        ProduitView nouvelle_vueA1 = new ProduitView();
-        nouvelle_vueA1.actionProd(vue.getScene()); 
+        ProduitView nouvelle_vueA = new ProduitView();
+        nouvelle_vueA.actionProd(vue.getScene()); 
     }
     
     public void afficherGammeScene () {
-        GammeView nouvelle_vueB1 = new GammeView();
-        nouvelle_vueB1.afficheGamme(vue.getScene()); 
+        GammeView nouvelle_vueB = new GammeView();
+        nouvelle_vueB.afficheGamme(vue.getScene()); 
     }
     
    public void afficherOperationScene (){
-       OperationView nouvelle_vueC1 = new OperationView(); 
-       nouvelle_vueC1.actionOp(vue.getScene()); 
+       OperationView nouvelle_vueC = new OperationView(); 
+       nouvelle_vueC.actionOp(vue.getScene()); 
    }
        
    public void afficherEquipementScene(){
-       EquipementView nouvelle_vueD1 = new EquipementView(); 
-       nouvelle_vueD1.afficheequip(vue.getScene());
+       EquipementView nouvelle_vueD = new EquipementView(); 
+       nouvelle_vueD.afficheequip(vue.getScene());
    }
    
    public void afficherPersonnelScene (){
-       PersonnelView nouvelle_vueE1 = new PersonnelView();
-       nouvelle_vueE1.actionPersonnel(vue.getScene());
+       PersonnelView nouvelle_vueE = new PersonnelView();
+       nouvelle_vueE.actionPersonnel(vue.getScene());
        
    }
    public void afficherposteScene (){
-        PosteView nouvelle_vueF1 = new PosteView();
-        nouvelle_vueF1.afficheposte(vue.getScene());
+        PosteView nouvelle_vue2 = new PosteView();
+        nouvelle_vue2.afficheposte(vue.getScene());
     }
     public void affichermachineScene (){
-        MachineView nouvelle_vueG1 = new MachineView();
-        nouvelle_vueG1.actionMach(vue.getScene());
+        MachineView nouvelle_vue3 = new MachineView();
+        nouvelle_vue3.actionMach(vue.getScene());
     }
     public void creerOperation(){
         Operation op1 = new Operation(this.vue.getRecup_id_op().getText(),

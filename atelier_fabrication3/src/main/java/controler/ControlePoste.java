@@ -17,35 +17,35 @@ import view.*;
  */
 public class ControlePoste {
     
-    private PosteView vue ;
+    private final PosteView vue ;
    
     public ControlePoste(PosteView v) {
         this.vue = v;
     }
     
     public void afficherProduitScene (){
-        ProduitView nouvelle_vueA3 = new ProduitView();
-        nouvelle_vueA3.actionProd(vue.getScene()); 
+        ProduitView nouvelle_vueA = new ProduitView();
+        nouvelle_vueA.actionProd(vue.getScene()); 
     }
     
     public void afficherGammeScene () {
-        GammeView nouvelle_vueB3 = new GammeView();
-        nouvelle_vueB3.afficheGamme(vue.getScene()); 
+        GammeView nouvelle_vueB = new GammeView();
+        nouvelle_vueB.afficheGamme(vue.getScene()); 
     }
     
    public void afficherOperationScene (){
-       OperationView nouvelle_vueC3 = new OperationView(); 
-       nouvelle_vueC3.actionOp(vue.getScene()); 
+       OperationView nouvelle_vueC = new OperationView(); 
+       nouvelle_vueC.actionOp(vue.getScene()); 
    }
        
    public void afficherEquipementScene(){
-       EquipementView nouvelle_vueD3 = new EquipementView(); 
-       nouvelle_vueD3.afficheequip(vue.getScene());
+       EquipementView nouvelle_vueD = new EquipementView(); 
+       nouvelle_vueD.afficheequip(vue.getScene());
    }
    
    public void afficherPersonnelScene (){
-       PersonnelView nouvelle_vueE3 = new PersonnelView();
-       nouvelle_vueE3.actionPersonnel(vue.getScene());
+       PersonnelView nouvelle_vueE = new PersonnelView();
+       nouvelle_vueE.actionPersonnel(vue.getScene());
        
    }
    public void afficherposteScene (){

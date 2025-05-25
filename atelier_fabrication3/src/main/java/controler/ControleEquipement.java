@@ -27,28 +27,28 @@ public class ControleEquipement {
     }
     
     public void afficherProduitScene (){
-        ProduitView nouvelle_vueA5 = new ProduitView();
-        nouvelle_vueA5.actionProd(view.getScene()); 
+        ProduitView nouvelle_vueA = new ProduitView();
+        nouvelle_vueA.actionProd(view.getScene()); 
     }
     
     public void afficherGammeScene () {
-        GammeView nouvelle_vueB5 = new GammeView();
-        nouvelle_vueB5.afficheGamme(view.getScene()); 
+        GammeView nouvelle_vueB = new GammeView();
+        nouvelle_vueB.afficheGamme(view.getScene()); 
     }
     
     public void afficherOperationScene (){
-       OperationView nouvelle_vueC5 = new OperationView(); 
-       nouvelle_vueC5.actionOp(view.getScene()); 
+       OperationView nouvelle_vueC = new OperationView(); 
+       nouvelle_vueC.actionOp(view.getScene()); 
     }
        
     public void afficherEquipementScene(){
-       EquipementView nouvelle_vueD5 = new EquipementView(); 
-       nouvelle_vueD5.afficheequip(view.getScene());
+       EquipementView nouvelle_vueD = new EquipementView(); 
+       nouvelle_vueD.afficheequip(view.getScene());
     }
    
     public void afficherPersonnelScene (){
-       PersonnelView nouvelle_vueE5 = new PersonnelView();
-       nouvelle_vueE5.actionPersonnel(view.getScene());
+       PersonnelView nouvelle_vueE = new PersonnelView();
+       nouvelle_vueE.actionPersonnel(view.getScene());
        
     }
     public void afficherposte (){

@@ -15,6 +15,9 @@ import view.OperationView;
 import view.PersonnelView;
 import view.PosteView;
 import view.ProduitView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  *
@@ -22,43 +25,43 @@ import view.ProduitView;
  */
 public class ControleMachine {
     
-    private MachineView vue;
+    private final MachineView vue;
     
     public ControleMachine(MachineView v) {
         this.vue = v;
     }
     public void afficherProduitScene (){
-        ProduitView nouvelle_vueA7 = new ProduitView();
-        nouvelle_vueA7.actionProd(vue.getScene()); 
+        ProduitView nouvelle_vueA = new ProduitView();
+        nouvelle_vueA.actionProd(vue.getScene()); 
     }
     
     public void afficherGammeScene () {
-        GammeView nouvelle_vueB7 = new GammeView();
-        nouvelle_vueB7.afficheGamme(vue.getScene()); 
+        GammeView nouvelle_vueB = new GammeView();
+        nouvelle_vueB.afficheGamme(vue.getScene()); 
     }
     
    public void afficherOperationScene (){
-       OperationView nouvelle_vueC7 = new OperationView(); 
-       nouvelle_vueC7.actionOp(vue.getScene());
+       OperationView nouvelle_vueC = new OperationView(); 
+       nouvelle_vueC.actionOp(vue.getScene());
    }
        
    public void afficherEquipementScene(){
-       EquipementView nouvelle_vueD7 = new EquipementView(); 
-       nouvelle_vueD7.afficheequip(vue.getScene());
+       EquipementView nouvelle_vueD = new EquipementView(); 
+       nouvelle_vueD.afficheequip(vue.getScene());
    }
    
    public void afficherPersonnelScene (){
-       PersonnelView nouvelle_vueE7 = new PersonnelView();
-       nouvelle_vueE7.actionPersonnel(vue.getScene());
+       PersonnelView nouvelle_vueE = new PersonnelView();
+       nouvelle_vueE.actionPersonnel(vue.getScene());
        
    }
    public void afficherposteScene (){
-        PosteView nouvelle_vue7 = new PosteView();
-        nouvelle_vue7.afficheposte(vue.getScene());
+        PosteView nouvelle_vue2 = new PosteView();
+        nouvelle_vue2.afficheposte(vue.getScene());
     }
     public void affichermachineScene (){
-        MachineView nouvelle_vue7 = new MachineView();
-        nouvelle_vue7.actionMach(vue.getScene());
+        MachineView nouvelle_vue3 = new MachineView();
+        nouvelle_vue3.actionMach(vue.getScene());
     }
     public void creerMac() {
 
@@ -87,7 +90,31 @@ public class ControleMachine {
             String line ;
             while ((line = reader.readLine()) != null){
                 if (line.startsWith(mach1.getRefMachine())){
-                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                    System.out.println(line);
+                    Stage aff_machine = new Stage();
+                    GridPane layout_aff = new GridPane();
+                    Scene scen_aff = new Scene(layout_aff);
+                    Label ref_aff_mac = new Label(this.vue.getRecup_ref_mac().getText());
+                    Label desc_aff_mac = new Label(this.vue.getRecup_desc_mac().getText());
+                    Label dispo_aff_mach = new Label(this.vue.getRecup_dispo_mac().getText());
+                    Label abs_mac_aff = new Label(this.vue.getRecup_abs_mac().getText());
+                    Label ord_mac_aff = new Label(this.vue.getRecup_ord_mac().getText());
+                    Label etat_mac_aff = new Label(this.vue.getRecup_etat_mac().getText());
+                    //Label cout_mac_aff = new Label(this.vue.getRecup_cout_mac().getText());
+                    layout_aff.add(this.vue.getRef_mac(),0,0,1,1);
+                    layout_aff.add(ref_aff_mac,1,0,1,1);
+                    layout_aff.add(this.vue.getDesc_mac(),0,1,1,1);
+                    layout_aff.add(desc_aff_mac,1,1,1,1);
+                    layout_aff.add(this.vue.getDispo_mac(),0,2,1,1);
+                    layout_aff.add(dispo_aff_mach,1,2,1,1);
+                    layout_aff.add(this.vue.getAbs_mac(),0,3,1,1);
+                    layout_aff.add(abs_mac_aff,1,3,1,1);
+                    layout_aff.add(this.vue.getOrd_mac(),0,4,1,1);
+                    layout_aff.add(ord_mac_aff ,1,4,1,1);
+                    layout_aff.add(this.vue.getEtat_mac(),0,5,1,1);
+                    layout_aff.add(etat_mac_aff,1,5,1,1);
+                    aff_machine.setScene(scen_aff);
+                    aff_machine.show();
                     break ;
                 }
             }
