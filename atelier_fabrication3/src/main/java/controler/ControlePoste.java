@@ -119,16 +119,17 @@ public class ControlePoste {
         File originalFile = new File("postes.txt");
         File tempFile = new File("postes_temporaire.txt");
         try (BufferedReader reader = new BufferedReader(new FileReader(originalFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true))){
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))){
             String line;
 
             while ((line = reader.readLine()) != null) {
                 if (line.startsWith(poste1.getIdEquipement())) {
                     line = poste1.getIdEquipement()+" : sa description est "+poste1.getdEquipement()+" et ce poste contient les machines suivantes "+poste1.getListMachine();
+                    System.out.println(poste1.getIdEquipement()+" modifié avec succès");
                 }
                 writer.write(line);
                 writer.newLine();
-                System.out.println(poste1.getIdEquipement()+" modifié avec succès");
+                
             }
         } catch (IOException e) {
             e.printStackTrace();
