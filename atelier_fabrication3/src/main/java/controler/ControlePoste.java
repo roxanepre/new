@@ -6,6 +6,7 @@ package controler;
 import java.io.* ;
 import java.util.ArrayList;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import modele.*;
@@ -76,6 +77,7 @@ public class ControlePoste {
             String line ;
             while ((line = reader.readLine()) != null){
                 if (line.startsWith(poste1.getIdEquipement())){
+                    Label affposte = new Label(line);
                     System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
                     break ;
                 }
@@ -126,6 +128,7 @@ public class ControlePoste {
                 }
                 writer.write(line);
                 writer.newLine();
+                System.out.println(poste1.getIdEquipement()+" modifié avec succès");
             }
         } catch (IOException e) {
             e.printStackTrace();
