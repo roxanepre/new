@@ -97,13 +97,14 @@ public class ControlePoste {
                     Scene scen_aff = new Scene(layout_aff);
                     Label ref_aff_poste = new Label(this.vue6.getRecup_ref_poste().getText());
                     Label desc_aff_poste = new Label(this.vue6.getRecup_des_poste().getText());
-                    //Label mach_poste = new Label("Liste des machines");
+                    Label mach_poste = new Label(String.valueOf(poste1.getListMachine()));
+                    Label mach = new Label("Liste de machines");
                     layout_aff.add(this.vue6.getRef_poste(),0,0,1,1);
                     layout_aff.add(ref_aff_poste,1,0,1,1);
                     layout_aff.add(this.vue6.getDes_poste(),0,1,1,1);
                     layout_aff.add(desc_aff_poste,1,1,1,1);
-                    //layout_aff.add(poste1.getListMachine(),0,2,1,1); il faut convertir une arraylist en autre chose mais je vois pas trop comment faire
-                    //lajout_aff.add(mach_poste,1,2,1,1);
+                    layout_aff.add(mach,0,2,1,1);
+                    layout_aff.add(mach_poste,1,2,1,1);
                     aff_poste.setTitle("Affichage du poste");
                     aff_poste.setScene(scen_aff);
                     aff_poste.show();
