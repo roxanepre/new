@@ -74,7 +74,7 @@ public class ControlePersonnel {
     }
     
     public void fichePersonnel(Personnel pers1) {
-// ici je cherche dans le fichier la ligne qui commence par personnel1 pour ensuite afficher les informations de cette ligne
+// ici je cherche dans le fichier la ligne qui commence par personne1 pour ensuite afficher les informations de cette ligne
         try (BufferedReader reader = new BufferedReader(new FileReader("personnels.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){

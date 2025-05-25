@@ -71,7 +71,12 @@ public class MenuOperateurView {
     public Scene getScene(){
         return scene_welop;
     }
-     /*
+     /* il s'agissait de notre première version (nous l'avons laissée en commentaire) : 
+    
+    cette première version prenait en paramètre un personnel dans le constructeur, 
+    cela dans le but de pouvoir dire "bonjour" + identifiant associé au personnel
+    finalement nous n'avons pas réussi donc il ne dit pas bonjour :/
+    
     Personnel p;
     FlowPane pane_welop_info = new FlowPane();
     BorderPane pane_welop = new BorderPane();

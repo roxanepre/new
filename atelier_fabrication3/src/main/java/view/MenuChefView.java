@@ -75,16 +75,9 @@ public class MenuChefView {
     }
 }
     
-    /*Personnel p;
-    FlowPane pane_welchef_info = new FlowPane();
-    BorderPane pane_welchef = new BorderPane();
-    Scene scene;
-    Label welcome_chef = new Label(); 
-    Button produit_b = new Button("Produit");
-    Button gamme_b = new Button("Gamme");
-    Button operation_b = new Button("Operation");
-    Button equipement_b = new Button("Equipement");
-    Button personnel_b = new Button("Personnel");
+    /* Tout ce qu'on a laissé en commentaire sont des choses que l'on a essayées 
+    puis choisi de ne pas conserver dans la version définitive : 
+    (voir également dans MenuOperateurView)
 
     public MenuChefView(Personnel p) { // en fait le constructeur prend en parametre le un elt de personnel p et va chercher son nom pour lui dire bonjour
         this.p=p;

@@ -53,10 +53,7 @@ public class IdentificationView {
         //AccueilView.getFenetre_principale().show();
         //IdentificationView id_view = new IdentificationView();
         
-       // la méthode afficher prend en paramètre le stage
-       //on attricut le stage donné en paramètre à la vue
-       //on met la scene dans le stage
-       //on affcihe avec show
+   
        
        ControleIdentification controleur_id = new ControleIdentification(this);
        next_id.setOnAction(evt -> {controleur_id.afficherMenuC(/*this.recup_identifiant.getText(),this.recup_pwd.getText()*/);System.out.println("bouton marche");});
