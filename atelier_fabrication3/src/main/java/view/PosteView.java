@@ -28,9 +28,9 @@ public class PosteView {
     BorderPane pane_poste = new BorderPane();
     HBox hb_poste = new HBox(15);
     //Scene scene_poste = new Scene(pane_poste);
-    Label ref_poste = new Label("Référence");
+    Label ref_poste = new Label("Référence :  ");
     TextField recup_ref_poste = new TextField();
-    Label des_poste = new Label("Désignation");
+    Label des_poste = new Label("Désignation :  ");
     TextField recup_des_poste = new TextField();
     Button creer_poste = new Button("Créer");
     Button aff_poste = new Button("Afficher");
