@@ -25,53 +25,53 @@ import javafx.stage.Stage;
  */
 public class ControleMachine {
     
-    private final MachineView vue;
+    private final MachineView vue2;
     
     public ControleMachine(MachineView v) {
-        this.vue = v;
+        this.vue2 = v;
     }
     public void afficherProduitScene (){
         ProduitView nouvelle_vueA = new ProduitView();
-        nouvelle_vueA.actionProd(vue.getScene()); 
+        nouvelle_vueA.actionProd(vue2.getScene()); 
     }
     
     public void afficherGammeScene () {
         GammeView nouvelle_vueB = new GammeView();
-        nouvelle_vueB.afficheGamme(vue.getScene()); 
+        nouvelle_vueB.afficheGamme(vue2.getScene()); 
     }
     
    public void afficherOperationScene (){
        OperationView nouvelle_vueC = new OperationView(); 
-       nouvelle_vueC.actionOp(vue.getScene());
+       nouvelle_vueC.actionOp(vue2.getScene());
    }
        
    public void afficherEquipementScene(){
        EquipementView nouvelle_vueD = new EquipementView(); 
-       nouvelle_vueD.afficheequip(vue.getScene());
+       nouvelle_vueD.afficheequip(vue2.getScene());
    }
    
    public void afficherPersonnelScene (){
        PersonnelView nouvelle_vueE = new PersonnelView();
-       nouvelle_vueE.actionPersonnel(vue.getScene());
+       nouvelle_vueE.actionPersonnel(vue2.getScene());
        
    }
    public void afficherposteScene (){
         PosteView nouvelle_vue2 = new PosteView();
-        nouvelle_vue2.afficheposte(vue.getScene());
+        nouvelle_vue2.afficheposte(vue2.getScene());
     }
     public void affichermachineScene (){
         MachineView nouvelle_vue3 = new MachineView();
-        nouvelle_vue3.actionMach(vue.getScene());
+        nouvelle_vue3.actionMach(vue2.getScene());
     }
     public void creerMac() {
 
-        Machine mach1 = new Machine(this.vue.getRecup_ref_mac().getText(),
-                                    this.vue.getRecup_desc_mac().getText(),
-                                    Integer.parseInt(this.vue.getRecup_dispo_mac().getText()),
-                                    Integer.parseInt(this.vue.getRecup_abs_mac().getText()),
-                                    Integer.parseInt(this.vue.getRecup_ord_mac().getText()),
-                                    Integer.parseInt(this.vue.getRecup_etat_mac().getText()),
-                                    Float.parseFloat(this.vue.getRecup_cout_mac().getText()));
+        Machine mach1 = new Machine(this.vue2.getRecup_ref_mac().getText(),
+                                    this.vue2.getRecup_desc_mac().getText(),
+                                    Integer.parseInt(this.vue2.getRecup_dispo_mac().getText()),
+                                    Integer.parseInt(this.vue2.getRecup_abs_mac().getText()),
+                                    Integer.parseInt(this.vue2.getRecup_ord_mac().getText()),
+                                    Integer.parseInt(this.vue2.getRecup_etat_mac().getText()),
+                                    Float.parseFloat(this.vue2.getRecup_cout_mac().getText()));
         
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter("machines.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
@@ -91,29 +91,29 @@ public class ControleMachine {
             String line ;
             while ((line = reader.readLine()) != null){
                 System.out.println(line);
-                if (line.startsWith(this.vue.getRecup_ref_mac().getText())){
+                if (line.startsWith(this.vue2.getRecup_ref_mac().getText())){
                     System.out.println(line);
                     Stage aff_machine = new Stage();
                     GridPane layout_aff = new GridPane();
                     Scene scen_aff = new Scene(layout_aff);
-                    Label ref_aff_mac = new Label(this.vue.getRecup_ref_mac().getText());
-                    Label desc_aff_mac = new Label(this.vue.getRecup_desc_mac().getText());
-                    Label dispo_aff_mach = new Label(this.vue.getRecup_dispo_mac().getText());
-                    Label abs_mac_aff = new Label(this.vue.getRecup_abs_mac().getText());
-                    Label ord_mac_aff = new Label(this.vue.getRecup_ord_mac().getText());
-                    Label etat_mac_aff = new Label(this.vue.getRecup_etat_mac().getText());
+                    Label ref_aff_mac = new Label(this.vue2.getRecup_ref_mac().getText());
+                    Label desc_aff_mac = new Label(this.vue2.getRecup_desc_mac().getText());
+                    Label dispo_aff_mach = new Label(this.vue2.getRecup_dispo_mac().getText());
+                    Label abs_mac_aff = new Label(this.vue2.getRecup_abs_mac().getText());
+                    Label ord_mac_aff = new Label(this.vue2.getRecup_ord_mac().getText());
+                    Label etat_mac_aff = new Label(this.vue2.getRecup_etat_mac().getText());
                     //Label cout_mac_aff = new Label(this.vue.getRecup_cout_mac().getText());
-                    layout_aff.add(this.vue.getRef_mac(),0,0,1,1);
+                    layout_aff.add(this.vue2.getRef_mac(),0,0,1,1);
                     layout_aff.add(ref_aff_mac,1,0,1,1);
-                    layout_aff.add(this.vue.getDesc_mac(),0,1,1,1);
+                    layout_aff.add(this.vue2.getDesc_mac(),0,1,1,1);
                     layout_aff.add(desc_aff_mac,1,1,1,1);
-                    layout_aff.add(this.vue.getDispo_mac(),0,2,1,1);
+                    layout_aff.add(this.vue2.getDispo_mac(),0,2,1,1);
                     layout_aff.add(dispo_aff_mach,1,2,1,1);
-                    layout_aff.add(this.vue.getAbs_mac(),0,3,1,1);
+                    layout_aff.add(this.vue2.getAbs_mac(),0,3,1,1);
                     layout_aff.add(abs_mac_aff,1,3,1,1);
-                    layout_aff.add(this.vue.getOrd_mac(),0,4,1,1);
+                    layout_aff.add(this.vue2.getOrd_mac(),0,4,1,1);
                     layout_aff.add(ord_mac_aff ,1,4,1,1);
-                    layout_aff.add(this.vue.getEtat_mac(),0,5,1,1);
+                    layout_aff.add(this.vue2.getEtat_mac(),0,5,1,1);
                     layout_aff.add(etat_mac_aff,1,5,1,1);
                     aff_machine.setTitle("Affichage de la machine");
                     aff_machine.setScene(scen_aff);

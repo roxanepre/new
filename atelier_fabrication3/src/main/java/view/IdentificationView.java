@@ -44,8 +44,6 @@ public class IdentificationView {
         pane_identification.setTop(id);
         pane_identification.setCenter(pane_identification_info);
         pane_identification.setBottom(pane_id_next);
-        // pour le constructeur ci dessus, on pourrait aussi le faire avec des layout
-        //mais je pense qu ca va comme ca 
     }
     
     public void affich(Scene scene){

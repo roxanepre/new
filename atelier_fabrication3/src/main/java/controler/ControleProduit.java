@@ -20,49 +20,49 @@ import view.*;
  */
 public class ControleProduit {
     
-    private final ProduitView vue;
+    private final ProduitView vue7;
     
     public ControleProduit(ProduitView v) {
-        this.vue = v;
+        this.vue7 = v;
     }
     
     public void afficherProduitScene (){
         ProduitView nouvelle_vueA = new ProduitView();
-        nouvelle_vueA.actionProd(vue.getScene()); 
+        nouvelle_vueA.actionProd(vue7.getScene()); 
     }
     
     public void afficherGammeScene () {
         GammeView nouvelle_vueB = new GammeView();
-        nouvelle_vueB.afficheGamme(vue.getScene()); 
+        nouvelle_vueB.afficheGamme(vue7.getScene()); 
     }
     
    public void afficherOperationScene (){
        OperationView nouvelle_vueC = new OperationView(); 
-       nouvelle_vueC.actionOp(vue.getScene()); 
+       nouvelle_vueC.actionOp(vue7.getScene()); 
    }
        
    public void afficherEquipementScene(){
        EquipementView nouvelle_vueD = new EquipementView(); 
-       nouvelle_vueD.afficheequip(vue.getScene());
+       nouvelle_vueD.afficheequip(vue7.getScene());
    }
    
    public void afficherPersonnelScene (){
        PersonnelView nouvelle_vueE = new PersonnelView();
-       nouvelle_vueE.actionPersonnel(vue.getScene());
+       nouvelle_vueE.actionPersonnel(vue7.getScene());
        
    }
    public void afficherposteScene (){
         PosteView nouvelle_vue2 = new PosteView();
-        nouvelle_vue2.afficheposte(vue.getScene());
+        nouvelle_vue2.afficheposte(vue7.getScene());
     }
     public void affichermachineScene (){
         MachineView nouvelle_vue3 = new MachineView();
-        nouvelle_vue3.actionMach(vue.getScene());
+        nouvelle_vue3.actionMach(vue7.getScene());
     }
     
     public void creerProd() {
-        Produit prod1 = new Produit(this.vue.getRecup_code_prod().getText(),
-                                    this.vue.getRecup_desc_prod().getText());
+        Produit prod1 = new Produit(this.vue7.getRecup_code_prod().getText(),
+                                    this.vue7.getRecup_desc_prod().getText());
     
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("produits.txt",true));
@@ -81,16 +81,16 @@ public class ControleProduit {
             String line ;
             while ((line = reader.readLine()) != null){
                 System.out.println(line);
-                if (line.startsWith(this.vue.getRecup_code_prod().getText())){
+                if (line.startsWith(this.vue7.getRecup_code_prod().getText())){
                     System.out.println(line); 
                     Stage aff_prod = new Stage();
                     GridPane layout_aff = new GridPane();
                     Scene scen_aff = new Scene(layout_aff);
-                    Label code_aff_prod = new Label(this.vue.getRecup_code_prod().getText());
-                    Label desc_aff_prod = new Label(this.vue.getRecup_desc_prod().getText());
-                    layout_aff.add(this.vue.getCode_prod(),0,0,1,1);
+                    Label code_aff_prod = new Label(this.vue7.getRecup_code_prod().getText());
+                    Label desc_aff_prod = new Label(this.vue7.getRecup_desc_prod().getText());
+                    layout_aff.add(this.vue7.getCode_prod(),0,0,1,1);
                     layout_aff.add(code_aff_prod,1,0,1,1);
-                    layout_aff.add(this.vue.getDesc_prod(),0,1,1,1);
+                    layout_aff.add(this.vue7.getDesc_prod(),0,1,1,1);
                     layout_aff.add(desc_aff_prod,1,1,1,1);
                     aff_prod.setTitle("Affichage du produit");
                     aff_prod.setScene(scen_aff);

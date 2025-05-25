@@ -17,50 +17,50 @@ import view.*;
  * @author User
  */
 public class ControleGamme {
-    private GammeView vue;
+    private final GammeView vue1;
 
     public ControleGamme(GammeView vue) {
-        this.vue = vue;
+        this.vue1 = vue;
     }
     
     public void afficherProduitScene (){
         ProduitView nouvelle_vueA = new ProduitView();
-        nouvelle_vueA.actionProd(vue.getScene()); 
+        nouvelle_vueA.actionProd(vue1.getScene()); 
     }
     
     public void afficherGammeScene () {
         GammeView nouvelle_vueB = new GammeView();
-        nouvelle_vueB.afficheGamme(vue.getScene()); 
+        nouvelle_vueB.afficheGamme(vue1.getScene()); 
     }
     
    public void afficherOperationScene (){
        OperationView nouvelle_vueC = new OperationView(); 
-       nouvelle_vueC.actionOp(vue.getScene()); 
+       nouvelle_vueC.actionOp(vue1.getScene()); 
    }
        
    public void afficherEquipementScene(){
        EquipementView nouvelle_vueD = new EquipementView(); 
-       nouvelle_vueD.afficheequip(vue.getScene());
+       nouvelle_vueD.afficheequip(vue1.getScene());
    }
    
    public void afficherPersonnelScene (){
        PersonnelView nouvelle_vueE = new PersonnelView();
-       nouvelle_vueE.actionPersonnel(vue.getScene());
+       nouvelle_vueE.actionPersonnel(vue1.getScene());
        
    }
    public void afficherposteScene (){
         PosteView nouvelle_vue2 = new PosteView();
-        nouvelle_vue2.afficheposte(vue.getScene());
+        nouvelle_vue2.afficheposte(vue1.getScene());
     }
     public void affichermachineScene (){
         MachineView nouvelle_vue3 = new MachineView();
-        nouvelle_vue3.actionMach(vue.getScene());
+        nouvelle_vue3.actionMach(vue1.getScene());
     }
     
     public void creerGamme(Produit prod1) {
 
-        Gamme gamme1 = new Gamme(this.vue.getRecup_id_gam().getText(),
-                                 this.vue.getRecup_ref_gam().getText());
+        Gamme gamme1 = new Gamme(this.vue1.getRecup_id_gam().getText(),
+                                 this.vue1.getRecup_ref_gam().getText());
         gamme1.creerGamme(prod1, gamme1.getIdGamme(), gamme1.getRefGamme());
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter("gammes.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
@@ -78,7 +78,7 @@ public class ControleGamme {
         try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith(this.vue.getRecup_id_gam().getText())){
+                if (line.startsWith(this.vue1.getRecup_id_gam().getText())){
                     System.out.println(line); 
                     break ;
                 }
@@ -100,7 +100,7 @@ public class ControleGamme {
     try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith(this.vue.getRecup_id_gam().getText())) {
+                if (!ligne.startsWith(this.vue1.getRecup_id_gam().getText())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -113,7 +113,7 @@ public class ControleGamme {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println(this.vue.getRecup_id_gam().getText()+" supprmée avec succès");
+            System.out.println(this.vue1.getRecup_id_gam().getText()+" supprmée avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

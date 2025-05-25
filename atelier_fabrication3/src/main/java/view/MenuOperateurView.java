@@ -27,46 +27,45 @@ public class MenuOperateurView {
     Scene scene_welop;
     GridPane pane_op_menu = new GridPane();
     BorderPane pane_welop = new BorderPane();
-    //Scene scene_welop = new Scene(pane_welop); 
-    //Personnel p;
     Label welcome_op = new Label(); 
     Label indic_wel_op = new Label("Veuillez choisir le menu sur lequel vous souhaitez aller !");
     MenuBar barre_menu_op = new MenuBar();
     Menu produit_b = new Menu("Produit");
+    Menu produit_b1 = new Menu("Produit");
     Menu gamme_b = new Menu("Gamme");
+    Menu gamme_b1 = new Menu("Gamme");
     Menu operation_b = new Menu("Operation");
+    Menu operation_b1 = new Menu("Operation");
     Menu equipement_b = new Menu("Equipement");
     Menu personnel_b = new Menu("Personnel");
+    Menu personnel_b1 = new Menu("Personnel");
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
 
-    public MenuOperateurView(/*Personnel p*/) {
-        //this.p=p;
-        welcome_op.setText("Bonjour "/*p.getNom()*/+"!");
-        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
-        this.barre_menu_op.getMenus().addAll(this.produit_b,this.gamme_b,this.operation_b,this.equipement_b,this.personnel_b);
-        this.pane_op_menu.add(this.welcome_op,0,0,1,1);
-        this.pane_op_menu.add(this.indic_wel_op,0,1,1,1);
-        this.pane_welop.setCenter(this.pane_op_menu);
-        this.pane_welop.setTop(this.barre_menu_op);
+    public MenuOperateurView() {
+        welcome_op.setText("Bonjour "+"!");
+        equipement_b.getItems().addAll(machine_b,poste_b);
+        produit_b1.getItems().add(produit_b);
+        gamme_b1.getItems().add(gamme_b);
+        operation_b1.getItems().add(operation_b);
+        personnel_b1.getItems().add(personnel_b);
+        barre_menu_op.getMenus().addAll(produit_b1,gamme_b1,operation_b1,equipement_b,personnel_b1);
+        pane_op_menu.add(welcome_op,0,0,1,1);
+        pane_op_menu.add(indic_wel_op,0,1,1,1);
+        pane_welop.setCenter(pane_op_menu);
+        pane_welop.setTop(barre_menu_op);
     }
     
      public void afficherMenuOp(Scene scene){
         this.scene_welop = scene;
-        //AccueilView.getFenetre_principale().setScene(scene);
-        //AccueilView.getFenetre_principale().show();
         scene.setRoot(pane_welop);
-       // MenuOperateurView view_menu_op = new MenuOperateurView();
         ControleMenuOp controle_menu_op = new ControleMenuOp(this);
-        
-        this.produit_b.setOnAction(e->{controle_menu_op.afficherProduit();});
-        this.gamme_b.setOnAction(e->{controle_menu_op.afficherGamme();});
-        this.operation_b.setOnAction(e->{controle_menu_op.afficherOperation();});
-        this.equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement();});
-        this.poste_b.setOnAction(evt -> {controle_menu_op.afficherposteScene();});
-        this.machine_b.setOnAction(evt ->{controle_menu_op.affichermachineScene();});
-        
-        
+        produit_b.setOnAction(e->{controle_menu_op.afficherProduit();});
+        gamme_b.setOnAction(e->{controle_menu_op.afficherGamme();});
+        operation_b.setOnAction(e->{controle_menu_op.afficherOperation();});
+        equipement_b.setOnAction(e->{controle_menu_op.afficherEquipement();});
+        poste_b.setOnAction(evt -> {controle_menu_op.afficherposteScene();});
+        machine_b.setOnAction(evt ->{controle_menu_op.affichermachineScene();});
     } 
      
     public Scene getScene(){

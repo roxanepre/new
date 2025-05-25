@@ -20,7 +20,6 @@ import view.PosteView;
 public class EquipementView {
     Scene scene_equip;
     BorderPane pane_equip_tot = new BorderPane();
-    //Scene scene_equip = new Scene(pane_equip_tot,400,300);
     Label choix_equip = new Label("Veuillez choisir le menu dans lequel vous osuhaitez aller");
     Menu produit_b = new Menu("Produit");
     Menu gamme_b = new Menu("Gamme");
@@ -32,28 +31,24 @@ public class EquipementView {
     MenuBar barre_menu_equipement = new MenuBar();
 
     public EquipementView() {
-        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
-        this.barre_menu_equipement.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
-        this.pane_equip_tot.setCenter(this.choix_equip);
-        this.pane_equip_tot.setTop(this.barre_menu_equipement);
+        equipement_b.getItems().addAll(machine_b,poste_b);
+        barre_menu_equipement.getMenus().addAll(produit_b,gamme_b,operation_b,equipement_b,personnel_b);
+        pane_equip_tot.setCenter(choix_equip);
+        pane_equip_tot.setTop(barre_menu_equipement);
         
     }
     
     public void afficheequip(Scene scene){
         this.scene_equip = scene;
         scene.setRoot(pane_equip_tot);
-        //AccueilView.getFenetre_principale().setScene(scene);
-        //AccueilView.getFenetre_principale().show();
-        //EquipementView view_equip = new EquipementView();
         ControleEquipement controle_equip = new ControleEquipement(this);
-        
-        this.poste_b.setOnAction(evt -> {controle_equip.afficherposte();});
-        this.machine_b.setOnAction(evt ->{controle_equip.affichermachine();});
-        this.produit_b.setOnAction(e->{controle_equip.afficherProduitScene();});
-        this.gamme_b.setOnAction(e->{controle_equip.afficherGammeScene();});
-        this.operation_b.setOnAction(e->{controle_equip.afficherOperationScene();});
-        this.equipement_b.setOnAction(e->{controle_equip.afficherEquipementScene();});
-        this.personnel_b.setOnAction(e->{controle_equip.afficherPersonnelScene();});
+        poste_b.setOnAction(evt -> {controle_equip.afficherposte();});
+        machine_b.setOnAction(evt ->{controle_equip.affichermachine();});
+        produit_b.setOnAction(e->{controle_equip.afficherProduitScene();});
+        gamme_b.setOnAction(e->{controle_equip.afficherGammeScene();});
+        operation_b.setOnAction(e->{controle_equip.afficherOperationScene();});
+        equipement_b.setOnAction(e->{controle_equip.afficherEquipementScene();});
+        personnel_b.setOnAction(e->{controle_equip.afficherPersonnelScene();});
     }
     public Scene getScene(){
         return scene_equip;

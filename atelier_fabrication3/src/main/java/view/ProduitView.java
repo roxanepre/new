@@ -29,58 +29,62 @@ public class ProduitView {
     BorderPane pane_produit = new BorderPane();
     HBox hb_produit = new HBox(15);
     //Scene scene_produit = new Scene(pane_produit);
-    Label code_prod = new Label("code produit");
+    Label code_prod = new Label("Code produit :  ");
     TextField recup_code_prod = new TextField();
-    Label desc_prod = new Label("description ");
+    Label desc_prod = new Label("Description :  ");
     TextField recup_desc_prod = new TextField();
-    Button creer_prod = new Button("créer");
-    Button aff_prod = new Button("afficher");
-    Button mod_prod = new Button("modifier");
-    Button supp_prod = new Button("supprimer");
+    Button creer_prod = new Button("Créer");
+    Button aff_prod = new Button("Afficher");
+    Button mod_prod = new Button("Modifier");
+    Button supp_prod = new Button("Supprimer");
     Menu produit_b = new Menu("Produit");
+    Menu produit_b1 = new Menu("Produit");
     Menu gamme_b = new Menu("Gamme");
+    Menu gamme_b1 = new Menu("Gamme");
     Menu operation_b = new Menu("Operation");
+    Menu operation_b1 = new Menu("Operation");
     Menu equipement_b = new Menu("Equipement");
     Menu personnel_b = new Menu("Personnel");
+    Menu personnel_b1 = new Menu("Personnel");
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
     MenuBar barre_menu_produit = new MenuBar();
 
     public ProduitView() {
-        this.pane_produit_info.add(this.code_prod,0,0,1,1);
-        this.pane_produit_info.add(this.recup_code_prod,1,0,1,1);
-        this.pane_produit_info.add(this.desc_prod,0,1,1,1);
-        this.pane_produit_info.add(this.recup_desc_prod,1,1,1,1);
-        this.hb_produit.getChildren().addAll(this.creer_prod,this.aff_prod,this.mod_prod,this.supp_prod);
-        pane_produit_next.getChildren().add(this.hb_produit);
-        this.equipement_b.getItems().addAll(this.machine_b,this.poste_b);
-        this.barre_menu_produit.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
-        this.pane_produit.setCenter(this.pane_produit_info);
-        this.pane_produit.setBottom(this.pane_produit_next);
-        this.pane_produit.setTop(this.barre_menu_produit);
+        pane_produit_info.add(code_prod,0,0,1,1);
+        pane_produit_info.add(recup_code_prod,1,0,1,1);
+        pane_produit_info.add(desc_prod,0,1,1,1);
+        pane_produit_info.add(recup_desc_prod,1,1,1,1);
+        hb_produit.getChildren().addAll(creer_prod,aff_prod,mod_prod,supp_prod);
+        pane_produit_next.getChildren().add(hb_produit);
+        equipement_b.getItems().addAll(machine_b,poste_b);
+        produit_b1.getItems().add(produit_b);
+        gamme_b1.getItems().add(gamme_b);
+        operation_b1.getItems().add(operation_b);
+        personnel_b1.getItems().add(personnel_b);
+        barre_menu_produit.getMenus().addAll(produit_b1,gamme_b1,operation_b1,equipement_b,personnel_b1);
+        pane_produit.setCenter(pane_produit_info);
+        pane_produit.setBottom(pane_produit_next);
+        pane_produit.setTop(barre_menu_produit);
     }
     
     public void actionProd(Scene scene){
         this.scene_produit = scene;
         scene.setRoot(pane_produit);
-        //AccueilView.getFenetre_principale().setScene(scene);
-        //AccueilView.getFenetre_principale().show();
-        
-        //ProduitView view_prod = new ProduitView();
         ControleProduit controler_prod = new ControleProduit(this);
         Produit prod_12 = new Produit();
         
-        this.creer_prod.setOnAction(evt -> {controler_prod.creerProd();});
-        this.aff_prod.setOnAction(evt -> {controler_prod.afficherProd(prod_12);});
-        this.mod_prod.setOnAction(evt -> {controler_prod.modifierProd(prod_12);});
-        this.supp_prod.setOnAction(evt -> {controler_prod.supprimerProd(prod_12);});
-        this.produit_b.setOnAction(e->{controler_prod.afficherProduitScene();});
-        this.gamme_b.setOnAction(e->{controler_prod.afficherGammeScene();});
-        this.operation_b.setOnAction(e->{controler_prod.afficherOperationScene();});
-        this.equipement_b.setOnAction(e->{controler_prod.afficherEquipementScene();});
-        this.personnel_b.setOnAction(e->{controler_prod.afficherPersonnelScene();});
-        this.poste_b.setOnAction(evt -> {controler_prod.afficherposteScene();});
-        this.machine_b.setOnAction(evt ->{controler_prod.affichermachineScene();});
+        creer_prod.setOnAction(evt -> {controler_prod.creerProd();});
+        aff_prod.setOnAction(evt -> {controler_prod.afficherProd(prod_12);});
+        mod_prod.setOnAction(evt -> {controler_prod.modifierProd(prod_12);});
+        supp_prod.setOnAction(evt -> {controler_prod.supprimerProd(prod_12);});
+        produit_b.setOnAction(e->{controler_prod.afficherProduitScene();});
+        gamme_b.setOnAction(e->{controler_prod.afficherGammeScene();});
+        operation_b.setOnAction(e->{controler_prod.afficherOperationScene();});
+        equipement_b.setOnAction(e->{controler_prod.afficherEquipementScene();});
+        personnel_b.setOnAction(e->{controler_prod.afficherPersonnelScene();});
+        poste_b.setOnAction(evt -> {controler_prod.afficherposteScene();});
+        machine_b.setOnAction(evt ->{controler_prod.affichermachineScene();});
         
     
     }

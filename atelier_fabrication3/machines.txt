@@ -1,0 +1,1 @@
+ : état 1, disponibilité 0, position 0;0 et cout 0.0

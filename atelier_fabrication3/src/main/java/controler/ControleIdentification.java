@@ -26,19 +26,19 @@ import java.util.HashMap;
 
 public class ControleIdentification {
     
-    IdentificationView view;
+    IdentificationView view2;
         
     public ControleIdentification(IdentificationView view) {// constructeur avec la vue correspondante en parametre
-        this.view=view;
+        this.view2=view;
         
     }
     public void afficherMenuC(){
         MenuChefView nouvelle_vuechef = new MenuChefView();
-        nouvelle_vuechef.afficherMenuChef(view.getScene());
+        nouvelle_vuechef.afficherMenuChef(view2.getScene());
     }
     public void afficherMenuO(){
         MenuOperateurView nouvelle_scene_1 = new MenuOperateurView();
-        nouvelle_scene_1.afficherMenuOp(view.getScene());
+        nouvelle_scene_1.afficherMenuOp(view2.getScene());
     }
     //il faut que je fasse la méthode action dont je parle dans la classe View
     

@@ -27,7 +27,6 @@ public class ControleMenuChef {
     }
     public void afficherProduit (){
         ProduitView nouvelle_vue = new ProduitView();
-       
         nouvelle_vue.actionProd(view.getScene()); 
         }
     

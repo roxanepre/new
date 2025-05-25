@@ -21,13 +21,10 @@ public class ControleAccueil {
        this.view = view;
     }
     
-    public void afficher(/*Stage stage*/) {
-        //Pane new_pane1 = new Pane();
-        //Scene new_scene1 = new Scene(new_pane1);
+    public void afficher() {
         IdentificationView nouvelle_vue = new IdentificationView(); // créer une ouvelle instance de la classe identification pour y accéder
         nouvelle_vue.affich(view.getScene());
         
-        // controleAccueil permet d'afficher un truc de la classe identification
                 }
     
 }

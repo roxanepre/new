@@ -26,25 +26,30 @@ public class MenuChefView {
     Scene scene_welchef;
     BorderPane pane_welchef = new BorderPane();
     GridPane pane_chef_menu = new GridPane();
-    //Scene scene_welchef = new Scene(pane_welchef);
-    //Personnel p;
     Label welcome_chef = new Label(); 
     Label pane_welchef_info = new Label("Veuillez choisir le menu dans lequel vous souhaitez aller");
     Menu produit_b = new Menu("Produit");
+    Menu produit_b1 = new Menu("Produit");
     Menu gamme_b = new Menu("Gamme");
+    Menu gamme_b1 = new Menu("Gamme");
     Menu operation_b = new Menu("Operation");
+    Menu operation_b1 = new Menu("Operation");
     Menu equipement_b = new Menu("Equipement");
     Menu personnel_b = new Menu("Personnel");
+    Menu personnel_b1 = new Menu("Personnel");
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
     MenuBar barre_menu_chef = new MenuBar(); 
     
 
-    public MenuChefView(/*Personnel p*/) {
-        //this.p=p;
-        welcome_chef.setText("Bonjour "/*+ p.getNom() */+"!");
-        equipement_b.getItems().addAll(this.machine_b,this.poste_b);
-        barre_menu_chef.getMenus().addAll(this.produit_b, this.gamme_b, this.operation_b,this.equipement_b,this.personnel_b);
+    public MenuChefView() {
+        welcome_chef.setText("Bonjour !");
+        equipement_b.getItems().addAll(machine_b,poste_b);
+        produit_b1.getItems().add(produit_b);
+        gamme_b1.getItems().add(gamme_b);
+        operation_b1.getItems().add(operation_b);
+        personnel_b1.getItems().add(personnel_b);
+        barre_menu_chef.getMenus().addAll(produit_b1,gamme_b1,operation_b1,equipement_b,personnel_b1);
         pane_chef_menu.add(welcome_chef,0,0,1,1);
         pane_chef_menu.add(pane_welchef_info,0,1,1,1);
         pane_welchef.setCenter(pane_chef_menu);
@@ -53,27 +58,22 @@ public class MenuChefView {
     
     public void afficherMenuChef(Scene scene){
         this.scene_welchef = scene;
-        //AccueilView.getFenetre_principale().setScene(scene);
-        //AccueilView.getFenetre_principale().show();
         scene.setRoot(pane_welchef);
-        //MenuChefView view_menu_chef = new MenuChefView();
         ControleMenuChef controle_menu_chef = new ControleMenuChef(this);
-        
-        this.produit_b.setOnAction(e->{controle_menu_chef.afficherProduit();});
-        this.gamme_b.setOnAction(e->{controle_menu_chef.afficherGamme();});
-        this.operation_b.setOnAction(e->{controle_menu_chef.afficherOperation();});
-        this.equipement_b.setOnAction(e->{controle_menu_chef.afficherEquipement();});
-        this.personnel_b.setOnAction(e->{controle_menu_chef.afficherPersonnel();});
-        this.poste_b.setOnAction(evt -> {controle_menu_chef.afficherposteScene();});
-        this.machine_b.setOnAction(evt ->{controle_menu_chef.affichermachineScene();});
+        produit_b.setOnAction(e->{controle_menu_chef.afficherProduit();System.out.println("bouton produit ok");});
+        gamme_b.setOnAction(e->{controle_menu_chef.afficherGamme();});
+        operation_b.setOnAction(e->{controle_menu_chef.afficherOperation();});
+        equipement_b.setOnAction(e->{controle_menu_chef.afficherEquipement();});
+        personnel_b.setOnAction(e->{controle_menu_chef.afficherPersonnel();});
+        poste_b.setOnAction(evt -> {controle_menu_chef.afficherposteScene();});
+        machine_b.setOnAction(evt ->{controle_menu_chef.affichermachineScene();});
         
     }
     
     public Scene getScene(){
         return scene_welchef;
     }
-       // ControleMenuChef controle_menu_chef = new
-    }
+}
     
     /*Personnel p;
     FlowPane pane_welchef_info = new FlowPane();

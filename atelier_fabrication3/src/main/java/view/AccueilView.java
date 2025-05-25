@@ -37,7 +37,7 @@ public class AccueilView {
         layout.setCenter(pane_welcome);
         stage.setScene(scene);
         ControleAccueil controleur = new ControleAccueil(this);
-        enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
+        enter_atelier.setOnAction(evt -> {controleur.afficher();});
     }
     
     //public void actionAccueil(){
