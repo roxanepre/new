@@ -119,7 +119,7 @@ public class ControlePoste {
     try (BufferedReader reader = new BufferedReader(new FileReader("postes.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith(poste1.getIdEquipement())) {
+                if (!ligne.startsWith(this.vue6.getRecup_ref_poste().getText())) {
                     lignesARetenir.add(ligne);
                 }
             }

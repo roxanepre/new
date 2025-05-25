@@ -111,7 +111,7 @@ public class ControleProduit {
     try (BufferedReader reader = new BufferedReader(new FileReader("produits.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith(prod1.getCodeProduit())) {
+                if (!ligne.startsWith(this.vue7.getRecup_code_prod().getText())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -124,7 +124,7 @@ public class ControleProduit {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println(prod1.getCodeProduit()+" supprmé avec succès");
+            System.out.println(this.vue7.getRecup_code_prod().getText()+" supprmé avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,8 +139,8 @@ public class ControleProduit {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith(prod1.getCodeProduit())) {
-                    line = prod1.getCodeProduit()+" : description "+prod1.getDproduit();
+                if (line.startsWith(this.vue7.getRecup_code_prod().getText())) {
+                    line = this.vue7.getRecup_code_prod().getText()+" : description "+this.vue7.getRecup_desc_prod().getText();
                 }
                 writer.write(line);
                 writer.newLine();
@@ -152,6 +152,7 @@ public class ControleProduit {
         // Remplacement du fichier original
         if (originalFile.delete()) {
             tempFile.renameTo(originalFile);
+            System.out.println(this.vue7.getRecup_code_prod().getText()+" modifié avec succès");
         }
     }
 }

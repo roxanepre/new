@@ -102,7 +102,7 @@ public class ControleMachine {
                     Label abs_mac_aff = new Label(this.vue2.getRecup_abs_mac().getText());
                     Label ord_mac_aff = new Label(this.vue2.getRecup_ord_mac().getText());
                     Label etat_mac_aff = new Label(this.vue2.getRecup_etat_mac().getText());
-                    //Label cout_mac_aff = new Label(this.vue.getRecup_cout_mac().getText());
+                    Label cout_mac_aff = new Label(this.vue2.getRecup_cout_mac().getText());
                     layout_aff.add(this.vue2.getRef_mac(),0,0,1,1);
                     layout_aff.add(ref_aff_mac,1,0,1,1);
                     layout_aff.add(this.vue2.getDesc_mac(),0,1,1,1);
@@ -115,6 +115,8 @@ public class ControleMachine {
                     layout_aff.add(ord_mac_aff ,1,4,1,1);
                     layout_aff.add(this.vue2.getEtat_mac(),0,5,1,1);
                     layout_aff.add(etat_mac_aff,1,5,1,1);
+                    layout_aff.add(this.vue2.getRecup_cout_mac(),0,6,1,1);
+                    layout_aff.add(cout_mac_aff,1,6,1,1);
                     aff_machine.setTitle("Affichage de la machine");
                     aff_machine.setScene(scen_aff);
                     aff_machine.show();
@@ -135,7 +137,7 @@ public class ControleMachine {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith(mach1.getRefMachine())) {
+                if (line.startsWith(this.vue2.getRecup_ref_mac().getText())) {
                     line = mach1.getRefMachine()+" : état "+mach1.getEtat()+", disponibilité "+mach1.getDisponibilite()+", position "+mach1.getX_pos()+";"+mach1.getY_pos()+" et cout "+mach1.getC();
                 }
                 writer.write(line);
@@ -148,6 +150,7 @@ public class ControleMachine {
         // Remplacement du fichier original
         if (originalFile.delete()) {
             tempFile.renameTo(originalFile);
+            System.out.println(this.vue2.getRecup_ref_mac().getText()+" modifié avec succès");
         }
     }
     
@@ -159,7 +162,7 @@ public class ControleMachine {
     try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith(mach1.getRefMachine())) {
+                if (!ligne.startsWith(this.vue2.getRecup_ref_mac().getText())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -172,7 +175,7 @@ public class ControleMachine {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println(mach1.getRefMachine()+" supprmée avec succès");
+            System.out.println(this.vue2.getRecup_ref_mac().getText()+" supprmée avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

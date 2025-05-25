@@ -80,10 +80,10 @@ public class ControlePersonnel {
             while ((line = reader.readLine()) != null){
                 if (line.startsWith(this.vue4.getRecup_id_pers().getText())){
                     System.out.println(line); 
-                    /*Stage aff_pers = new Stage();
+                    Stage aff_pers = new Stage();
                     GridPane layout_aff = new GridPane();
                     BorderPane layout1 = new BorderPane();
-                    Scene scen_aff;
+                    Scene scen_aff = new Scene(layout_aff);;
                     Label id_aff_pers = new Label(this.vue4.getRecup_id_pers().getText());
                     Label nom_aff_pers = new Label(this.vue4.getRecup_nom_pers().getText());
                     Label prenom_aff_pers = new Label(this.vue4.getRecup_pren_pers().getText());
@@ -100,7 +100,7 @@ public class ControlePersonnel {
                     scen_aff.setRoot(layout_aff);
                     aff_pers.setTitle("Affichage du personnel");
                     aff_pers.setScene(scen_aff);
-                    aff_pers.show();*/
+                    aff_pers.show();
                     break ;
                 }
             }
