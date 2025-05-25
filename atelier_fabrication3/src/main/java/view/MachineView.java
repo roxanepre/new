@@ -159,5 +159,9 @@ public class MachineView {
     public Label getEtat_mac() {
         return etat_mac;
     }
+
+    public Label getCout_mac() {
+        return cout_mac;
+    }
     
 }

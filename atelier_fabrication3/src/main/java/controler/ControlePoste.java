@@ -89,6 +89,10 @@ public class ControlePoste {
                     //Label affposte = new Label(line);
                     System.out.println(line); 
                     Stage aff_poste = new Stage();
+                    aff_poste.setMaxHeight(400);
+                    aff_poste.setMaxWidth(600);
+                    aff_poste.setMinHeight(300);
+                    aff_poste.setMinWidth(500);
                     GridPane layout_aff = new GridPane();
                     Scene scen_aff = new Scene(layout_aff);
                     Label ref_aff_poste = new Label(this.vue6.getRecup_ref_poste().getText());

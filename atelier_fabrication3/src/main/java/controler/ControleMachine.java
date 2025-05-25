@@ -94,6 +94,10 @@ public class ControleMachine {
                 if (line.startsWith(this.vue2.getRecup_ref_mac().getText())){
                     System.out.println(line);
                     Stage aff_machine = new Stage();
+                    aff_machine.setMaxHeight(400);
+                    aff_machine.setMaxWidth(600);
+                    aff_machine.setMinHeight(300);
+                    aff_machine.setMinWidth(500);
                     GridPane layout_aff = new GridPane();
                     Scene scen_aff = new Scene(layout_aff);
                     Label ref_aff_mac = new Label(this.vue2.getRecup_ref_mac().getText());
@@ -115,7 +119,7 @@ public class ControleMachine {
                     layout_aff.add(ord_mac_aff ,1,4,1,1);
                     layout_aff.add(this.vue2.getEtat_mac(),0,5,1,1);
                     layout_aff.add(etat_mac_aff,1,5,1,1);
-                    layout_aff.add(this.vue2.getRecup_cout_mac(),0,6,1,1);
+                    layout_aff.add(this.vue2.getCout_mac(),0,6,1,1);
                     layout_aff.add(cout_mac_aff,1,6,1,1);
                     aff_machine.setTitle("Affichage de la machine");
                     aff_machine.setScene(scen_aff);

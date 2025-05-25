@@ -1,3 +1,4 @@
  : état 1, disponibilité 0, position 0;0 et cout 0.0
  : état 1, disponibilité 0, position 0;0 et cout 0.0
  : état 1, disponibilité 0, position 0;0 et cout 0.0
+mach2 : état 1, disponibilité 4, position 6;0 et cout 41.0

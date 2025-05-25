@@ -83,6 +83,10 @@ public class ControleOperation {
                 if (line.startsWith(this.vue3.getRecup_id_op().getText())){
                     System.out.println(line); 
                     Stage aff_op = new Stage();
+                    aff_op.setMaxHeight(400);
+                    aff_op.setMaxWidth(600);
+                    aff_op.setMinHeight(300);
+                    aff_op.setMinWidth(500);
                     GridPane layout_aff = new GridPane();
                     Scene scen_aff = new Scene(layout_aff);
                     Label id_aff_op = new Label(this.vue3.getRecup_id_op().getText());

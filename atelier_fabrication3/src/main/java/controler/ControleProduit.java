@@ -84,6 +84,10 @@ public class ControleProduit {
                 if (line.startsWith(this.vue7.getRecup_code_prod().getText())){
                     System.out.println(line); 
                     Stage aff_prod = new Stage();
+                    aff_prod.setMaxHeight(400);
+                    aff_prod.setMaxWidth(600);
+                    aff_prod.setMinHeight(300);
+                    aff_prod.setMinWidth(500);
                     GridPane layout_aff = new GridPane();
                     Scene scen_aff = new Scene(layout_aff);
                     Label code_aff_prod = new Label(this.vue7.getRecup_code_prod().getText());

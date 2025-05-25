@@ -81,6 +81,10 @@ public class ControlePersonnel {
                 if (line.startsWith(this.vue4.getRecup_id_pers().getText())){
                     System.out.println(line); 
                     Stage aff_pers = new Stage();
+                    aff_pers.setMaxHeight(400);
+                    aff_pers.setMaxWidth(600);
+                    aff_pers.setMinHeight(300);
+                    aff_pers.setMinWidth(500);
                     GridPane layout_aff = new GridPane();
                     BorderPane layout1 = new BorderPane();
                     Scene scen_aff = new Scene(layout_aff);;
