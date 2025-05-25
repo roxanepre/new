@@ -7,7 +7,10 @@ import java.io.* ;
 import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import modele.*;
 import view.*; 
 // j'importe toutes les classes des autre packages pour bien avoir accès aux autres trucs comme les méthodes
@@ -65,7 +68,7 @@ public class ControleProduit {
             BufferedWriter bw = new BufferedWriter(new FileWriter("produits.txt",true));
             bw.write(prod1.getCodeProduit()+" : description "+prod1.getDproduit());
             bw.newLine();
-            //bw.close()
+            bw.close();
             System.out.println(prod1.getCodeProduit()+" ajouté au fichier");
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,8 +80,21 @@ public class ControleProduit {
         try (BufferedReader reader = new BufferedReader(new FileReader("produits.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith(prod1.getCodeProduit())){
-                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                System.out.println(line);
+                if (line.startsWith(this.vue.getRecup_code_prod().getText())){
+                    System.out.println(line); 
+                    Stage aff_prod = new Stage();
+                    GridPane layout_aff = new GridPane();
+                    Scene scen_aff = new Scene(layout_aff);
+                    Label code_aff_prod = new Label(this.vue.getRecup_code_prod().getText());
+                    Label desc_aff_prod = new Label(this.vue.getRecup_desc_prod().getText());
+                    layout_aff.add(this.vue.getCode_prod(),0,0,1,1);
+                    layout_aff.add(code_aff_prod,1,0,1,1);
+                    layout_aff.add(this.vue.getDesc_prod(),0,1,1,1);
+                    layout_aff.add(desc_aff_prod,1,1,1,1);
+                    aff_prod.setTitle("Affichage du produit");
+                    aff_prod.setScene(scen_aff);
+                    aff_prod.show();
                     break ;
                 }
             }

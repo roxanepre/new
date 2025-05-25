@@ -6,6 +6,9 @@ package controler;
 import java.io.* ;
 import java.util.ArrayList;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import view.* ;
 import modele.* ;
 /**
@@ -62,7 +65,7 @@ public class ControlePersonnel {
             BufferedWriter bw = new BufferedWriter(new FileWriter("personnels.txt",true));
             bw.write(pers1.idPersonne+" : nom "+pers1.getNom()+", prénom "+pers1.getPrenom()+" et mot de passe "+pers1.getPassword());
             bw.newLine();
-            //bw.close()
+            bw.close();
             System.out.println(pers1.idPersonne+" ajouté au fichier");
         } catch (IOException e) {
             e.printStackTrace();
@@ -74,8 +77,26 @@ public class ControlePersonnel {
         try (BufferedReader reader = new BufferedReader(new FileReader("personnels.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith(pers1.idPersonne)){
-                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                if (line.startsWith(this.vue.getRecup_id_pers().getText())){
+                    System.out.println(line); 
+                    Stage aff_pers = new Stage();
+                    GridPane layout_aff = new GridPane();
+                    Scene scen_aff = new Scene(layout_aff);
+                    Label id_aff_pers = new Label(this.vue.getRecup_id_pers().getText());
+                    Label nom_aff_pers = new Label(this.vue.getRecup_nom_pers().getText());
+                    Label prenom_aff_pers = new Label(this.vue.getRecup_pren_pers().getText());
+                    Label mdp_pers_aff = new Label(this.vue.getRecup_mdp_pers().getText());
+                    layout_aff.add(this.vue.getId_pers(),0,0,1,1);
+                    layout_aff.add(id_aff_pers,1,0,1,1);
+                    layout_aff.add(this.vue.getNom_pers(),0,1,1,1);
+                    layout_aff.add(nom_aff_pers,1,1,1,1);
+                    layout_aff.add(this.vue.getPren_pers(),0,2,1,1);
+                    layout_aff.add(prenom_aff_pers,1,2,1,1);
+                    layout_aff.add(this.vue.getMdp_pers(),0,3,1,1);
+                    layout_aff.add(mdp_pers_aff,1,3,1,1);
+                    aff_pers.setTitle("Affichage du personnel");
+                    aff_pers.setScene(scen_aff);
+                    aff_pers.show();
                     break ;
                 }
             }
@@ -92,7 +113,7 @@ public class ControlePersonnel {
     try (BufferedReader reader = new BufferedReader(new FileReader("personnels.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith(pers1.idPersonne)) {
+                if (!ligne.startsWith(this.vue.getRecup_id_pers().getText())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -104,8 +125,9 @@ public class ControlePersonnel {
             for (String ligne : lignesARetenir) {
                 writer.write(ligne);
                 writer.newLine();
+                writer.close();
             }
-            System.out.println(pers1.idPersonne+" supprmé avec succès");
+            System.out.println(this.vue.getRecup_id_pers().getText()+" supprmé avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

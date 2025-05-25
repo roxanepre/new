@@ -93,4 +93,12 @@ public class PosteView {
         return recup_des_poste;
     }
 
+    public Label getRef_poste() {
+        return ref_poste;
+    }
+
+    public Label getDes_poste() {
+        return des_poste;
+    }
+
 }

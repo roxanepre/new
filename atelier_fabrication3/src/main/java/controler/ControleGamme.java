@@ -78,8 +78,8 @@ public class ControleGamme {
         try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith(gamme1.getIdGamme())){
-                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                if (line.startsWith(this.vue.getRecup_id_gam().getText())){
+                    System.out.println(line); 
                     break ;
                 }
             }
@@ -100,7 +100,7 @@ public class ControleGamme {
     try (BufferedReader reader = new BufferedReader(new FileReader("gammes.txt"))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                if (!ligne.startsWith(gamme1.getIdGamme())) {
+                if (!ligne.startsWith(this.vue.getRecup_id_gam().getText())) {
                     lignesARetenir.add(ligne);
                 }
             }
@@ -113,7 +113,7 @@ public class ControleGamme {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println(gamme1.getIdGamme()+" supprmée avec succès");
+            System.out.println(this.vue.getRecup_id_gam().getText()+" supprmée avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }

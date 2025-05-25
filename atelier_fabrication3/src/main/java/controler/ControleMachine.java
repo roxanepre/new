@@ -77,7 +77,7 @@ public class ControleMachine {
             BufferedWriter pw = new BufferedWriter(new FileWriter("machines.txt",true)); // j'utilise true pour ne pas effacer l'ancien contenu à chaque fois que j'appelle machine.txt
             pw.write(mach1.getRefMachine()+" : état "+mach1.getEtat()+", disponibilité "+mach1.getDisponibilite()+", position "+mach1.getX_pos()+";"+mach1.getY_pos()+" et cout "+mach1.getC());
             pw.newLine();
-            //pw.close()
+            pw.close();
             System.out.println(mach1.getRefMachine()+" ajoutée au fichier");
         } catch (IOException e) {
             e.printStackTrace();
@@ -86,10 +86,12 @@ public class ControleMachine {
     
     public void afficherMach(Machine mach1){
 // ici je cherche dans le fichier la ligne qui commence par machine1 pour ensuite afficher les informations de cette ligne
+        System.out.println("méthode lancée");
         try (BufferedReader reader = new BufferedReader(new FileReader("machines.txt"))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith(mach1.getRefMachine())){
+                System.out.println(line);
+                if (line.startsWith(this.vue.getRecup_ref_mac().getText())){
                     System.out.println(line);
                     Stage aff_machine = new Stage();
                     GridPane layout_aff = new GridPane();
@@ -113,6 +115,7 @@ public class ControleMachine {
                     layout_aff.add(ord_mac_aff ,1,4,1,1);
                     layout_aff.add(this.vue.getEtat_mac(),0,5,1,1);
                     layout_aff.add(etat_mac_aff,1,5,1,1);
+                    aff_machine.setTitle("Affichage de la machine");
                     aff_machine.setScene(scen_aff);
                     aff_machine.show();
                     break ;

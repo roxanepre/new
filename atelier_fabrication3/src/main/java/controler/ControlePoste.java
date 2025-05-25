@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import modele.*;
 import view.*; 
 /**
@@ -62,9 +64,12 @@ public class ControlePoste {
                                  this.vue.getRecup_des_poste().getText());
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("postes.txt",true));
-            bw.write(poste1.getIdEquipement()+" : sa description est "+poste1.getdEquipement()+" et ce poste contient les machines suivantes "+poste1.getListMachine());
+            String line ;
+            line = poste1.getIdEquipement()+" : sa description est "+poste1.getdEquipement()+" et ce poste contient les machines suivantes "+poste1.getListMachine();
+            System.out.println(line);
+            bw.write(line);
             bw.newLine();
-            //bw.close()
+            bw.close();
             System.out.println(poste1.getIdEquipement()+" ajouté au fichier");
         } catch (IOException e) {
             e.printStackTrace();
@@ -72,13 +77,32 @@ public class ControlePoste {
     }
     
     public void afficherPoste(Poste poste1) {
+        System.out.println("méthode lancée");
 // ici je cherche dans le fichier la ligne qui commence par prod1 pour ensuite afficher les informations de cette ligne
-        try (BufferedReader reader = new BufferedReader(new FileReader("postes.txt"))){
+        File f = new File("postes.txt");
+        try (BufferedReader reader = new BufferedReader(new FileReader(f))){
             String line ;
             while ((line = reader.readLine()) != null){
-                if (line.startsWith(poste1.getIdEquipement())){
-                    Label affposte = new Label(line);
-                    System.out.println(line); // je pense qu'il faudra modifier ça pour que ça apparaissent sur l'interface mais c'est l'idée
+                System.out.println(line);
+                      
+                if (line.startsWith(this.vue.getRecup_ref_poste().getText())){
+                    //Label affposte = new Label(line);
+                    System.out.println(line); 
+                    Stage aff_poste = new Stage();
+                    GridPane layout_aff = new GridPane();
+                    Scene scen_aff = new Scene(layout_aff);
+                    Label ref_aff_poste = new Label(this.vue.getRecup_ref_poste().getText());
+                    Label desc_aff_poste = new Label(this.vue.getRecup_des_poste().getText());
+                    //Label mach_poste = new Label("Liste des machines");
+                    layout_aff.add(this.vue.getRef_poste(),0,0,1,1);
+                    layout_aff.add(ref_aff_poste,1,0,1,1);
+                    layout_aff.add(this.vue.getDes_poste(),0,1,1,1);
+                    layout_aff.add(desc_aff_poste,1,1,1,1);
+                    //layout_aff.add(poste1.getListMachine(),0,2,1,1); il faut convertir une arraylist en autre chose mais je vois pas trop comment faire
+                    //lajout_aff.add(mach_poste,1,2,1,1);
+                    aff_poste.setTitle("Affichage du poste");
+                    aff_poste.setScene(scen_aff);
+                    aff_poste.show();
                     break ;
                 }
             }
@@ -108,14 +132,14 @@ public class ControlePoste {
                 writer.write(ligne);
                 writer.newLine();
             }
-            System.out.println(poste1.getIdEquipement()+" supprmé avec succès");
+            System.out.println(this.vue.getRecup_ref_poste().getText()+" supprmé avec succès");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
     public void modifierPoste(Poste poste1){
-// pour modifier, je pars du principe que idEquipement ne peut pas être modifié pour reconnaître la machine et changer les autres attributs si ncéessaire
+// pour modifier, je pars du principe que idEquipement ne peut pas être modifié pour reconnaître le poste et changer les autres attributs si ncéessaire
         File originalFile = new File("postes.txt");
         File tempFile = new File("postes_temporaire.txt");
         try (BufferedReader reader = new BufferedReader(new FileReader(originalFile));
@@ -123,9 +147,9 @@ public class ControlePoste {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith(poste1.getIdEquipement())) {
-                    line = poste1.getIdEquipement()+" : sa description est "+poste1.getdEquipement()+" et ce poste contient les machines suivantes "+poste1.getListMachine();
-                    System.out.println(poste1.getIdEquipement()+" modifié avec succès");
+                if (line.startsWith(this.vue.getRecup_ref_poste().getText())) {
+                    line = this.vue.getRecup_ref_poste().getText()+" : sa description est "+this.vue.getRecup_des_poste().getText()+" et ce poste contient les machines suivantes "+poste1.getListMachine();
+                    
                 }
                 writer.write(line);
                 writer.newLine();
@@ -138,6 +162,7 @@ public class ControlePoste {
         // Remplacement du fichier original
         if (originalFile.delete()) {
             tempFile.renameTo(originalFile);
+            System.out.println(this.vue.getRecup_ref_poste().getText()+" modifié avec succès");
         }
     }
 }

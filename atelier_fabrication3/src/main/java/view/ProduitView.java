@@ -95,4 +95,13 @@ public class ProduitView {
     public TextField getRecup_desc_prod() {
         return recup_desc_prod;
     }
+
+    public Label getCode_prod() {
+        return code_prod;
+    }
+
+    public Label getDesc_prod() {
+        return desc_prod;
+    }
+    
 }

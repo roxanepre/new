@@ -100,4 +100,17 @@ public class OperationView {
     public TextField getRecup_dur_op() {
         return recup_dur_op;
     }   
+
+    public Label getDesc_op() {
+        return desc_op;
+    }
+
+    public Label getDur_op() {
+        return dur_op;
+    }
+
+    public Label getId_op() {
+        return id_op;
+    }
+    
 }

@@ -1,0 +1,4 @@
+ligne 1 pour avoir un fichier non vide
+poste1 : sa description est alphabet et ce poste contient les machines suivantes []
+poste1 : sa description est alphabet et ce poste contient les machines suivantes []
+poste1 : sa description est alphabet et ce poste contient les machines suivantes []

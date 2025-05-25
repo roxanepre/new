@@ -125,5 +125,29 @@ public class PersonnelView {
     public TextField getRecup_comp_mac() {
         return recup_comp_mac;
     }
+
+    public Label getId_pers() {
+        return id_pers;
+    }
+
+    public Label getNom_pers() {
+        return nom_pers;
+    }
+
+    public Label getPren_pers() {
+        return pren_pers;
+    }
+
+    public Label getMdp_pers() {
+        return mdp_pers;
+    }
+
+    public Label getDispo_pers() {
+        return dispo_pers;
+    }
+
+    public Label getComp_mac() {
+        return comp_mac;
+    }
    
 }
