@@ -10,6 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import modele.*;
 import view.*;
 /**
@@ -80,6 +83,34 @@ public class ControleGamme {
             while ((line = reader.readLine()) != null){
                 if (line.startsWith(this.vue1.getRecup_id_gam().getText())){
                     System.out.println(line); 
+                    Stage aff_gamme = new Stage();
+                    aff_gamme.setMaxHeight(400);
+                    aff_gamme.setMaxWidth(600);
+                    aff_gamme.setMinHeight(300);
+                    aff_gamme.setMinWidth(500);
+                    GridPane layout_aff = new GridPane();
+                    Scene scen_aff = new Scene(layout_aff);
+                    Label id_aff_gam = new Label(this.vue1.getRecup_id_gam().getText());
+                    Label ref_aff_gam = new Label(this.vue1.getRecup_ref_gam().getText());
+                    Label mach_aff_gam = new Label(String.valueOf(gamme1.getListMachine()));
+                    Label dur_gam_aff = new Label(String.valueOf(gamme1.dureeGamme(gamme1.getListOp(), 0)));
+                    Label cout_gam_aff = new Label(String.valueOf(gamme1.cout_gamme()));
+                    Label duree = new Label("durée de la gamme");
+                    Label cout = new Label("coût de la gamme");
+                    Label machine = new Label("liste de machines");
+                    layout_aff.add(this.vue1.getRecup_id_gam(),0,0,1,1);
+                    layout_aff.add(id_aff_gam,1,0,1,1);
+                    layout_aff.add(this.vue1.getRecup_ref_gam(),0,1,1,1);
+                    layout_aff.add(ref_aff_gam,1,1,1,1);
+                    layout_aff.add(machine,0,2,1,1);
+                    layout_aff.add(mach_aff_gam,1,2,1,1);
+                    layout_aff.add(duree,0,3,1,1);
+                    layout_aff.add(dur_gam_aff,1,3,1,1);
+                    layout_aff.add(cout,0,4,1,1);
+                    layout_aff.add(cout_gam_aff ,1,4,1,1);
+                    aff_gamme.setTitle("Affichage de la gamme");
+                    aff_gamme.setScene(scen_aff);
+                    aff_gamme.show();
                     break ;
                 }
             }
