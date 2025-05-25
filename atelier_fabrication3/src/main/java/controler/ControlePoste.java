@@ -86,7 +86,6 @@ public class ControlePoste {
                 System.out.println(line);
                       
                 if (line.startsWith(this.vue6.getRecup_ref_poste().getText())){
-                    //Label affposte = new Label(line);
                     System.out.println(line); 
                     Stage aff_poste = new Stage();
                     aff_poste.setMaxHeight(400);

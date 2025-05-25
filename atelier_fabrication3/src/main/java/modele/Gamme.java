@@ -41,8 +41,6 @@ public class Gamme {
     /*j'utilise une linkedHashMap pour garantir que l'odre de parcours est l'odre d'insertion
     On part aussi du postulat q'un produit ne peut subir q'une seule fois sune opération*/
 
-   // Scanner scanner_op = new Scanner(System.in); tests pour lire une varaible de la classe operation
-    //Scanner scanner_equipement = new Scanner(System.in); tests pour lire une varaible de la classe equipement
     public Gamme (String idGamme, String refGamme){
         this.idGamme = idGamme;
         this.refGamme = refGamme;
@@ -193,7 +191,6 @@ public class Gamme {
         }
     }  
     public void supprimerGamme(){
-       // même problème que pour supprimerMachine() dans la classe machine et que supprimerPoste() dans la classe poste
     }
     
     public float dureeGamme(ArrayList<Operation> liste, float duree){ //  c'est la somme de toutes les durées d'opération
@@ -218,18 +215,3 @@ public class Gamme {
     }
 }
     
-/*Classe Gamme de fabrication définie par: - une référence refGamme, (String) - une liste d’opérations nécessaires listeOperations - une liste d’équipements nécessaires listeEquipements, (machines ou 
-postes).  - les méthodes de gestion de gammes suivantes : 
-o creerGamme () ; 
-o modifierGamme() ; 
-o supprimerGamme() ; 
-o afficheGamme() : permet d’afficher la liste des équipements de 
-travail utilisés pour réaliser une gamme de fabrication; - Les méthodes de calcul suivantes : 
-o coutGamme(), (retourne le coût d’une gamme donnée (float)  
-o dureeGamme (), (calcule la durée d’exécution d’une gamme (float).*/
-    
- /* gamme = agrégation d'operation : d'une liste d'opértions, arraylist (chaque opération a un nom)
-    et liste de machine m1, m2 ect... chacune associée à une durée, et uun coup horaire
-    chaque opération est produite sur une machine
-    Manière dont le produit est fabriqué
-    */

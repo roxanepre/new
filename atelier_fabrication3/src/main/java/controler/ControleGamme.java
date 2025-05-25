@@ -124,7 +124,7 @@ public class ControleGamme {
     }
     
     public void supprimerGamme(Gamme gamme1){
-// ici je vais lire toutes les lignes du fichier sauf celle commençant par machine pour les sauvegarder dans une liste 
+// ici je vais lire toutes les lignes du fichier sauf celles commençant par machine pour les sauvegarder dans une liste 
 // pour ensuite les ajouter dans le même fichier sans la ligne qui commence par machine1
     
     ArrayList<String> lignesARetenir = new ArrayList<>();

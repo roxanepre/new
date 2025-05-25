@@ -24,7 +24,6 @@ public class IdentificationView {
     GridPane pane_identification_info = new GridPane();
     HBox pane_id_next = new HBox(15);
     BorderPane pane_identification = new BorderPane();
-    //Scene scene_identification = new Scene(pane_identification,400,300);
     Label id = new Label("Identifiez-vous");
     Label identifiant = new Label ("Identifiant :");
     public TextField recup_identifiant = new TextField();
@@ -32,7 +31,6 @@ public class IdentificationView {
     public TextField recup_pwd = new TextField();
     Button next_id = new Button("Chef");
     Button next_idO = new Button("Op");
-    //Label message = new Label();
     
     
     public IdentificationView(){
@@ -49,27 +47,10 @@ public class IdentificationView {
     public void affich(Scene scene){
         this.scene_identification = scene;
         scene.setRoot(pane_identification);
-        //AccueilView.getFenetre_principale().setScene(scene);
-        //AccueilView.getFenetre_principale().show();
-        //IdentificationView id_view = new IdentificationView();
-        
-   
-       
-       ControleIdentification controleur_id = new ControleIdentification(this);
-       next_id.setOnAction(evt -> {controleur_id.afficherMenuC(/*this.recup_identifiant.getText(),this.recup_pwd.getText()*/);System.out.println("bouton marche");});
+        ControleIdentification controleur_id = new ControleIdentification(this);
+       next_id.setOnAction(evt -> {controleur_id.afficherMenuC();});
        next_idO.setOnAction(evt ->{controleur_id.afficherMenuO();});
-       }
-    /* de ce que j'ai compris il faut déclarer un objet de la classe controleur,
-    puis on défénit ce qu'il se passe en clicant sur les boutons avec les setOnaction et les methodes qui se trouveront dans la classe controleur
-    
-    */
-    
-    /*public Stage getStage() {
-        return stage;
-    }*/
-    
-   // public Label get Message {
-   // return message;
+    }
 
     public TextField getRecup_identifiant(){
         return recup_identifiant;

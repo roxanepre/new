@@ -40,7 +40,6 @@ public class ControleIdentification {
         MenuOperateurView nouvelle_scene_1 = new MenuOperateurView();
         nouvelle_scene_1.afficherMenuOp(view2.getScene());
     }
-    //il faut que je fasse la méthode action dont je parle dans la classe View
     
     
     /*public void verification(String id, String pwd){
@@ -86,8 +85,8 @@ public class ControleIdentification {
     
     //il faut que je fasse la méthode action dont je parle dans la classe View
     // avec mes class Personnels et Personnels, la methode vérification a été écrite dans la classe Personnels,
-    //il suffit de voir si elle revoie un utilisateur ou null et si elle renvoie un utilisateur,
-    //on recupère ce qu'on veut de celuici
+    //il suffit de voir si elle renvoie un utilisateur ou null et si elle renvoie un utilisateur,
+    //on recupère ce qu'on veut de celui ci
     
     /* public void verification(){
         System.out.println(view.getRecup_identifiant().getText());

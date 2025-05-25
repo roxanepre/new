@@ -26,7 +26,7 @@ public class ControleMenuOp {
     public ControleMenuOp(MenuOperateurView view) {
         this.view3 = view;
     }
-    public void afficherProduit (){ //je ne sais pas si les méthodes je peux les nommer pareil que dans MenuChef, pour l'instant je laisse comme ca 
+    public void afficherProduit (){  
         ProduitView nouvelle_vueA = new ProduitView();
         nouvelle_vueA.actionProd(view3.getScene()); 
         }

@@ -39,12 +39,6 @@ public class AccueilView {
         ControleAccueil controleur = new ControleAccueil(this);
         enter_atelier.setOnAction(evt -> {controleur.afficher();});
     }
-    
-    //public void actionAccueil(){
-       // AccueilView acc_view = new AccueilView(AccueilView.fenetre_principale);
-       // ControleAccueil controleur = new ControleAccueil(acc_view);        
-       // this.enter_atelier.setOnAction(evt -> {controleur.afficher(/*AccueilView.fenetre_principale*/);});
-    //}
         
     public Scene getScene() {
         return scene;

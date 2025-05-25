@@ -22,7 +22,7 @@ public class ControleAccueil {
     }
     
     public void afficher() {
-        IdentificationView nouvelle_vue = new IdentificationView(); // créer une ouvelle instance de la classe identification pour y accéder
+        IdentificationView nouvelle_vue = new IdentificationView(); // créer une nouvelle instance de la classe identification pour y accéder
         nouvelle_vue.affich(view.getScene());
         
                 }

@@ -13,7 +13,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import modele.*;
 import view.*; 
-// j'importe toutes les classes des autre packages pour bien avoir accès aux autres trucs comme les méthodes
 /**
  *
  * @author User

@@ -1,1 +1,2 @@
 op1 : description tailler et durée de 2.0
+op4 : description percer et durée de 4.0

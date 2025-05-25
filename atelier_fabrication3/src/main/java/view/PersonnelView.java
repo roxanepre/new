@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import controler.* ;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -29,7 +28,6 @@ public class PersonnelView {
     AnchorPane pane_personnel_next = new AnchorPane();
     BorderPane pane_personnel = new BorderPane();
     HBox hb_personnel = new HBox(15);
-    //Scene scene_personnel = new Scene(pane_personnel);
     Label id_pers = new Label("Identifiant personnel :  ");
     TextField recup_id_pers = new TextField();
     Label nom_pers = new Label("Nom :  ");

@@ -54,9 +54,6 @@ public class GammeView {
     Menu machine_b = new Menu("Machine");
     Menu poste_b = new Menu("Poste");
     MenuBar barre_menu_gamme = new MenuBar();
-    //Button dur_gamme = new Button("Durée gamme");
-    //Button c_gamme = new Button("Coût gamme");
-    //j'ai déjà mis les calculs de durée et de cout directement dans creerGamme en appelant les méthodes de Gamme qui le font
     
     public GammeView() {
         pane_gamme_info.add(ref_gam,0,0,1,1);

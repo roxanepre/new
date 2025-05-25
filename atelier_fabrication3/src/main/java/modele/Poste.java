@@ -9,37 +9,17 @@ import java.util.ArrayList;
  * @author mpommier01
  */
 public class Poste extends Equipement {
-    //private String refPoste;
-    //private String dPoste;
     private ArrayList<Machine> listMachine;
     
     public Poste (String refposte, String dposte){
         super(refposte,dposte);
         this.listMachine = new ArrayList();
-        //this.refPoste = refposte;
-        //this.dPoste = dposte;
     }
     
     public Poste(){
         super();
         this.listMachine = new ArrayList();
     }
-
-    /*public String getRefPoste() {
-        return refPoste;
-    }
-
-    public void setRefPoste(String refPoste) {
-        this.refPoste = refPoste;
-    }
-
-    public String getdPoste() {
-        return dPoste;
-    }
-
-    public void setdPoste(String dPoste) {
-        this.dPoste = dPoste;
-    }*/
 
     public ArrayList<Machine> getListMachine() {
         return listMachine;

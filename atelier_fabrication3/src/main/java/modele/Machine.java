@@ -141,8 +141,6 @@ public class Machine extends Equipement {
     
     public void supprimerMachine(){
         //faire une ArrayList
-        /*elea : pour l'arraylist, je pense qu'il faudrait dès le début dès que l'on crée l'objet l'ajouter dans une arraylist (donc faut qu'elle soit créer 
-        au dessus, et dans cette méthode, on supprime juste la case qui est relié à l'objet concernée (donc chaque obket doit 
-        lui être assignée un numéro de case*/
+        
     }
 }
